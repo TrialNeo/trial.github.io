@@ -2,108 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://github.com/trial.github.io/ja/categories/</loc>
-    <lastmod>2026-01-26T00:00:00+00:00</lastmod>
+    <loc>https://github.com/trial.github.io/ja/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://github.com/trial.github.io/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://github.com/trial.github.io/zh-cn/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://github.com/trial.github.io/zh-tw/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ar"
-                href="https://github.com/trial.github.io/ar/categories/"
+                href="https://github.com/trial.github.io/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://github.com/trial.github.io/ja/categories/"
-                />
-  </url><url>
-    <loc>https://github.com/trial.github.io/ja/tags/gallery/</loc>
-    <lastmod>2026-01-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://github.com/trial.github.io/tags/gallery/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://github.com/trial.github.io/ja/tags/gallery/"
-                />
-  </url><url>
-    <loc>https://github.com/trial.github.io/ja/tags/photoswipe/</loc>
-    <lastmod>2026-01-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://github.com/trial.github.io/tags/photoswipe/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://github.com/trial.github.io/ja/tags/photoswipe/"
-                />
-  </url><url>
-    <loc>https://github.com/trial.github.io/ja/post/</loc>
-    <lastmod>2026-01-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://github.com/trial.github.io/zh-tw/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://github.com/trial.github.io/zh-cn/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://github.com/trial.github.io/ja/post/"
-                />
-  </url><url>
-    <loc>https://github.com/trial.github.io/ja/tags/</loc>
-    <lastmod>2026-01-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://github.com/trial.github.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://github.com/trial.github.io/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://github.com/trial.github.io/zh-tw/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ar"
-                href="https://github.com/trial.github.io/ar/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://github.com/trial.github.io/ja/tags/"
+                href="https://github.com/trial.github.io/ja/archives/"
                 />
   </url><url>
     <loc>https://github.com/trial.github.io/ja/</loc>
-    <lastmod>2026-01-26T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -130,21 +43,61 @@
                 href="https://github.com/trial.github.io/ja/"
                 />
   </url><url>
-    <loc>https://github.com/trial.github.io/ja/p/%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%B3%E3%83%BC%E3%83%89/</loc>
-    <lastmod>2026-01-26T00:00:00+00:00</lastmod>
+    <loc>https://github.com/trial.github.io/ja/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://github.com/trial.github.io/p/shortcodes/"
+                href="https://github.com/trial.github.io/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://github.com/trial.github.io/zh-cn/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://github.com/trial.github.io/zh-tw/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ar"
+                href="https://github.com/trial.github.io/ar/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://github.com/trial.github.io/ja/p/%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%B3%E3%83%BC%E3%83%89/"
+                href="https://github.com/trial.github.io/ja/categories/"
+                />
+  </url><url>
+    <loc>https://github.com/trial.github.io/ja/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://github.com/trial.github.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://github.com/trial.github.io/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://github.com/trial.github.io/zh-tw/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ar"
+                href="https://github.com/trial.github.io/ar/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://github.com/trial.github.io/ja/tags/"
                 />
   </url><url>
     <loc>https://github.com/trial.github.io/ja/categories/documentation/</loc>
-    <lastmod>2026-01-26T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -154,89 +107,6 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://github.com/trial.github.io/ja/categories/documentation/"
-                />
-  </url><url>
-    <loc>https://github.com/trial.github.io/ja/tags/%E9%9A%90%E7%A7%81/</loc>
-    <lastmod>2026-01-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://github.com/trial.github.io/tags/%E9%9A%90%E7%A7%81/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://github.com/trial.github.io/ja/tags/%E9%9A%90%E7%A7%81/"
-                />
-  </url><url>
-    <loc>https://github.com/trial.github.io/ja/p/image-gallery/</loc>
-    <lastmod>2026-01-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://github.com/trial.github.io/p/image-gallery/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://github.com/trial.github.io/ja/p/image-gallery/"
-                />
-  </url><url>
-    <loc>https://github.com/trial.github.io/ja/p/test-chinese/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://github.com/trial.github.io/zh-cn/p/test-chinese/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://github.com/trial.github.io/zh-tw/p/test-chinese/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://github.com/trial.github.io/ja/p/test-chinese/"
-                />
-  </url><url>
-    <loc>https://github.com/trial.github.io/ja/categories/test/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://github.com/trial.github.io/categories/test/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://github.com/trial.github.io/zh-cn/categories/test/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://github.com/trial.github.io/zh-tw/categories/test/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://github.com/trial.github.io/ja/categories/test/"
-                />
-  </url><url>
-    <loc>https://github.com/trial.github.io/ja/categories/%E3%83%86%E3%82%B9%E3%83%88/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://github.com/trial.github.io/ja/archives/</loc>
-    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://github.com/trial.github.io/archives/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://github.com/trial.github.io/ja/archives/"
                 />
   </url><url>
     <loc>https://github.com/trial.github.io/ja/%E3%83%AA%E3%83%B3%E3%82%AF/</loc>
