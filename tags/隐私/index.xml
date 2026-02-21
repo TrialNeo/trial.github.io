@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>隐私 on Trial Blog</title>
-        <link>https://github.com/TrialNeo/trial.github.io/tags/%E9%9A%90%E7%A7%81/</link>
+        <link>https://github.com/trial.github.io/tags/%E9%9A%90%E7%A7%81/</link>
         <description>Recent content in 隐私 on Trial Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <copyright>shenpanpro@gmail.com</copyright><atom:link href="https://github.com/TrialNeo/trial.github.io/tags/%E9%9A%90%E7%A7%81/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>shenpanpro@gmail.com</copyright><atom:link href="https://github.com/trial.github.io/tags/%E9%9A%90%E7%A7%81/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>
