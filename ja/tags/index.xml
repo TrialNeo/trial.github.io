@@ -2,33 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on サンプルサイト</title>
-        <link>trial.github.io-hugo-stack-blog/ja/tags/</link>
+        <link>https://github.com/TrialNeo/trial.github.io/ja/tags/</link>
         <description>Recent content in Tags on サンプルサイト</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja</language>
         <copyright>shenpanpro@gmail.com</copyright>
-        <lastBuildDate>Mon, 26 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="trial.github.io-hugo-stack-blog/ja/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 26 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://github.com/TrialNeo/trial.github.io/ja/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Gallery</title>
-        <link>trial.github.io-hugo-stack-blog/ja/tags/gallery/</link>
+        <link>https://github.com/TrialNeo/trial.github.io/ja/tags/gallery/</link>
         <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
         
-        <guid>trial.github.io-hugo-stack-blog/ja/tags/gallery/</guid>
+        <guid>https://github.com/TrialNeo/trial.github.io/ja/tags/gallery/</guid>
         <description></description>
         </item>
         <item>
         <title>Photoswipe</title>
-        <link>trial.github.io-hugo-stack-blog/ja/tags/photoswipe/</link>
+        <link>https://github.com/TrialNeo/trial.github.io/ja/tags/photoswipe/</link>
         <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
         
-        <guid>trial.github.io-hugo-stack-blog/ja/tags/photoswipe/</guid>
+        <guid>https://github.com/TrialNeo/trial.github.io/ja/tags/photoswipe/</guid>
         <description></description>
         </item>
         <item>
         <title>隐私</title>
-        <link>trial.github.io-hugo-stack-blog/ja/tags/%E9%9A%90%E7%A7%81/</link>
+        <link>https://github.com/TrialNeo/trial.github.io/ja/tags/%E9%9A%90%E7%A7%81/</link>
         <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
         
-        <guid>trial.github.io-hugo-stack-blog/ja/tags/%E9%9A%90%E7%A7%81/</guid>
+        <guid>https://github.com/TrialNeo/trial.github.io/ja/tags/%E9%9A%90%E7%A7%81/</guid>
         <description></description>
         </item>
         
