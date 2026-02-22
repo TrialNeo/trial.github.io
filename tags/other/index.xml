@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Other on Trial Blog</title>
+        <link>http://localhost:1313/tags/other/</link>
+        <description>Recent content in Other on Trial Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>shenpanpro@gmail.com</copyright><atom:link href="http://localhost:1313/tags/other/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title></title>
+        <link>http://localhost:1313/p/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/</guid>
+        <description>&lt;h2 id=&#34;i4tools&#34;&gt;i4tools
+&lt;/h2&gt;&lt;p&gt;先试一下i4tools
+&lt;a class=&#34;link&#34; href=&#34;file-20260222192057401.png&#34; &gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;winra1n&#34;&gt;Winra1n
+&lt;/h2&gt;&lt;p&gt;这是新出的软件，可以在windows上面
+&lt;img src=&#34;file-20260222192057406.png&#34; class=&#34;wikilink&#34;
+alt=&#34;file-20260222192057406.png&#34; /&gt;&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&#34;file-20260222192057405 1.png&#34; class=&#34;wikilink&#34;
+alt=&#34;file-202602221920574051.png&#34; /&gt;
+&lt;figcaption aria-hidden=&#34;true&#34;&gt;file-202602221920574051.png&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;blockquote&gt;
+\[!warning\]&lt;p&gt; 大坑
+需要close passcode(屏幕锁密码)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;file-20260222192057402 1.png&#34; class=&#34;wikilink&#34;
+alt=&#34;file-202602221920574021.png&#34; /&gt;&lt;img src=&#34;file-20260222192057402.png&#34; class=&#34;wikilink&#34;
+alt=&#34;file-20260222192057402.png&#34; /&gt;
+&lt;img src=&#34;file-20260222192057397.png&#34; class=&#34;wikilink&#34;
+alt=&#34;file-20260222192057397.png&#34; /&gt;&lt;img src=&#34;IMG_20260222_160342.jpg&#34; class=&#34;wikilink&#34;
+alt=&#34;IMG_20260222_160342.jpg&#34; /&gt;
+&lt;img src=&#34;file-20260222192057409.png&#34; class=&#34;wikilink&#34;
+alt=&#34;file-20260222192057409.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;卡bug了，可以按音量+ 然后音量- 再长按关机&lt;/p&gt;
+&lt;p&gt;换一个&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -2,135 +2,135 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://github.com/trial.github.io/ja/archives/</loc>
+    <loc>http://blog.trialpro.top/ja/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://github.com/trial.github.io/archives/"
+                href="http://blog.trialpro.top/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://github.com/trial.github.io/ja/archives/"
+                href="http://blog.trialpro.top/ja/archives/"
                 />
   </url><url>
-    <loc>https://github.com/trial.github.io/ja/</loc>
+    <loc>http://blog.trialpro.top/ja/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://github.com/trial.github.io/"
+                href="http://blog.trialpro.top/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://github.com/trial.github.io/zh-cn/"
+                href="http://blog.trialpro.top/zh-cn/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://github.com/trial.github.io/zh-tw/"
+                href="http://blog.trialpro.top/zh-tw/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ar"
-                href="https://github.com/trial.github.io/ar/"
+                href="http://blog.trialpro.top/ar/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://github.com/trial.github.io/ja/"
+                href="http://blog.trialpro.top/ja/"
                 />
   </url><url>
-    <loc>https://github.com/trial.github.io/ja/categories/</loc>
+    <loc>http://blog.trialpro.top/ja/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://github.com/trial.github.io/categories/"
+                href="http://blog.trialpro.top/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://github.com/trial.github.io/zh-cn/categories/"
+                href="http://blog.trialpro.top/zh-cn/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://github.com/trial.github.io/zh-tw/categories/"
+                href="http://blog.trialpro.top/zh-tw/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ar"
-                href="https://github.com/trial.github.io/ar/categories/"
+                href="http://blog.trialpro.top/ar/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://github.com/trial.github.io/ja/categories/"
+                href="http://blog.trialpro.top/ja/categories/"
                 />
   </url><url>
-    <loc>https://github.com/trial.github.io/ja/tags/</loc>
+    <loc>http://blog.trialpro.top/ja/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://github.com/trial.github.io/tags/"
+                href="http://blog.trialpro.top/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="http://blog.trialpro.top/zh-tw/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://github.com/trial.github.io/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://github.com/trial.github.io/zh-tw/tags/"
+                href="http://blog.trialpro.top/zh-cn/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ar"
-                href="https://github.com/trial.github.io/ar/tags/"
+                href="http://blog.trialpro.top/ar/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://github.com/trial.github.io/ja/tags/"
+                href="http://blog.trialpro.top/ja/tags/"
                 />
   </url><url>
-    <loc>https://github.com/trial.github.io/ja/categories/documentation/</loc>
+    <loc>http://blog.trialpro.top/ja/categories/documentation/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://github.com/trial.github.io/categories/documentation/"
+                href="http://blog.trialpro.top/categories/documentation/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://github.com/trial.github.io/ja/categories/documentation/"
+                href="http://blog.trialpro.top/ja/categories/documentation/"
                 />
   </url><url>
-    <loc>https://github.com/trial.github.io/ja/%E3%83%AA%E3%83%B3%E3%82%AF/</loc>
+    <loc>http://blog.trialpro.top/ja/%E3%83%AA%E3%83%B3%E3%82%AF/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://github.com/trial.github.io/links/"
+                href="http://blog.trialpro.top/links/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://github.com/trial.github.io/ja/%E3%83%AA%E3%83%B3%E3%82%AF/"
+                href="http://blog.trialpro.top/ja/%E3%83%AA%E3%83%B3%E3%82%AF/"
                 />
   </url><url>
-    <loc>https://github.com/trial.github.io/ja/search/</loc>
+    <loc>http://blog.trialpro.top/ja/search/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://github.com/trial.github.io/search/"
+                href="http://blog.trialpro.top/search/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://github.com/trial.github.io/ja/search/"
+                href="http://blog.trialpro.top/ja/search/"
                 />
   </url>
 </urlset>

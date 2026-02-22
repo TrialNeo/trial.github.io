@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>サンプルサイト</title>
-        <link>https://github.com/trial.github.io/ja/</link>
+        <link>http://blog.trialpro.top/ja/</link>
         <description>Recent content on サンプルサイト</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ja</language>
         <copyright>shenpanpro@gmail.com</copyright>
-        <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://github.com/trial.github.io/ja/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://blog.trialpro.top/ja/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>アーカイブ</title>
-        <link>https://github.com/trial.github.io/ja/archives/</link>
+        <link>http://blog.trialpro.top/ja/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/trial.github.io/ja/archives/</guid>
+        <guid>http://blog.trialpro.top/ja/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>リンク</title>
-        <link>https://github.com/trial.github.io/ja/%E3%83%AA%E3%83%B3%E3%82%AF/</link>
+        <link>http://blog.trialpro.top/ja/%E3%83%AA%E3%83%B3%E3%82%AF/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/trial.github.io/ja/%E3%83%AA%E3%83%B3%E3%82%AF/</guid>
+        <guid>http://blog.trialpro.top/ja/%E3%83%AA%E3%83%B3%E3%82%AF/</guid>
         <description>&lt;p&gt;この機能を使用するには、フロントマターに &lt;code&gt;links&lt;/code&gt; セクションを追加します。&lt;/p&gt;
 &lt;p&gt;このページのフロントマター：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -52,10 +52,10 @@
         </item>
         <item>
         <title>検索</title>
-        <link>https://github.com/trial.github.io/ja/search/</link>
+        <link>http://blog.trialpro.top/ja/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://github.com/trial.github.io/ja/search/</guid>
+        <guid>http://blog.trialpro.top/ja/search/</guid>
         <description></description>
         </item>
         
