@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Cs on Trial Blog</title>
-        <link>http://blog.trialpro.top/tags/cs/</link>
-        <description>Recent content in Cs on Trial Blog</description>
+        <title>Reverse_engineering on Trial Blog</title>
+        <link>http://blog.trialpro.top/tags/reverse_engineering/</link>
+        <description>Recent content in Reverse_engineering on Trial Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>shenpanpro@gmail.com</copyright>
-        <lastBuildDate>Sun, 22 Feb 2026 23:55:36 +0800</lastBuildDate><atom:link href="http://blog.trialpro.top/tags/cs/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 22 Feb 2026 23:55:36 +0800</lastBuildDate><atom:link href="http://blog.trialpro.top/tags/reverse_engineering/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Mmtls研究总结</title>
         <link>http://blog.trialpro.top/p/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/</link>
         <pubDate>Sun, 22 Feb 2026 23:55:36 +0800</pubDate>
@@ -647,86 +647,6 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV12X4y197Pr?spm_id_from=333.788.videopod.sections&amp;amp;vd_source=67359d7dddb7c4db12237b008a0f5370&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;TLS/1.2和TLS/1.3的核心区别 | HTTPS有哪些不安全因素_哔哩哔哩_bilibili&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-</description>
-        </item>
-        <item>
-        <title>一次iphone 8p越狱&#43;修复推送记录</title>
-        <link>http://blog.trialpro.top/p/%E4%B8%80%E6%AC%A1iphone-8p%E8%B6%8A%E7%8B%B1-%E4%BF%AE%E5%A4%8D%E6%8E%A8%E9%80%81%E8%AE%B0%E5%BD%95/</link>
-        <pubDate>Sun, 22 Feb 2026 23:00:02 +0800</pubDate>
-        
-        <guid>http://blog.trialpro.top/p/%E4%B8%80%E6%AC%A1iphone-8p%E8%B6%8A%E7%8B%B1-%E4%BF%AE%E5%A4%8D%E6%8E%A8%E9%80%81%E8%AE%B0%E5%BD%95/</guid>
-        <description>&lt;img src="http://blog.trialpro.top/attachment/7180d9e948230ee0f8489294ff422b1a.jpg" alt="Featured image of post 一次iphone 8p越狱&#43;修复推送记录" /&gt;&lt;h2 id=&#34;i4tools&#34;&gt;i4tools
-&lt;/h2&gt;&lt;p&gt;先试一下i4tools
-&lt;img src=&#34;http://blog.trialpro.top/attachment/05927a1e2432cde2f33d932d17ab35cf.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;winra1n&#34;&gt;Winra1n
-&lt;/h2&gt;&lt;p&gt;这是新出的软件，可以在windows上面
-&lt;img src=&#34;http://blog.trialpro.top/attachment/7a8200cb2f48bb01865cb46264d88539.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/008dd7a1417f74fc75e40f0af29a1d5e.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!warning] 大坑
-需要close passcode(屏幕锁密码)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/4dd2896d2e0c8c68f7acec426cce6c38.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/56d94ea145f8e0574b7b7a50a388c544.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;
-&lt;img src=&#34;http://blog.trialpro.top/attachment/c2a5e855f80ce66f59d16f3eee3f9b6e.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/7180d9e948230ee0f8489294ff422b1a.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;
-&lt;img src=&#34;http://blog.trialpro.top/attachment/9a101f01e6a88732965e0b137c088cdf.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;卡bug了，可以按音量+ 然后音量- 再长按关机&lt;/p&gt;
-&lt;p&gt;换一个&lt;/p&gt;
 </description>
         </item>
         <item>

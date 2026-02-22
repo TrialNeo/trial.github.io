@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="WeChat Mmtls研究分析">
+<title>Mmtls研究总结</title>
+
+<link rel='canonical' href='http://blog.trialpro.top/p/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/'>
+
+<link rel="stylesheet" href="/scss/style.min.86591c898bd806857815fbb8c47e8d3fed97c133b78e83d9bfc27b164dd0aa2b.css"><meta property='og:title' content="Mmtls研究总结">
+<meta property='og:description' content="WeChat Mmtls研究分析">
+<meta property='og:url' content='http://blog.trialpro.top/p/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/'>
+<meta property='og:site_name' content='Trial Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='cs' /><meta property='article:tag' content='reverse_engineering' /><meta property='article:published_time' content='2026-02-22T23:55:36&#43;08:00'/><meta property='article:modified_time' content='2026-02-22T23:55:36&#43;08:00'/><meta property='og:image' content='http://blog.trialpro.top/attachment/0dcdfc8e8fa3a35338218e165204dec0.png' />
+<meta name="twitter:title" content="Mmtls研究总结">
+<meta name="twitter:description" content="WeChat Mmtls研究分析"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://blog.trialpro.top/attachment/0dcdfc8e8fa3a35338218e165204dec0.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/head_hu_2d7d1227a61b52f1.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😋</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Trial Blog</a></h1>
+            <h2 class="site-description">Example description</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/332675684'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/TrialNeo'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://blog.trialpro.top/" selected>English</option>
+                                
+                                    <option value="http://blog.trialpro.top/ja/" >日本語</option>
+                                
+                                    <option value="http://blog.trialpro.top/zh-cn/" >简体中文</option>
+                                
+                                    <option value="http://blog.trialpro.top/zh-tw/" >正體中文</option>
+                                
+                                    <option value="http://blog.trialpro.top/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#背景前提">背景前提</a></li>
+    <li><a href="#研究思路">研究思路</a>
+      <ol>
+        <li><a href="#基本架构和tls外壳">基本架构和TLS“外壳”</a></li>
+        <li><a href="#handshake流程">HandShake流程</a></li>
+      </ol>
+    </li>
+    <li><a href="#密码学">密码学</a></li>
+    <li><a href="#ecdhe">ECDHE</a>
+      <ol>
+        <li><a href="#原理">原理</a></li>
+        <li><a href="#流程">流程</a></li>
+      </ol>
+    </li>
+    <li><a href="#hkdf拓展">Hkdf拓展</a></li>
+    <li><a href="#aes-gcm加密">AES-Gcm加密</a>
+      <ol>
+        <li><a href="#mmcryptoopensslcryptoutilaesgcmencrypt">mmcrypto::OpenSslCryptoUtil::AesGcmEncrypt</a>
+          <ol>
+            <li><a href="#evp_encryptinit_ex">EVP_EncryptInit_ex</a></li>
+          </ol>
+        </li>
+        <li><a href="#mmcryptoopensslcryptoutilaesgcmdecrypt">mmcrypto::OpenSslCryptoUtil::AesGcmDecrypt</a></li>
+        <li><a href="#模拟">模拟</a></li>
+      </ol>
+    </li>
+    <li><a href="#引用自己">引用自己</a>
+      <ol>
+        <li><a href="#hello-client">Hello Client</a></li>
+        <li><a href="#sub_40fa1d0">sub_40FA1D0</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/">
+                
+                    <img src="/attachment/0dcdfc8e8fa3a35338218e165204dec0.png" loading="lazy" alt="Featured image of post Mmtls研究总结" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/">Mmtls研究总结</a>
+        </h2>
+
+        
+        <h3 class="article-subtitle">
+            WeChat Mmtls研究分析
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2026-02-22T23:55:36&#43;08:00'>Feb 22, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    7 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="背景前提">背景前提
+</h2><p>没有的就是想看看别人怎么做的，让自己在实际开发也有好的方案可以参考参考
+<strong>“本文档仅为个人技术学习与研究目的而撰写，不涉及任何微信业务层用户数据。所有分析均在合法授权的个人测试环境中进行。严禁用于任何非法用途。”</strong></p>
+<p>本文以x64dbg，ida为原本结合Golang代码</p>
+<h2 id="研究思路">研究思路
+</h2><h3 id="基本架构和tls外壳">基本架构和TLS“外壳”
+</h3><p><img src="/attachment/0dcdfc8e8fa3a35338218e165204dec0.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+Fig.1 总体架构</p>
+<p>从总体架构中可以知道，mmtls作为**“中间层”** ，沟通了业务层和网络连接层，其功能是<strong>为业务层提供了安全保障</strong>。
+<img src="/attachment/c4fd0aaed76a92c1411766dfb6b301c7.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+Fig.2 mmtls协议内部</p>
+<p>分为这四种通讯类型，每一种都有对应的代码.</p>
+<p><strong>为了方便这里hook了ws2_32.dll的send和recv函数</strong>
+<img src="/attachment/e2aced86402bcccc80279a2f839fbc36.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/attachment/19e3a217efa1532961f63c69c5359797.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>这里用Golang列出大致的（命名不一定准哈）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">const</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">magicAlert</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="nb">uint8</span><span class="p">(</span><span class="mh">0x15</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">magicHandshake</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">uint8</span><span class="p">(</span><span class="mh">0x16</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">magicRecord</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="nb">uint8</span><span class="p">(</span><span class="mh">0x17</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nx">magicSystem</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="nb">uint8</span><span class="p">(</span><span class="mh">0x19</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>既然是结合Tls
+TLS 1.3
+随便用wireshark
+<img src="/attachment/28d84af998688153fc9f486769e96567.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>都是Opaque Type(1 byte) + Version (2 bytes) + Length (2 bytes) + Encrypted Data(Length bytes)，那当然MMtls也不例外的，回头看一下这2张图</p>
+<p><img src="/attachment/e2aced86402bcccc80279a2f839fbc36.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/attachment/19e3a217efa1532961f63c69c5359797.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>Opaque Type</th>
+          <th>Version</th>
+          <th>Length</th>
+          <th>Encrypted Data</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>16</td>
+          <td>F1 04</td>
+          <td>01 6E</td>
+          <td>&hellip;&hellip;&hellip;.</td>
+      </tr>
+      <tr>
+          <td>17</td>
+          <td>F1 04</td>
+          <td>00 20</td>
+          <td>&hellip;&hellip;&hellip;.</td>
+      </tr>
+      <tr>
+          <td>表格是16进制</td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>嗯非常好Omg</td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div>
+<blockquote>
+<p>[!quote] 基于TLS1.3的微信安全通信协议mmtls介绍
+Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmtls为了避免server存在过多TCP Time-Wait状态，Alert消息只会server发送给client，由client主动关闭连接。</p>
+</blockquote>
+<p>这个是Opaque Type=0x15的情况，发生错误了</p>
+<h3 id="handshake流程">HandShake流程
+</h3><p>因为之前不了解椭圆曲线，去Bilibili了解了一下<a class="link" href="https://www.bilibili.com/video/BV1BY411M74G/?spm_id_from=333.1391.0.0"  target="_blank" rel="noopener"
+    >公钥加密技术ECC椭圆曲线加密算法原理_哔哩哔哩_bilibili</a></p>
+<p><img src="/attachment/47db2772200cb4ca020861bd1f7b3256.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>根据官方开源的<a class="link" href="https://github.com/Tencent/mars"  target="_blank" rel="noopener"
+    >Tencent/mars: Mars is a cross-platform network component developed by WeChat.</a>，然后通过longlink一路跟过来，到了req2buf，再就找到了发现很多核心算法都有mmcrypto这个字符串hh
+<img src="/attachment/1e6d5e6a59eb9b2f618895007f456a3f.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="密码学">密码学
+</h2><h2 id="ecdhe">ECDHE
+</h2><h3 id="原理">原理
+</h3><p><a class="link" href="https://www.bilibili.com/video/BV1BY411M74G/?spm_id_from=333.1391.0.0"  target="_blank" rel="noopener"
+    >公钥加密技术ECC椭圆曲线加密算法原理_哔哩哔哩_bilibili</a>，这里讲得很好就是那个乘法分配律好家伙</p>
+<h3 id="流程">流程
+</h3><p>客户端在启动的时候会调用GenEcdhKeyPair生成公钥和私钥，接着发送Client Hello发送自己的公钥，之后服务端返回Server Hello返回服务端的公钥
+这里Go代码参考<a class="link" href="https://github.com/anonymous5l/mmtls"  target="_blank" rel="noopener"
+    >anonymous5l/mmtls: wechat mmtls protocol handshake implement</a>
+进行密钥交换后利用自己的私钥和服务端公钥计算出共享密钥</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">m</span><span class="p">.</span><span class="nx">connectKey</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nf">computeEphemeralSecret</span><span class="p">(</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">m</span><span class="p">.</span><span class="nx">serverPublicKey</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">m</span><span class="p">.</span><span class="nx">serverPublicKey</span><span class="p">.</span><span class="nx">Y</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">m</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">.</span><span class="nx">D</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="hkdf拓展">Hkdf拓展
+</h2><ul>
+<li>expanded secret</li>
+<li>application data key expansion</li>
+<li>client finished</li>
+<li>handshake key expansion</li>
+<li>PSK_ACCESS</li>
+<li>PSK_REFRESH</li>
+</ul>
+<h2 id="aes-gcm加密">AES-Gcm加密
+</h2><h3 id="mmcryptoopensslcryptoutilaesgcmencrypt">mmcrypto::OpenSslCryptoUtil::AesGcmEncrypt
+</h3><p><img src="/attachment/d6dfada74680e4f55c83a7c6b985d30a.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>这个算法肯定是借来用的我们翻一下看看大概是怎么个流程，根据这篇文章<a class="link" href="https://blog.csdn.net/fengbingchun/article/details/106113185"  target="_blank" rel="noopener"
+    >对称加密算法AES之GCM模式简介及在OpenSSL中使用举例-CSDN博客</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">gcm_key</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">// 32 bytes, Key
+</span></span></span><span class="line"><span class="cl">	<span class="mh">0xee</span><span class="p">,</span> <span class="mh">0xbc</span><span class="p">,</span> <span class="mh">0x1f</span><span class="p">,</span> <span class="mh">0x57</span><span class="p">,</span> <span class="mh">0x48</span><span class="p">,</span> <span class="mh">0x7f</span><span class="p">,</span> <span class="mh">0x51</span><span class="p">,</span> <span class="mh">0x92</span><span class="p">,</span> <span class="mh">0x1c</span><span class="p">,</span> <span class="mh">0x04</span><span class="p">,</span> <span class="mh">0x65</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="mh">0x5f</span><span class="p">,</span> <span class="mh">0x8a</span><span class="p">,</span> <span class="mh">0xe6</span><span class="p">,</span> <span class="mh">0xd1</span><span class="p">,</span> <span class="mh">0x65</span><span class="p">,</span> <span class="mh">0x8b</span><span class="p">,</span> <span class="mh">0xb2</span><span class="p">,</span> <span class="mh">0x6d</span><span class="p">,</span> <span class="mh">0xe6</span><span class="p">,</span> <span class="mh">0xf8</span><span class="p">,</span> <span class="mh">0xa0</span><span class="p">,</span> <span class="mh">0x69</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="mh">0xa3</span><span class="p">,</span> <span class="mh">0x52</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x93</span><span class="p">,</span> <span class="mh">0xa5</span><span class="p">,</span> <span class="mh">0x72</span><span class="p">,</span> <span class="mh">0x07</span><span class="p">,</span> <span class="mh">0x8f</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">gcm_iv</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">// 12 bytes, IV(Initialisation Vector)
+</span></span></span><span class="line"><span class="cl">	<span class="mh">0x99</span><span class="p">,</span> <span class="mh">0xaa</span><span class="p">,</span> <span class="mh">0x3e</span><span class="p">,</span> <span class="mh">0x68</span><span class="p">,</span> <span class="mh">0xed</span><span class="p">,</span> <span class="mh">0x81</span><span class="p">,</span> <span class="mh">0x73</span><span class="p">,</span> <span class="mh">0xa0</span><span class="p">,</span> <span class="mh">0xee</span><span class="p">,</span> <span class="mh">0xd0</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x84</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">// Additional Authenticated Data(AAD): it is not encrypted, and is typically passed to the recipient in plaintext along with the ciphertext
+</span></span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">gcm_aad</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">// 16 bytes
+</span></span></span><span class="line"><span class="cl">	<span class="mh">0x4d</span><span class="p">,</span> <span class="mh">0x23</span><span class="p">,</span> <span class="mh">0xc3</span><span class="p">,</span> <span class="mh">0xce</span><span class="p">,</span> <span class="mh">0xc3</span><span class="p">,</span> <span class="mh">0x34</span><span class="p">,</span> <span class="mh">0xb4</span><span class="p">,</span> <span class="mh">0x9b</span><span class="p">,</span> <span class="mh">0xdb</span><span class="p">,</span> <span class="mh">0x37</span><span class="p">,</span> <span class="mh">0x0c</span><span class="p">,</span> <span class="mh">0x43</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="mh">0x7f</span><span class="p">,</span> <span class="mh">0xec</span><span class="p">,</span> <span class="mh">0x78</span><span class="p">,</span> <span class="mh">0xde</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">aes_gcm_encrypt</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">plaintext</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">length</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">tag</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">EVP_CIPHER_CTX</span><span class="o">*</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">EVP_CIPHER_CTX_new</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Set cipher type and mode
+</span></span></span><span class="line"><span class="cl">	<span class="n">EVP_EncryptInit_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">EVP_aes_256_gcm</span><span class="p">(),</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Set IV length if default 96 bits is not appropriate
+</span></span></span><span class="line"><span class="cl">		<span class="n">EVP_CIPHER_CTX_ctrl</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">EVP_CTRL_AEAD_SET_IVLEN</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">gcm_iv</span><span class="p">),</span> <span class="k">nullptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Initialise key and IV
+</span></span></span><span class="line"><span class="cl">	<span class="n">EVP_EncryptInit_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="n">gcm_key</span><span class="p">,</span> <span class="n">gcm_iv</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Zero or more calls to specify any AAD
+</span></span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">outlen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">EVP_EncryptUpdate</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">outlen</span><span class="p">,</span> <span class="n">gcm_aad</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">gcm_aad</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">outbuf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Encrypt plaintext
+</span></span></span><span class="line"><span class="cl">	<span class="n">EVP_EncryptUpdate</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">outbuf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">outlen</span><span class="p">,</span> <span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">plaintext</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">plaintext</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="n">length</span> <span class="o">=</span> <span class="n">outlen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">ciphertext</span><span class="p">(</span><span class="k">new</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="p">[</span><span class="n">length</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">memcpy</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">outbuf</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Finalise: note get no output for GCM
+</span></span></span><span class="line"><span class="cl">	<span class="n">EVP_EncryptFinal_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">outbuf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">outlen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Get tag
+</span></span></span><span class="line"><span class="cl">	<span class="n">EVP_CIPHER_CTX_ctrl</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">EVP_CTRL_AEAD_GET_TAG</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">outbuf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">memcpy</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">outbuf</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Clean up
+</span></span></span><span class="line"><span class="cl">	<span class="n">EVP_CIPHER_CTX_free</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">ciphertext</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">aes_gcm_decrypt</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">ciphertext</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="o">&amp;</span> <span class="n">length</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">tag</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">EVP_CIPHER_CTX</span><span class="o">*</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">EVP_CIPHER_CTX_new</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Select cipher
+</span></span></span><span class="line"><span class="cl">	<span class="n">EVP_DecryptInit_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">EVP_aes_256_gcm</span><span class="p">(),</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Set IV length, omit for 96 bits
+</span></span></span><span class="line"><span class="cl">	<span class="n">EVP_CIPHER_CTX_ctrl</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">EVP_CTRL_AEAD_SET_IVLEN</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">gcm_iv</span><span class="p">),</span> <span class="k">nullptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Specify key and IV
+</span></span></span><span class="line"><span class="cl">	<span class="n">EVP_DecryptInit_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="n">gcm_key</span><span class="p">,</span> <span class="n">gcm_iv</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">outlen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Zero or more calls to specify any AAD
+</span></span></span><span class="line"><span class="cl">	<span class="n">EVP_DecryptUpdate</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">outlen</span><span class="p">,</span> <span class="n">gcm_aad</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">gcm_aad</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">outbuf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Decrypt plaintext
+</span></span></span><span class="line"><span class="cl">	<span class="n">EVP_DecryptUpdate</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">outbuf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">outlen</span><span class="p">,</span> <span class="n">ciphertext</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Output decrypted block
+</span></span></span><span class="line"><span class="cl">	<span class="n">length</span> <span class="o">=</span> <span class="n">outlen</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">plaintext</span><span class="p">(</span><span class="k">new</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="p">[</span><span class="n">length</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">memcpy</span><span class="p">(</span><span class="n">plaintext</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">outbuf</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Set expected tag value
+</span></span></span><span class="line"><span class="cl">	<span class="n">EVP_CIPHER_CTX_ctrl</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">EVP_CTRL_AEAD_SET_TAG</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">tag</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Finalise: note get no output for GCM
+</span></span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">rv</span> <span class="o">=</span> <span class="n">EVP_DecryptFinal_ex</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">outbuf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">outlen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Print out return value. If this is not successful authentication failed and plaintext is not trustworthy.
+</span></span></span><span class="line"><span class="cl">	<span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="s">&#34;Tag Verify %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">rv</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="s">&#34;Successful!&#34;</span> <span class="o">:</span> <span class="s">&#34;Failed!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">EVP_CIPHER_CTX_free</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">plaintext</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="evp_encryptinit_ex">EVP_EncryptInit_ex
+</h4><p>这个跑x64可以知道是24
+<img src="/attachment/172c202962a803461a428b2d4c96362a.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>翻一下正版openssl看看是怎么个情况</p>
+<ol>
+<li><a class="link" href="https://www.openssl.net.cn/docs/136.html"  target="_blank" rel="noopener"
+    >21.5 对称加解密函数_OpenSSL 中文手册</a></li>
+<li><a class="link" href="https://blog.csdn.net/QCZL_CC/article/details/120010268"  target="_blank" rel="noopener"
+    >Openssl 对称加解密函数 - EVP_Cipher、EVP_Encrypt、EVP_Decryp 系列-CSDN博客</a></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">加密inl缓冲区中的inl字节in并将加密版本写入out。可以多次调用此函数来加密连续的数据块。
+</span></span></span><span class="line"><span class="cl"><span class="cm">写入的数据量取决于加密数据的块对齐。对于大多数密码和模式，写入的数据量可以是从零字节到 (inl + cipher_block_size - 1) 字节的任何内容。对于包装密码模式，写入的数据量可以是从零字节到 (inl + cipher_block_size) 字节的任何内容。
+</span></span></span><span class="line"><span class="cl"><span class="cm">对于流密码，写入的数据量可以是从零字节到 inl 字节的任何内容。因此，out应该为正在执行的操作包含足够的空间。实际写入的字节数放在outl中
+</span></span></span><span class="line"><span class="cl"><span class="cm">**/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">EVP_EncryptUpdate</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="n">EVP_CIPHER_CTX</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">	<span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">out</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="o">*</span><span class="n">outl</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">	<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">in</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">inl</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>全都有了不分析了。</p>
+<h3 id="mmcryptoopensslcryptoutilaesgcmdecrypt">mmcrypto::OpenSslCryptoUtil::AesGcmDecrypt
+</h3><p><img src="/attachment/02f81352d02530684022e78c8253b320.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="/attachment/33d2326d488c0158b01991ae28d9c8d3.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="模拟">模拟
+</h3><p>主要看一下nonce的生成方式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// aesGcmDecrypt mmtls的Aes-GCM模式解密  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">aesGcmDecrypt</span><span class="p">(</span><span class="nx">recordType</span><span class="w"> </span><span class="kt">uint8</span><span class="p">,</span><span class="w"> </span><span class="nx">keys</span><span class="w"> </span><span class="o">*</span><span class="nx">trafficKeyPair</span><span class="p">,</span><span class="w"> </span><span class="nx">serverSeqNum</span><span class="w"> </span><span class="kt">uint32</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="p">,</span><span class="w"> </span><span class="nx">length</span><span class="w"> </span><span class="kt">uint16</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">byte</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">c</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">aes</span><span class="p">.</span><span class="nf">NewCipher</span><span class="p">(</span><span class="nx">keys</span><span class="p">.</span><span class="nx">serverKey</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">aead</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cipher</span><span class="p">.</span><span class="nf">NewGCM</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">nonce</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nb">copy</span><span class="p">(</span><span class="nx">nonce</span><span class="p">,</span><span class="w"> </span><span class="nx">keys</span><span class="p">.</span><span class="nx">serverNonce</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">xorNonce</span><span class="p">(</span><span class="nx">nonce</span><span class="p">,</span><span class="w"> </span><span class="nx">serverSeqNum</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">aad</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">binary</span><span class="p">.</span><span class="nx">BigEndian</span><span class="p">.</span><span class="nf">PutUint64</span><span class="p">(</span><span class="nx">aad</span><span class="p">,</span><span class="w"> </span><span class="nb">uint64</span><span class="p">(</span><span class="nx">serverSeqNum</span><span class="p">))</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">aad</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">recordType</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">binary</span><span class="p">.</span><span class="nx">BigEndian</span><span class="p">.</span><span class="nf">PutUint16</span><span class="p">(</span><span class="nx">aad</span><span class="p">[</span><span class="mi">9</span><span class="p">:],</span><span class="w"> </span><span class="nx">longlink</span><span class="p">.</span><span class="nx">MmtlsVer</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">binary</span><span class="p">.</span><span class="nx">BigEndian</span><span class="p">.</span><span class="nf">PutUint16</span><span class="p">(</span><span class="nx">aad</span><span class="p">[</span><span class="mi">11</span><span class="p">:],</span><span class="w"> </span><span class="nx">length</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">dst</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">aead</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nx">nonce</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">aad</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;AESGCM解密失败: %v, AAD: %X, Nonce: %X\n&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">aad</span><span class="p">,</span><span class="w"> </span><span class="nx">nonce</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dst</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="引用自己">引用自己
+</h2><ul>
+<li>[[WeChat：mmcryto的灵感]]</li>
+<li>[[WeChat：SendWhenNoData]]</li>
+<li>[[WeChat：req2buf and buf2Resp]]</li>
+<li>[[WeChat：handshake]]</li>
+</ul>
+<h3 id="hello-client">Hello Client
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">16 
+</span></span><span class="line"><span class="cl">F1 04 
+</span></span><span class="line"><span class="cl">01 6E  //总长
+</span></span><span class="line"><span class="cl">00 00 01 6A 
+</span></span><span class="line"><span class="cl">	01 //Client Hello
+</span></span><span class="line"><span class="cl">	04 F1 
+</span></span><span class="line"><span class="cl">	02 
+</span></span><span class="line"><span class="cl">	C0 2B //Cipher Suite:见[[#sub_40FA1D0]]
+</span></span><span class="line"><span class="cl">	00 A8 //Cipher Suite:见[[#sub_40FA1D0]]
+</span></span><span class="line"><span class="cl">	8A 65 5C F8 4E E3 E3 05 0A FD 48 C0 8F 77 C1 3D A0 48 E1 78 16 70 0A 2C CF 38 6D 37 B5 08 19 06 //random32
+</span></span><span class="line"><span class="cl">	69 6D D5 7B //Timestramp:1768805755
+</span></span><span class="line"><span class="cl">	00 00 01 3A 
+</span></span><span class="line"><span class="cl">		02 //Count:2 2个数据块
+</span></span><span class="line"><span class="cl">		00 00 00 8B 
+</span></span><span class="line"><span class="cl">			00 0F 01 //PSK Identity
+</span></span><span class="line"><span class="cl">			00 00 00 84 
+</span></span><span class="line"><span class="cl">				02 
+</span></span><span class="line"><span class="cl">				00 27 8D 00 
+</span></span><span class="line"><span class="cl">				00 00 00 00 
+</span></span><span class="line"><span class="cl">				00 48 
+</span></span><span class="line"><span class="cl">				00 0C 
+</span></span><span class="line"><span class="cl">					07 45 8F 94 24 F8 AD 1F E6 F2 20 B9 
+</span></span><span class="line"><span class="cl">				00 69 
+</span></span><span class="line"><span class="cl">					85 A7 28 F3 E6 43 8A 62 C9 3F 82 52 8E 04 6A AD 65 CA 16 D9 E3 E6 B0 3C 13 F6 E9 B0 92 7B A6 97 00 4D 11 54 8D F0 87 C6 FF 79 D1 70 73 0B 65 67 12 A3 A5 1C FC A5 7F 94 7F 70 AC 2D BC 58 20 25 E8 95 11 02 65 E1 18 15 ED 86 FD E9 14 E9 87 22 55 C2 6B AE 26 3F 8B 44 A0 D8 AE E0 FA 37 EC 85 72 4D A9 9F 55 38 D9 A3 EE 
+</span></span><span class="line"><span class="cl">		00 00 00 A6 
+</span></span><span class="line"><span class="cl">			00 10 02 
+</span></span><span class="line"><span class="cl">			00 00 00 47 
+</span></span><span class="line"><span class="cl">				00 00 00 05 //Type
+</span></span><span class="line"><span class="cl">				00	41 
+</span></span><span class="line"><span class="cl">				04 5A AB 48 CE FB 8A 2D DE CB 3C 08 0E 58 83 25 99 12 5E 11 4D 67 80 4A 92 C5 89 A6 2B F4 7A 4C 21 EE 03 75 DA E3 43 20 87 1E D4 FA A2 FD C3 59 29 53 6D FE 96 EF 5F 12 F9 63 2D 1C 97 A7 3F B0 2C 
+</span></span><span class="line"><span class="cl">			00 00 00 47 
+</span></span><span class="line"><span class="cl">				00 00 00 06 
+</span></span><span class="line"><span class="cl">				00 41 
+</span></span><span class="line"><span class="cl">					04 72 31 9E	81 01 28 2A 25 41 98 3C FA 26 C8 4F F6 18 AA 2B FD 4D CE D6 CA 9F C0 39 80 62 76 A1 EC E2 5D 8B F3 CE CE 60 EC CA 4D F3 C9 F0 CA 9E BE 1B 7F 4F 8A E8 EC 91 55 09 FD 35 FD B4 31 CA 29 
+</span></span><span class="line"><span class="cl">			00 
+</span></span><span class="line"><span class="cl">			00 00	00 02 //支持 1-RTT PSK 
+</span></span><span class="line"><span class="cl">			00 00 00 03 //支持1-RTT ECDH
+</span></span><span class="line"><span class="cl">			00 00 00 04 //支持0-RTT PSK
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="https://www.cnblogs.com/wwgk/p/12856414.html"  target="_blank" rel="noopener"
+    >微信协议入门——原理篇 - 万物归空 - 博客园</a></p>
+<p><img src="/attachment/33a819a0590733f355e4b6b4a8594191.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+有时候长连接失败会用短链接</p>
+<h3 id="sub_40fa1d0">sub_40FA1D0
+</h3><p><img src="/attachment/4dbe6684b53340687b83b4a69b7f39f6.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="/attachment/ffa127ad9dcb8e65e86bce73b48dfba8.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+这是最关键的加密套件 (Cipher Suite) 标识符。</p>
+<ul>
+<li>定义：<code>0xC02B</code> 在 IANA 标准中对应的是<code>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</code>。</li>
+<li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li>
+<li>拆解其安全含义：
+<ul>
+<li>ECDHE：使用椭圆曲线临时密钥交换（具备前向安全性，即即便服务器私钥泄露，历史消息也无法被破解）。</li>
+<li>ECDSA：使用椭圆曲线数字签名算法进行身份验证。</li>
+<li>AES_128_GCM：使用 128 位密钥的 AES 算法，并采用 GCM 模式（同时提供加密和完整性校验）。</li>
+<li>SHA256：用于消息摘要和 PRF（伪随机函数）的散列算法。</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考文献">参考文献
+</h1><ol>
+<li><a class="link" href="https://bbs.kanxue.com/thread-257942-1.htm"  target="_blank" rel="noopener"
+    >[原创]mmtls的分析研究与总结-软件逆向-看雪安全社区｜专业技术交流与安全研究论坛</a></li>
+<li><a class="link" href="https://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&amp;amp;mid=2649286266&amp;amp;idx=1&amp;amp;sn=f5d049033e251cccc22e163532355ddf&amp;amp;scene=0&amp;amp;key=b28b03434249256b2a5d4fdf323a185a798eaf972317ca3a47ef060d35c5cd8a4ae35715466d5bb5a558e424d20bef6c&amp;amp;ascene=0&amp;amp;uin=Mjc3OTU3Nzk1&amp;amp;devicetype=iMac&#43;MacBookPro10%2C1&#43;OSX&#43;OSX&#43;10.10.5&#43;build%2814F1713%29&amp;amp;version=11020201&amp;amp;pass_ticket=8lpzOjRJO3IS%2BmKcvsqRN%2FlzlWyR2q2fmKv15GKO2PPYAKDGPXDhyfntueC4bIod"  target="_blank" rel="noopener"
+    >基于TLS1.3的微信安全通信协议mmtls介绍</a></li>
+<li><a class="link" href="https://www.bilibili.com/video/BV1BY411M74G/?spm_id_from=333.1391.0.0"  target="_blank" rel="noopener"
+    >公钥加密技术ECC椭圆曲线加密算法原理_哔哩哔哩_bilibili</a></li>
+<li><a class="link" href="https://github.com/Tencent/mars"  target="_blank" rel="noopener"
+    >Tencent/mars: Mars is a cross-platform network component developed by WeChat.</a></li>
+<li><a class="link" href="https://github.com/anonymous5l/mmtls"  target="_blank" rel="noopener"
+    >anonymous5l/mmtls: wechat mmtls protocol handshake implement</a></li>
+<li><a class="link" href="https://www.openssl.net.cn/docs/136.html"  target="_blank" rel="noopener"
+    >21.5 对称加解密函数_OpenSSL 中文手册</a></li>
+<li><a class="link" href="https://blog.csdn.net/QCZL_CC/article/details/120010268"  target="_blank" rel="noopener"
+    >Openssl 对称加解密函数 - EVP_Cipher、EVP_Encrypt、EVP_Decryp 系列-CSDN博客</a></li>
+<li><a class="link" href="https://blog.csdn.net/fengbingchun/article/details/106113185"  target="_blank" rel="noopener"
+    >对称加密算法AES之GCM模式简介及在OpenSSL中使用举例-CSDN博客</a></li>
+<li><a class="link" href="https://www.bilibili.com/video/BV12X4y197Pr?spm_id_from=333.788.videopod.sections&amp;vd_source=67359d7dddb7c4db12237b008a0f5370"  target="_blank" rel="noopener"
+    >TLS/1.2和TLS/1.3的核心区别 | HTTPS有哪些不安全因素_哔哩哔哩_bilibili</a></li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/cs/">Cs</a>
+        
+            <a href="/tags/reverse_engineering/">Reverse_engineering</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title"></h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 shenpanpro@gmail.com
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/TrialNeo" target="_blank" rel="noopener" data-version="3.34.2">Stack</a></b> designed by <a href="https://github.com/TrialNeo" target="_blank" rel="noopener">Trial</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+    
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
