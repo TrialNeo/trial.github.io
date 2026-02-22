@@ -121,6 +121,11 @@
     <loc>http://blog.trialpro.top/tags/</loc>
     <xhtml:link
                 rel="alternate"
+                hreflang="zh-tw"
+                href="http://blog.trialpro.top/zh-tw/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="ja"
                 href="http://blog.trialpro.top/ja/tags/"
                 />
@@ -128,11 +133,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="http://blog.trialpro.top/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="http://blog.trialpro.top/zh-tw/tags/"
                 />
     <xhtml:link
                 rel="alternate"
