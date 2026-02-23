@@ -10,6 +10,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="ja"
+                href="http://blog.trialpro.top/ja/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="zh-cn"
                 href="http://blog.trialpro.top/zh-cn/categories/"
                 />
@@ -17,11 +22,6 @@
                 rel="alternate"
                 hreflang="zh-tw"
                 href="http://blog.trialpro.top/zh-tw/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="http://blog.trialpro.top/ja/categories/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -37,6 +37,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="ja"
+                href="http://blog.trialpro.top/ja/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="zh-cn"
                 href="http://blog.trialpro.top/zh-cn/tags/"
                 />
@@ -44,11 +49,6 @@
                 rel="alternate"
                 hreflang="zh-tw"
                 href="http://blog.trialpro.top/zh-tw/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="http://blog.trialpro.top/ja/tags/"
                 />
     <xhtml:link
                 rel="alternate"

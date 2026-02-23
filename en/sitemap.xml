@@ -100,6 +100,11 @@
     <loc>http://blog.trialpro.top/categories/</loc>
     <xhtml:link
                 rel="alternate"
+                hreflang="zh-tw"
+                href="http://blog.trialpro.top/zh-tw/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="ja"
                 href="http://blog.trialpro.top/ja/categories/"
                 />
@@ -107,11 +112,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="http://blog.trialpro.top/zh-cn/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="http://blog.trialpro.top/zh-tw/categories/"
                 />
     <xhtml:link
                 rel="alternate"
