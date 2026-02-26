@@ -7,7 +7,159 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>shenpanpro@gmail.com</copyright>
-        <lastBuildDate>Sun, 22 Feb 2026 23:55:36 +0800</lastBuildDate><atom:link href="http://blog.trialpro.top/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 26 Feb 2026 13:49:18 +0800</lastBuildDate><atom:link href="http://blog.trialpro.top/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>利用Hugo&#43;GitHubPage搭建博客</title>
+        <link>http://blog.trialpro.top/p/%E5%88%A9%E7%94%A8hugo-githubpage%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+        <pubDate>Thu, 26 Feb 2026 13:49:18 +0800</pubDate>
+        
+        <guid>http://blog.trialpro.top/p/%E5%88%A9%E7%94%A8hugo-githubpage%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+        <description>&lt;img src="http://blog.trialpro.top/attachment/60de1e7ed7cf5f6e2d074e247f2b142f.png" alt="Featured image of post 利用Hugo&#43;GitHubPage搭建博客" /&gt;&lt;p&gt;本文用于记录通过Hugo搭建个人博客的过程，以便后人复用，或者&lt;/p&gt;
+&lt;p&gt;步骤就这几个&lt;/p&gt;
+&lt;p&gt;hugo$\to$hugo stack$\to$GitHub Page$\to$Config&lt;/p&gt;
+&lt;h2 id=&#34;version&#34;&gt;Version
+&lt;/h2&gt;&lt;p&gt;这里用的版本是&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;hugo v0.156.0-9d914726dee87b0e8e3d7890d660221bde372eec+extended windows/amd64 BuildDate=2026-02-18T16:39:55Z VendorInfo=gohugoio&lt;/li&gt;
+&lt;li&gt;hugo-theme-stack-3.34.2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;hugo&#34;&gt;hugo
+&lt;/h2&gt;&lt;p&gt;首先先下载Hugo:&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/installation/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Installation&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo new site YourblogName
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; YourblogName
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. Change the current directory to D:\code\hugo\blog.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. Create or install a theme:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   - Create a new theme with the command &amp;#34;hugo new theme &amp;lt;THEMENAME&amp;gt;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   - Or, install a theme from https://themes.gohugo.io/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. Edit hugo.toml, setting the &amp;#34;theme&amp;#34; property to the theme name.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;4. Create new content with the command &amp;#34;hugo new content &amp;lt;SECTIONNAME&amp;gt;\&amp;lt;FILENAME&amp;gt;.&amp;lt;FORMAT&amp;gt;&amp;#34;.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5. Start the embedded web server with the command &amp;#34;hugo server --buildDrafts&amp;#34;.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;hugo-stack&#34;&gt;hugo-stack
+&lt;/h2&gt;&lt;p&gt;hugo-stack是一个hugo-stack的模板，感觉还挺好看的。
+搭建出来的效果是这样的（其实右边的目录占的位置再小一点就好了，有空可以魔改一下）
+&lt;img src=&#34;http://blog.trialpro.top/attachment/60de1e7ed7cf5f6e2d074e247f2b142f.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;坑
+先前被坑过，不要用4.0.beta!不要用4.0.beta!!不要用4.0.beta!!!
+文档不太完善，而且4.0.beta版本的配置文件还有自己手搓太麻烦了。而且是一个实验版本，不建议做小白鼠。。。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/releases/tag/v3.34.2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Release v3.34.2 · CaiJimmy/hugo-theme-stack&lt;/a&gt;
+可以试试这个版本，v3的还是比较稳定的&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;解压放到&lt;code&gt;&amp;lt;blog-name&amp;gt;\themes&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;改名成&lt;code&gt;hugo-theme-stack&lt;/code&gt;，就是版本号去掉(&lt;code&gt;hugo-theme-stack-3.34.2&lt;/code&gt;$\to$&lt;code&gt;hugo-theme-stack&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;把&lt;code&gt;&amp;lt;blog-name&amp;gt;\themes\demo\hugo.yaml&lt;/code&gt;复制到&lt;code&gt;&amp;lt;blog-name&amp;gt;&lt;/code&gt;，并且删掉&lt;code&gt;&amp;lt;blog-name&amp;gt;\hugo.toml&lt;/code&gt;(删掉的是**.toml&lt;strong&gt;而非&lt;/strong&gt;.yaml**)
+\[这里说明，根据[配置 Hugo | Hugo官方文档](https://hugo.opendocs.io/getting-started/configuration/)，说明了可以支持`hugo.toml`, `hugo.yaml`, 或者 `hugo.json`\]&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;github&#34;&gt;Github
+&lt;/h2&gt;&lt;p&gt;写好文章之后&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo -D
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后会生成一个&lt;code&gt;&amp;lt;blog-name&amp;gt;\public&lt;/code&gt;文件，把这个文件上传到GitHub 仓库就可以了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch -M main
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &amp;#34;update&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/16f3cffed54bd4e13bac1fa183ec3f8a.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/55f0aca26a58340c3287ecfd99e06eaf.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/3cb8da3b88ec512f47cf91e441be4f09.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;问题是有点难用，每次写好文章都要git上传。。。。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;写图文也是非常麻烦的，图片部分一部分要放到static，然后markdown引用还是虚空引用，建议还是obsidian写好之后，用markdown export插件去导出，然后&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo new post/&amp;lt;文件名&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;手动把粘出来的attachment放到static，然后打开复制copy&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &amp;#34;update&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin main -f
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>Mmtls研究总结</title>
         <link>http://blog.trialpro.top/p/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/</link>
         <pubDate>Sun, 22 Feb 2026 23:55:36 +0800</pubDate>

@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="关于如何使用 Stack 主题的文章">
-<title>文档</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本文用于记录通过Hugo搭建个人博客的过程，以便后人复用，或者\n步骤就这几个\nhugo$\\to$hugo stack$\\to$GitHub Page$\\to$Config\nVersion 这里用的版本是\nhugo v0.156.0-9d914726dee87b0e8e3d7890d660221bde372eec+extended windows/amd64 BuildDate=2026-02-18T16:39:55Z VendorInfo=gohugoio hugo-theme-stack-3.34.2 hugo 首先先下载Hugo:Installation\n1 2 3 hugo new site YourblogName cd YourblogName git init 1 2 3 4 5 6 7 1. Change the current directory to D:\\code\\hugo\\blog. 2. Create or install a theme: - Create a new theme with the command &#34;hugo new theme &lt;THEMENAME&gt;&#34; - Or, install a theme from https://themes.gohugo.io/ 3. Edit hugo.toml, setting the &#34;theme&#34; property to the theme name. 4. Create new content with the command &#34;hugo new content &lt;SECTIONNAME&gt;\\&lt;FILENAME&gt;.&lt;FORMAT&gt;&#34;. 5. Start the embedded web server with the command &#34;hugo server --buildDrafts&#34;. hugo-stack hugo-stack是一个hugo-stack的模板，感觉还挺好看的。 搭建出来的效果是这样的（其实右边的目录占的位置再小一点就好了，有空可以魔改一下） ">
+<title>利用Hugo&#43;GitHubPage搭建博客</title>
 
-<link rel='canonical' href='http://blog.trialpro.top/categories/documentation/documentation/'>
+<link rel='canonical' href='http://blog.trialpro.top/p/%E5%88%A9%E7%94%A8hugo-githubpage%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/'>
 
-<link rel="stylesheet" href="/scss/style.min.86591c898bd806857815fbb8c47e8d3fed97c133b78e83d9bfc27b164dd0aa2b.css"><meta property='og:title' content="文档">
-<meta property='og:description' content="关于如何使用 Stack 主题的文章">
-<meta property='og:url' content='http://blog.trialpro.top/categories/documentation/documentation/'>
+<link rel="stylesheet" href="/scss/style.min.86591c898bd806857815fbb8c47e8d3fed97c133b78e83d9bfc27b164dd0aa2b.css"><meta property='og:title' content="利用Hugo+GitHubPage搭建博客">
+<meta property='og:description' content="本文用于记录通过Hugo搭建个人博客的过程，以便后人复用，或者\n步骤就这几个\nhugo$\\to$hugo stack$\\to$GitHub Page$\\to$Config\nVersion 这里用的版本是\nhugo v0.156.0-9d914726dee87b0e8e3d7890d660221bde372eec+extended windows/amd64 BuildDate=2026-02-18T16:39:55Z VendorInfo=gohugoio hugo-theme-stack-3.34.2 hugo 首先先下载Hugo:Installation\n1 2 3 hugo new site YourblogName cd YourblogName git init 1 2 3 4 5 6 7 1. Change the current directory to D:\\code\\hugo\\blog. 2. Create or install a theme: - Create a new theme with the command &#34;hugo new theme &lt;THEMENAME&gt;&#34; - Or, install a theme from https://themes.gohugo.io/ 3. Edit hugo.toml, setting the &#34;theme&#34; property to the theme name. 4. Create new content with the command &#34;hugo new content &lt;SECTIONNAME&gt;\\&lt;FILENAME&gt;.&lt;FORMAT&gt;&#34;. 5. Start the embedded web server with the command &#34;hugo server --buildDrafts&#34;. hugo-stack hugo-stack是一个hugo-stack的模板，感觉还挺好看的。 搭建出来的效果是这样的（其实右边的目录占的位置再小一点就好了，有空可以魔改一下） ">
+<meta property='og:url' content='http://blog.trialpro.top/p/%E5%88%A9%E7%94%A8hugo-githubpage%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/'>
 <meta property='og:site_name' content='Trial Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Categories' /><meta property='og:image' content='http://blog.trialpro.top/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg' />
-<meta name="twitter:title" content="文档">
-<meta name="twitter:description" content="关于如何使用 Stack 主题的文章"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='http://blog.trialpro.top/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='cs' /><meta property='article:published_time' content='2026-02-26T13:49:18&#43;08:00'/><meta property='article:modified_time' content='2026-02-26T13:49:18&#43;08:00'/><meta property='og:image' content='http://blog.trialpro.top/attachment/60de1e7ed7cf5f6e2d074e247f2b142f.png' />
+<meta name="twitter:title" content="利用Hugo+GitHubPage搭建博客">
+<meta name="twitter:description" content="本文用于记录通过Hugo搭建个人博客的过程，以便后人复用，或者\n步骤就这几个\nhugo$\\to$hugo stack$\\to$GitHub Page$\\to$Config\nVersion 这里用的版本是\nhugo v0.156.0-9d914726dee87b0e8e3d7890d660221bde372eec+extended windows/amd64 BuildDate=2026-02-18T16:39:55Z VendorInfo=gohugoio hugo-theme-stack-3.34.2 hugo 首先先下载Hugo:Installation\n1 2 3 hugo new site YourblogName cd YourblogName git init 1 2 3 4 5 6 7 1. Change the current directory to D:\\code\\hugo\\blog. 2. Create or install a theme: - Create a new theme with the command &#34;hugo new theme &lt;THEMENAME&gt;&#34; - Or, install a theme from https://themes.gohugo.io/ 3. Edit hugo.toml, setting the &#34;theme&#34; property to the theme name. 4. Create new content with the command &#34;hugo new content &lt;SECTIONNAME&gt;\\&lt;FILENAME&gt;.&lt;FORMAT&gt;&#34;. 5. Start the embedded web server with the command &#34;hugo server --buildDrafts&#34;. hugo-stack hugo-stack是一个hugo-stack的模板，感觉还挺好看的。 搭建出来的效果是这样的（其实右边的目录占的位置再小一点就好了，有空可以魔改一下） "><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://blog.trialpro.top/attachment/60de1e7ed7cf5f6e2d074e247f2b142f.png' />
     </head>
     <body class="
     article-page
@@ -274,15 +274,49 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#version">Version</a></li>
+    <li><a href="#hugo">hugo</a></li>
+    <li><a href="#hugo-stack">hugo-stack</a></li>
+    <li><a href="#github">Github</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/categories/documentation/documentation/">
+            <a href="/p/%E5%88%A9%E7%94%A8hugo-githubpage%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
                 
-                    <img src="/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" loading="lazy" alt="Featured image of post 文档" />
+                    <img src="/attachment/60de1e7ed7cf5f6e2d074e247f2b142f.png" loading="lazy" alt="Featured image of post 利用Hugo&#43;GitHubPage搭建博客" />
                 
             </a>
         </div>
@@ -293,13 +327,9 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/categories/documentation/documentation/">文档</a>
+            <a href="/p/%E5%88%A9%E7%94%A8hugo-githubpage%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">利用Hugo&#43;GitHubPage搭建博客</a>
         </h2>
 
-        
-        <h3 class="article-subtitle">
-            关于如何使用 Stack 主题的文章
-        </h3>
         
     </div>
 
@@ -308,6 +338,19 @@
     
     
     <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2026-02-26T13:49:18&#43;08:00'>Feb 26, 2026</time>
+            </div>
         
 
         
@@ -321,7 +364,7 @@
 
 
                 <time class="article-time--reading">
-                    0 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -336,12 +379,162 @@
     <section class="article-content">
     
     
-    
+    <p>本文用于记录通过Hugo搭建个人博客的过程，以便后人复用，或者</p>
+<p>步骤就这几个</p>
+<p>hugo$\to$hugo stack$\to$GitHub Page$\to$Config</p>
+<h2 id="version">Version
+</h2><p>这里用的版本是</p>
+<ul>
+<li>hugo v0.156.0-9d914726dee87b0e8e3d7890d660221bde372eec+extended windows/amd64 BuildDate=2026-02-18T16:39:55Z VendorInfo=gohugoio</li>
+<li>hugo-theme-stack-3.34.2</li>
+</ul>
+<h2 id="hugo">hugo
+</h2><p>首先先下载Hugo:<a class="link" href="https://gohugo.io/installation/"  target="_blank" rel="noopener"
+    >Installation</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new site YourblogName
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> YourblogName
+</span></span><span class="line"><span class="cl">git init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. Change the current directory to D:\code\hugo\blog.
+</span></span><span class="line"><span class="cl">2. Create or install a theme:
+</span></span><span class="line"><span class="cl">   - Create a new theme with the command &#34;hugo new theme &lt;THEMENAME&gt;&#34;
+</span></span><span class="line"><span class="cl">   - Or, install a theme from https://themes.gohugo.io/
+</span></span><span class="line"><span class="cl">3. Edit hugo.toml, setting the &#34;theme&#34; property to the theme name.
+</span></span><span class="line"><span class="cl">4. Create new content with the command &#34;hugo new content &lt;SECTIONNAME&gt;\&lt;FILENAME&gt;.&lt;FORMAT&gt;&#34;.
+</span></span><span class="line"><span class="cl">5. Start the embedded web server with the command &#34;hugo server --buildDrafts&#34;.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="hugo-stack">hugo-stack
+</h2><p>hugo-stack是一个hugo-stack的模板，感觉还挺好看的。
+搭建出来的效果是这样的（其实右边的目录占的位置再小一点就好了，有空可以魔改一下）
+<img src="/attachment/60de1e7ed7cf5f6e2d074e247f2b142f.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<blockquote>
+<p>坑
+先前被坑过，不要用4.0.beta!不要用4.0.beta!!不要用4.0.beta!!!
+文档不太完善，而且4.0.beta版本的配置文件还有自己手搓太麻烦了。而且是一个实验版本，不建议做小白鼠。。。</p>
+</blockquote>
+<p><a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/releases/tag/v3.34.2"  target="_blank" rel="noopener"
+    >Release v3.34.2 · CaiJimmy/hugo-theme-stack</a>
+可以试试这个版本，v3的还是比较稳定的</p>
+<ol>
+<li>解压放到<code>&lt;blog-name&gt;\themes</code></li>
+<li>改名成<code>hugo-theme-stack</code>，就是版本号去掉(<code>hugo-theme-stack-3.34.2</code>$\to$<code>hugo-theme-stack</code>)</li>
+<li>把<code>&lt;blog-name&gt;\themes\demo\hugo.yaml</code>复制到<code>&lt;blog-name&gt;</code>，并且删掉<code>&lt;blog-name&gt;\hugo.toml</code>(删掉的是**.toml<strong>而非</strong>.yaml**)
+\[这里说明，根据[配置 Hugo | Hugo官方文档](https://hugo.opendocs.io/getting-started/configuration/)，说明了可以支持`hugo.toml`, `hugo.yaml`, 或者 `hugo.json`\]</li>
+</ol>
+<h2 id="github">Github
+</h2><p>写好文章之后</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo -D
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后会生成一个<code>&lt;blog-name&gt;\public</code>文件，把这个文件上传到GitHub 仓库就可以了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git branch -M main
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m &#34;update&#34;
+</span></span><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/attachment/16f3cffed54bd4e13bac1fa183ec3f8a.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/attachment/55f0aca26a58340c3287ecfd99e06eaf.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/attachment/3cb8da3b88ec512f47cf91e441be4f09.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>问题是有点难用，每次写好文章都要git上传。。。。</p>
+<hr>
+<p>写图文也是非常麻烦的，图片部分一部分要放到static，然后markdown引用还是虚空引用，建议还是obsidian写好之后，用markdown export插件去导出，然后</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo new post/&lt;文件名&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>手动把粘出来的attachment放到static，然后打开复制copy</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m &#34;update&#34;
+</span></span><span class="line"><span class="cl">git push -u origin main -f
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/cs/">Cs</a>
+        
+    </section>
+
 
     </footer>
 
