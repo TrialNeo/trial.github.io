@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本文用于记录通过Hugo搭建个人博客的过程，以便后人复用，或者\n步骤就这几个\nhugo$\\to$hugo stack$\\to$GitHub Page$\\to$Config\nVersion 这里用的版本是\nhugo v0.156.0-9d914726dee87b0e8e3d7890d660221bde372eec+extended windows/amd64 BuildDate=2026-02-18T16:39:55Z VendorInfo=gohugoio hugo-theme-stack-3.34.2 hugo 首先先下载Hugo:Installation\n1 2 3 hugo new site YourblogName cd YourblogName git init 1 2 3 4 5 6 7 1. Change the current directory to D:\\code\\hugo\\blog. 2. Create or install a theme: - Create a new theme with the command &#34;hugo new theme &lt;THEMENAME&gt;&#34; - Or, install a theme from https://themes.gohugo.io/ 3. Edit hugo.toml, setting the &#34;theme&#34; property to the theme name. 4. Create new content with the command &#34;hugo new content &lt;SECTIONNAME&gt;\\&lt;FILENAME&gt;.&lt;FORMAT&gt;&#34;. 5. Start the embedded web server with the command &#34;hugo server --buildDrafts&#34;. hugo-stack hugo-stack是一个hugo-stack的模板，感觉还挺好看的。 搭建出来的效果是这样的（其实右边的目录占的位置再小一点就好了，有空可以魔改一下） ">
 <title>利用Hugo&#43;GitHubPage搭建博客</title>
@@ -41,7 +41,7 @@
     })();
 </script>
 <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
@@ -71,7 +71,7 @@
         
         <div class="site-meta">
             <h1 class="site-name"><a href="/">Trial Blog</a></h1>
-            <h2 class="site-description">Example description</h2>
+            <h2 class="site-description">Hello!Welcome to your visit.</h2>
         </div>
     </header><ol class="menu-social">
             
@@ -218,35 +218,6 @@
         
         <li class="menu-bottom-section">
             <ol class="menu">
-                    
-                        <li id="i18n-switch">  
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M4 5h7" />
-  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
-  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
-  <path d="M12 20l4 -9l4 9" />
-  <path d="M19.1 18h-6.2" />
-</svg>
-
-
-
-                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
-                                
-                                    <option value="http://blog.trialpro.top/" selected>English</option>
-                                
-                                    <option value="http://blog.trialpro.top/ja/" >日本語</option>
-                                
-                                    <option value="http://blog.trialpro.top/zh-cn/" >简体中文</option>
-                                
-                                    <option value="http://blog.trialpro.top/zh-tw/" >正體中文</option>
-                                
-                                    <option value="http://blog.trialpro.top/ar/" >عربي</option>
-                                
-                            </select>
-                        </li>
-                    
-                
 
                 
                     <li id="dark-mode-toggle">
@@ -266,7 +237,7 @@
 
 
 
-                        <span>Dark Mode</span>
+                        <span>暗色模式</span>
                     </li>
                 
             </ol>
@@ -291,7 +262,7 @@
 
 
         </div>
-        <h2 class="widget-title section-title">Table of contents</h2>
+        <h2 class="widget-title section-title">目录</h2>
         
         <div class="widget--toc">
             <nav id="TableOfContents">
@@ -364,7 +335,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -581,46 +552,55 @@
      
     
         
-    <div class="disqus-container">
-    <div id="disqus_thread"></div>
+    <script
+    src="https://giscus.app/client.js"
+    data-repo=""
+    data-repo-id=""
+    data-category=""
+    data-category-id=""
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading=""
+    crossorigin="anonymous"
+    async
+></script>
 <script>
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
         }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
-
-<style>
-    .disqus-container {
-        background-color: var(--card-background);
-        border-radius: var(--card-border-radius);
-        box-shadow: var(--shadow-l1);
-        padding: var(--card-padding);
     }
-</style>
 
-<script>
-    window.addEventListener('onColorSchemeChange', (e) => {
-        if (typeof DISQUS == 'object') {
-            DISQUS.reset({
-                reload: true
-            });
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
         }
-    })
+    })();
 </script>
 
     
@@ -633,8 +613,8 @@
     </section>
     
     <section class="powerby">
-        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/TrialNeo" target="_blank" rel="noopener" data-version="3.34.2">Stack</a></b> designed by <a href="https://github.com/TrialNeo" target="_blank" rel="noopener">Trial</a>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/TrialNeo" target="_blank" rel="noopener" data-version="3.34.2">Stack</a></b> 由 <a href="https://github.com/TrialNeo" target="_blank" rel="noopener">Trial</a> 设计
     </section>
 </footer>
 
