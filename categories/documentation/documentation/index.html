@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="关于如何使用 Stack 主题的文章">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Stack テーマの使用方法に関する投稿">
 <title>文檔</title>
 
 <link rel='canonical' href='http://blog.trialpro.top/categories/documentation/documentation/'>
 
 <link rel="stylesheet" href="/scss/style.min.86591c898bd806857815fbb8c47e8d3fed97c133b78e83d9bfc27b164dd0aa2b.css"><meta property='og:title' content="文档">
-<meta property='og:description' content="关于如何使用 Stack 主题的文章">
+<meta property='og:description' content="Stack テーマの使用方法に関する投稿">
 <meta property='og:url' content='http://blog.trialpro.top/categories/documentation/documentation/'>
 <meta property='og:site_name' content='Trial Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Categories' /><meta property='og:image' content='http://blog.trialpro.top/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg' />
 <meta name="twitter:title" content="文档">
-<meta name="twitter:description" content="关于如何使用 Stack 主题的文章"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Stack テーマの使用方法に関する投稿"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='http://blog.trialpro.top/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg' />
     </head>
     <body class="
@@ -264,12 +264,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/categories/documentation/documentation/">文檔</a>
+            <a href="/categories/documentation/documentation/">文档</a>
         </h2>
 
         
         <h3 class="article-subtitle">
-            關於如何使用 Stack 主題的文章
+            关于如何使用 Stack 主题的文章
         </h3>
         
     </div>
@@ -359,51 +359,56 @@
      
     
         
-    <script src="https://utteranc.es/client.js" 
-        repo="github.com/TrialNeo/trial.github.io"
-        issue-term="issue"
-        
-        crossorigin="anonymous"
-        async
-        >
-</script>
-
-<style>
-    .utterances {
-        max-width: unset;
-    }
-</style>
-
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="TrialNeo/trial.github.io"
+    data-repo-id="R_kgDORVapIA"
+    data-category="Announcements"
+    data-category-id="DIC_kwDORVapIM4C3PAV"
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading=""
+    crossorigin="anonymous"
+    async
+></script>
 <script>
-    let utterancesLoaded = false;
-
-    function setUtterancesTheme(theme) {
-        let utterances = document.querySelector('.utterances iframe');
-        if (utterances) {
-            utterances.contentWindow.postMessage(
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
                 {
-                    type: 'set-theme',
-                    theme: `github-${theme}`
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
                 },
-                'https://utteranc.es'
+                "https://giscus.app"
             );
         }
     }
 
-    addEventListener('message', event => {
-        if (event.origin !== 'https://utteranc.es') return;
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
 
-        
-        utterancesLoaded = true;
-        setUtterancesTheme(document.documentElement.dataset.scheme)
-    });
-
-    window.addEventListener('onColorSchemeChange', (e) => {
-        if (!utterancesLoaded) return;
-        setUtterancesTheme(e.detail)
-    })
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dart');
+            }
+        }
+    })();
 </script>
-
 
     
 
@@ -518,6 +523,10 @@
         document.head.appendChild(customFont);
     }());
 </script>
+
+    </body>
+</html>
+t>
 
     </body>
 </html>
