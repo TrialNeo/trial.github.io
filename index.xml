@@ -7,7 +7,83 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>shenpanpro@gmail.com</copyright>
-        <lastBuildDate>Thu, 26 Feb 2026 13:49:18 +0800</lastBuildDate><atom:link href="http://blog.trialpro.top/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Mar 2026 17:08:52 +0800</lastBuildDate><atom:link href="http://blog.trialpro.top/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>华南农业大学2026转计算机专业总结</title>
+        <link>http://blog.trialpro.top/p/%E5%8D%8E%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A62026%E8%BD%AC%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E6%80%BB%E7%BB%93/</link>
+        <pubDate>Sat, 07 Mar 2026 17:08:52 +0800</pubDate>
+        
+        <guid>http://blog.trialpro.top/p/%E5%8D%8E%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A62026%E8%BD%AC%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E6%80%BB%E7%BB%93/</guid>
+        <description>&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;不知道有没有成功，但是有经验可供后续复用的。现在先写下来完整的过程。&lt;/p&gt;
+&lt;p&gt;本文写于2026年3月7日。有31个人申请计算机科学与技术专业，一共有10个名额；以前有12个名额的，今年分了两个出去开了个新班级。&lt;/p&gt;
+&lt;p&gt;奇怪的是今年多了一个温氏班，只有两个名额，然后也刚好只有两个人报名，属于是&lt;strong&gt;点击就送&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;总共有两个部分，&lt;strong&gt;机试和面试&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;机试&#34;&gt;机试
+&lt;/h2&gt;&lt;p&gt;题目大概不记得了；思路还记得。&lt;/p&gt;
+&lt;p&gt;规则是可以无限提交，时间是两个半小时。每道题的分值是6、7、8&lt;/p&gt;
+&lt;p&gt;考试不要太紧张，就是在这里吃了大亏，还好运气好混进面试了。&lt;/p&gt;
+&lt;p&gt;数据结构是没有的，可能以后会有。还有就是oj平台上面会有api手册的，记不得命令可以查一下。。
+我们抽到的题目重点是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;循环分支就是一堆if-else，switch-case之类的&lt;/li&gt;
+&lt;li&gt;基础的输入打印&lt;/li&gt;
+&lt;li&gt;字符串比较&lt;/li&gt;
+&lt;li&gt;多重循环&lt;/li&gt;
+&lt;li&gt;0-1背包&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其实&lt;strong&gt;只是做SCAU的c语言oj题目的话可能是不够的&lt;/strong&gt;，还需要补一点leetcode的上面的模块的知识。&lt;/p&gt;
+&lt;p&gt;题目不记得了，记得也没用的，&lt;strong&gt;他的题不是oj原题而是改编&lt;/strong&gt;，或者说是类似于数学上的综合题，变式题。当然你能力上去了自然而然能做出来的别担心&lt;/p&gt;
+&lt;p&gt;我自己（没有刷过LeetCode之类的）做起来就是很多东西都要现推，然后就很紧张，考场有几个同学很快就做完了，还会更紧张。&lt;/p&gt;
+&lt;h2 id=&#34;面试&#34;&gt;面试
+&lt;/h2&gt;&lt;p&gt;这里真的是梦到什么说什么了，这里&lt;strong&gt;大概&lt;/strong&gt;说一下我记得的问题和回答吧。
+这部分还是感觉有点吃亏，准备得非常不充分，梦到什么说什么。&lt;/p&gt;
+&lt;h3 id=&#34;q1自我介绍&#34;&gt;Q1：自我介绍
+&lt;/h3&gt;&lt;p&gt;我是XXX，来自于XXXX（不要盒我，互联网需要隐私），小学就开始编程，当时玩的是易语言（说到这里有个老师很疑惑看着我，应该是想问我什么是易语言，后面顺带解释下），就是中文化的VB；然后做过QQ机器人的插件。初中那会就开始接单赚米了，这段时间的话在做一个授权管理系统，可以关注一下我的Github哦。
+我对计算机一开始好奇，慢慢变成爱好，然后变成热爱了。&lt;/p&gt;
+&lt;p&gt;（&lt;strong&gt;自我介绍很重要，老师会根据你的自我介绍来重点提问&lt;/strong&gt;（可以看看后文会有所体现），没做过的事情就不要说了，一问就出真假了）&lt;/p&gt;
+&lt;h3 id=&#34;q2看你的经历比较多是偏向于软件工程的为什么要来我们计算机呢&#34;&gt;Q2：看你的经历比较多是偏向于软件工程的，为什么要来我们计算机呢？
+&lt;/h3&gt;&lt;p&gt;比如说做QQ机器人的插件，其中要研究通讯协议，其实软工的知识还不够。
+（老师插话：就是需要更底层的只是是吗？ 我感觉完蛋了，老师把我的话说出来了我的天）
+是的，希望老师们给我个机会，谢谢。&lt;/p&gt;
+&lt;h3 id=&#34;q3计算机课程压力会比较大怎么平衡你的接单和学业呢&#34;&gt;Q3：计算机课程压力会比较大，怎么平衡你的接单和学业呢？
+&lt;/h3&gt;&lt;p&gt;其实很久没接过单子了，这段时间主要在打比赛做项目，练技术之类的。应该是能平衡好的&lt;/p&gt;
+&lt;h3 id=&#34;q4打比赛相关这里有点记不清了有些关键点还能想起来可以参考参考&#34;&gt;Q4：打比赛相关（这里有点记不清了，有些关键点还能想起来，可以参考参考）
+&lt;/h3&gt;&lt;p&gt;Q4_{1}你说你在打比赛，具体参加了哪些项目呢？？
+攀登计划
+Q4_{2}：是什么方向的
+然后我的项目方向，主要是做后端Agent的。&lt;/p&gt;
+&lt;h3 id=&#34;q5和同学们的关系怎么样&#34;&gt;Q5：和同学们的关系怎么样
+&lt;/h3&gt;&lt;p&gt;（这个应该是辅导员问的，因为这位老师问的问题比较&lt;strong&gt;生活化&lt;/strong&gt;，不太涉及知识；但是后面看也是这里答的最不好）&lt;/p&gt;
+&lt;p&gt;很好啊打成一片，和谐友爱。&lt;/p&gt;
+&lt;p&gt;（就是回答的太简单了之类的，应该多说两句自己的情况）&lt;/p&gt;
+&lt;h3 id=&#34;q6看你的手好像很紧张给自己打个紧张分把0-100说说为什么紧张&#34;&gt;Q6：看你的手好像很紧张，给自己打个紧张分把（0-100）；说说为什么紧张？
+&lt;/h3&gt;&lt;p&gt;（我天 我都快成高压锅了，这时候来一个这个问题，真的彻底开锅了。。。）&lt;/p&gt;
+&lt;p&gt;略，不想回忆痛苦的事。&lt;/p&gt;
+&lt;h3 id=&#34;q7你对原专业xx工程的认识是怎样的对计算机的认识又是怎样的学了计算机之后你能不能怎么反哺原专业呢&#34;&gt;Q7：你对原专业XX工程的认识是怎样的。对计算机的认识又是怎样的？学了计算机之后你能不能怎么“反哺”原专业呢
+&lt;/h3&gt;&lt;p&gt;（原文用的不是反哺这个词，但是差不多就是怎么和原专业结合之类的意思）&lt;/p&gt;
+&lt;p&gt;原专业的不说了，还是那个隐私问题。&lt;/p&gt;
+&lt;p&gt;计算机是数据input然后处理最后output数据&lt;/p&gt;
+&lt;p&gt;（不要夹英文比较好，当时控制不住，而且回答的太简单了，又暴露了自己“调包侠”的身份）&lt;/p&gt;
+&lt;p&gt;“反哺”原专业也不说还是隐私问题。&lt;/p&gt;
+&lt;h3 id=&#34;反问&#34;&gt;反问
+&lt;/h3&gt;&lt;p&gt;最后有一个反问环节，你可以问老师们一些问题。可以想一个问题让老师们记住你哦。&lt;/p&gt;
+&lt;p&gt;这个就不说了，自己应该会提出问题，不单单是回答问题。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;老师们的微表情也是很重要的，但是有时候他们笑嘻嘻的可能就给你差评的emmm，有时候一直追着杀也有可能很满意想要更了解你，在过程中还是建议谦逊，坦诚。&lt;/p&gt;
+&lt;p&gt;希望运气好点吧哈哈哈。&lt;/p&gt;
+&lt;h2 id=&#34;结果&#34;&gt;结果
+&lt;/h2&gt;&lt;p&gt;还没有结果。希望能中奖吧。&lt;/p&gt;
+&lt;h2 id=&#34;建议阅读&#34;&gt;建议阅读
+&lt;/h2&gt;&lt;p&gt;可以读一下其他前辈的经验哈哈，希望他们看到了能给我加个友联&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/LHD_12138/article/details/136724544&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SCAU 华南农业大学 软件工程转专业经历分享_华南农业大学计算机机试软件-CSDN博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.lin-kai.top/2024/03/17/SCAU%e8%bd%ac%e4%b8%93%e4%b8%9a_%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%b3%bb/SCAU%e8%bd%ac%e4%b8%93%e4%b8%9a_%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%b3%bb/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SCAU 转专业_计算机系 | Link 的博客&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>利用Hugo&#43;GitHubPage搭建博客</title>
         <link>http://blog.trialpro.top/p/%E5%88%A9%E7%94%A8hugo-githubpage%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Thu, 26 Feb 2026 13:49:18 +0800</pubDate>
