@@ -9,10 +9,10 @@
         <copyright>shenpanpro@gmail.com</copyright>
         <lastBuildDate>Sat, 07 Mar 2026 17:08:52 +0800</lastBuildDate><atom:link href="http://blog.trialpro.top/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>华南农业大学2026转计算机专业总结</title>
-        <link>http://blog.trialpro.top/p/%E5%8D%8E%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A62026%E8%BD%AC%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E6%80%BB%E7%BB%93/</link>
+        <link>http://blog.trialpro.top/post/switch_marjor_in_scau_2026/</link>
         <pubDate>Sat, 07 Mar 2026 17:08:52 +0800</pubDate>
         
-        <guid>http://blog.trialpro.top/p/%E5%8D%8E%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A62026%E8%BD%AC%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E6%80%BB%E7%BB%93/</guid>
+        <guid>http://blog.trialpro.top/post/switch_marjor_in_scau_2026/</guid>
         <description>&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;不知道有没有成功，但是有经验可供后续复用的。现在先写下来完整的过程。&lt;/p&gt;
 &lt;p&gt;本文写于2026年3月7日。有31个人申请计算机科学与技术专业，一共有10个名额；以前有12个名额的，今年分了两个出去开了个新班级。&lt;/p&gt;
@@ -86,10 +86,10 @@
         </item>
         <item>
         <title>利用Hugo&#43;GitHubPage搭建博客</title>
-        <link>http://blog.trialpro.top/p/%E5%88%A9%E7%94%A8hugo-githubpage%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+        <link>http://blog.trialpro.top/post/build_blog_by_hugo-github_page/</link>
         <pubDate>Thu, 26 Feb 2026 13:49:18 +0800</pubDate>
         
-        <guid>http://blog.trialpro.top/p/%E5%88%A9%E7%94%A8hugo-githubpage%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+        <guid>http://blog.trialpro.top/post/build_blog_by_hugo-github_page/</guid>
         <description>&lt;img src="http://blog.trialpro.top/attachment/60de1e7ed7cf5f6e2d074e247f2b142f.png" alt="Featured image of post 利用Hugo&#43;GitHubPage搭建博客" /&gt;&lt;p&gt;本文用于记录通过Hugo搭建个人博客的过程，以便后人复用，或者&lt;/p&gt;
 &lt;p&gt;步骤就这几个&lt;/p&gt;
 &lt;p&gt;hugo$\to$hugo stack$\to$GitHub Page$\to$Config&lt;/p&gt;
@@ -238,10 +238,10 @@
         </item>
         <item>
         <title>Mmtls研究总结</title>
-        <link>http://blog.trialpro.top/p/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/</link>
+        <link>http://blog.trialpro.top/post/research_for_mmtls/</link>
         <pubDate>Sun, 22 Feb 2026 23:55:36 +0800</pubDate>
         
-        <guid>http://blog.trialpro.top/p/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/</guid>
+        <guid>http://blog.trialpro.top/post/research_for_mmtls/</guid>
         <description>&lt;img src="http://blog.trialpro.top/attachment/0dcdfc8e8fa3a35338218e165204dec0.png" alt="Featured image of post Mmtls研究总结" /&gt;&lt;h2 id=&#34;背景前提&#34;&gt;背景前提
 &lt;/h2&gt;&lt;p&gt;没有的就是想看看别人怎么做的，让自己在实际开发也有好的方案可以参考参考
 &lt;strong&gt;“本文档仅为个人技术学习与研究目的而撰写，不涉及任何微信业务层用户数据。所有分析均在合法授权的个人测试环境中进行。严禁用于任何非法用途。”&lt;/strong&gt;&lt;/p&gt;
@@ -884,10 +884,10 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
         </item>
         <item>
         <title>一次iphone 8p越狱&#43;修复推送记录</title>
-        <link>http://blog.trialpro.top/p/%E4%B8%80%E6%AC%A1iphone-8p%E8%B6%8A%E7%8B%B1-%E4%BF%AE%E5%A4%8D%E6%8E%A8%E9%80%81%E8%AE%B0%E5%BD%95/</link>
+        <link>http://blog.trialpro.top/post/%E4%B8%80%E6%AC%A1iphone-8p%E8%B6%8A%E7%8B%B1-%E4%BF%AE%E5%A4%8D%E6%8E%A8%E9%80%81%E8%AE%B0%E5%BD%95/</link>
         <pubDate>Sun, 22 Feb 2026 23:00:02 +0800</pubDate>
         
-        <guid>http://blog.trialpro.top/p/%E4%B8%80%E6%AC%A1iphone-8p%E8%B6%8A%E7%8B%B1-%E4%BF%AE%E5%A4%8D%E6%8E%A8%E9%80%81%E8%AE%B0%E5%BD%95/</guid>
+        <guid>http://blog.trialpro.top/post/%E4%B8%80%E6%AC%A1iphone-8p%E8%B6%8A%E7%8B%B1-%E4%BF%AE%E5%A4%8D%E6%8E%A8%E9%80%81%E8%AE%B0%E5%BD%95/</guid>
         <description>&lt;img src="http://blog.trialpro.top/attachment/7180d9e948230ee0f8489294ff422b1a.jpg" alt="Featured image of post 一次iphone 8p越狱&#43;修复推送记录" /&gt;&lt;h2 id=&#34;i4tools&#34;&gt;i4tools
 &lt;/h2&gt;&lt;p&gt;先试一下i4tools
 &lt;img src=&#34;http://blog.trialpro.top/attachment/05927a1e2432cde2f33d932d17ab35cf.png&#34;
