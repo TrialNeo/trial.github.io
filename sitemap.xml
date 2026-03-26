@@ -2,23 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://blog.trialpro.top/post/cosine-similarity-algorithm/</loc>
+    <lastmod>2026-03-26T20:08:43+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.trialpro.top/tags/cs/</loc>
+    <lastmod>2026-03-26T20:08:43+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.trialpro.top/tags/cs_algorithm/</loc>
+    <lastmod>2026-03-26T20:08:43+08:00</lastmod>
+  </url><url>
     <loc>http://blog.trialpro.top/post/</loc>
-    <lastmod>2026-03-07T17:08:52+08:00</lastmod>
+    <lastmod>2026-03-26T20:08:43+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.trialpro.top/tags/</loc>
+    <lastmod>2026-03-26T20:08:43+08:00</lastmod>
+  </url><url>
+    <loc>http://blog.trialpro.top/</loc>
+    <lastmod>2026-03-26T20:08:43+08:00</lastmod>
   </url><url>
     <loc>http://blog.trialpro.top/tags/scau_life/</loc>
     <lastmod>2026-03-07T17:08:52+08:00</lastmod>
   </url><url>
-    <loc>http://blog.trialpro.top/tags/</loc>
-    <lastmod>2026-03-07T17:08:52+08:00</lastmod>
-  </url><url>
-    <loc>http://blog.trialpro.top/</loc>
-    <lastmod>2026-03-08T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://blog.trialpro.top/post/switch_marjor_in_scau_2026/</loc>
     <lastmod>2026-03-07T17:08:52+08:00</lastmod>
-  </url><url>
-    <loc>http://blog.trialpro.top/tags/cs/</loc>
-    <lastmod>2026-02-26T13:49:18+08:00</lastmod>
   </url><url>
     <loc>http://blog.trialpro.top/post/build_blog_by_hugo-github_page/</loc>
     <lastmod>2026-02-26T13:49:18+08:00</lastmod>
