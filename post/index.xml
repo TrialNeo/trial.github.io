@@ -8,12 +8,12 @@
         <language>zh-cn</language>
         <copyright>shenpanpro@gmail.com</copyright>
         <lastBuildDate>Tue, 21 Apr 2026 09:58:46 +0800</lastBuildDate><atom:link href="http://blog.trialpro.top/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>SCAU 数电实验：一位二进制全加减器的实现</title>
-        <link>http://blog.trialpro.top/post/scau-%E6%95%B0%E7%94%B5%E5%AE%9E%E9%AA%8C%E4%B8%80%E4%BD%8D%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%85%A8%E5%8A%A0%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
+        <title></title>
+        <link>http://blog.trialpro.top/post/</link>
         <pubDate>Tue, 21 Apr 2026 09:58:46 +0800</pubDate>
         
-        <guid>http://blog.trialpro.top/post/scau-%E6%95%B0%E7%94%B5%E5%AE%9E%E9%AA%8C%E4%B8%80%E4%BD%8D%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%85%A8%E5%8A%A0%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
-        <description>&lt;img src="http://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png" alt="Featured image of post SCAU 数电实验：一位二进制全加减器的实现" /&gt;&lt;h2 id=&#34;1-题目&#34;&gt;1 题目
+        <guid>http://blog.trialpro.top/post/</guid>
+        <description>&lt;img src="http://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png" alt="Featured image of post " /&gt;&lt;h2 id=&#34;1-题目&#34;&gt;1 题目
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;设计实现一个加/减法器，该电路在M控制下进行加、减运算。当$M=0$时，实现全加器功能；当$M=1$时，实现全减器功能。&lt;/p&gt;
 &lt;/blockquote&gt;
