@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Digital_circuits on Trial Blog</title>
-        <link>http://localhost:1313/tags/digital_circuits/</link>
+        <link>http://blog.trialpro.top/tags/digital_circuits/</link>
         <description>Recent content in Digital_circuits on Trial Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>shenpanpro@gmail.com</copyright>
-        <lastBuildDate>Tue, 21 Apr 2026 09:58:46 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/digital_circuits/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 21 Apr 2026 09:58:46 +0800</lastBuildDate><atom:link href="http://blog.trialpro.top/tags/digital_circuits/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>SCAU全加器全减器的实现</title>
-        <link>http://localhost:1313/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
+        <link>http://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
         <pubDate>Tue, 21 Apr 2026 09:58:46 +0800</pubDate>
         
-        <guid>http://localhost:1313/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
-        <description>&lt;img src="http://localhost:1313/attachment/076c7cb7985800b0f74c81849b3c1998.png" alt="Featured image of post SCAU全加器全减器的实现" /&gt;&lt;h2 id=&#34;1-题目&#34;&gt;1 题目
+        <guid>http://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
+        <description>&lt;img src="http://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png" alt="Featured image of post SCAU全加器全减器的实现" /&gt;&lt;h2 id=&#34;1-题目&#34;&gt;1 题目
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;设计实现一个加/减法器，该电路在M控制下进行加、减运算。当$M=0$时，实现全加器功能；当$M=1$时，实现全减器功能。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;2-前言&#34;&gt;2 前言
 &lt;/h2&gt;&lt;p&gt;网上看了一些现有的回答都是很玄学的，要么就默认你已经掌握了整个流程直接给出结果（不是我们如果知道了为什么还要看你的帖子，自己没有笔记吗可恶）；还有一些全加和全减是分开的，没有用一个控制电路合起来。&lt;/p&gt;
-&lt;p&gt;老师上课其实讲过取补码的方法，但是实验器械过于简陋，==只给了非门、与非门和异或门==，每个两片，真的要按这种思路来做步子迈大了容易扯到淡。&lt;/p&gt;
+&lt;p&gt;老师上课其实讲过取补码的方法，但是实验器械过于简陋，&lt;mark&gt;只给了非门、与非门和异或门&lt;/mark&gt;，每个两片，真的要按这种思路来做步子迈大了容易扯到淡。&lt;/p&gt;
 &lt;p&gt;本位和差的结果
 &lt;/p&gt;
 $$
@@ -201,7 +201,7 @@ $$&lt;p&gt;下面只讨论进位的那个部分，本位和与差可以看&lt;a 
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/076c7cb7985800b0f74c81849b3c1998.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png&#34;
 	
 	
 	

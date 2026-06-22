@@ -2,26 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Trial Blog</title>
-        <link>http://localhost:1313/</link>
+        <link>http://blog.trialpro.top/</link>
         <description>Recent content on Trial Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>shenpanpro@gmail.com</copyright>
-        <lastBuildDate>Wed, 17 Jun 2026 23:44:19 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 17 Jun 2026 23:44:19 +0800</lastBuildDate><atom:link href="http://blog.trialpro.top/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>关于AI Agent时代的思考</title>
-        <link>http://localhost:1313/post/ai-agent-era-reflection/</link>
+        <link>http://blog.trialpro.top/post/ai-agent-era-reflection/</link>
         <pubDate>Wed, 17 Jun 2026 23:44:19 +0800</pubDate>
         
-        <guid>http://localhost:1313/post/ai-agent-era-reflection/</guid>
-        <description>&lt;h2 id=&#34;前言&#34;&gt;前言
-&lt;/h2&gt;&lt;h3 id=&#34;个人感想&#34;&gt;个人感想
-&lt;/h3&gt;&lt;p&gt;在口罩时期，ChatGPT爆火到现在其实有三四年了，那时候刚好在上高中，接触互联网的时间变少了（基本就是隔离了）；比较可惜的是，以前的产业也荒废了，到现在反而有一种跟不上时代的恐慌。&lt;/p&gt;
-&lt;p&gt;到我高考完的时候有朋友带我了解vibe coding，才短短几年就有了翻天覆地的变化，让我更加感叹的是以前的编程门槛马上就被消磨很多了。再到一年后的今天，又新出了Opus 4.8，GPT5.5，GLM5.2，以前的年更LLM也变成了现在的月更，Coding能力也一直在上升，在写前后端的体验中给我的感觉就是，有时候确实是没人类什么事情了。&lt;/p&gt;
+        <guid>http://blog.trialpro.top/post/ai-agent-era-reflection/</guid>
+        <description>&lt;img src="http://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg" alt="Featured image of post 关于AI Agent时代的思考" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;下面的AI普遍指的是大语言模型&lt;/p&gt;
+&lt;h3 id=&#34;个人感想&#34;&gt;个人感想
+&lt;/h3&gt;&lt;p&gt;在口罩时期，ChatGPT爆火，而到现在其实有三四年了，那时候刚好在上高中，接触互联网的时间变少了（基本就是隔离了）；比较可惜的是，以前的产业也荒废了，到现在反而有一种跟不上时代的恐慌。&lt;/p&gt;
+&lt;p&gt;到我高考完的时候有朋友带我了解vibe coding，才短短几年就有了翻天覆地的变化，让我更加感叹的是以前的编程门槛马上就被消磨很多了。再到一年后的今天，又新出了Opus 4.8，GPT5.5，GLM5.2，以前的年更LLM也变成了现在的月更，Coding能力也一直在上升，在写&lt;strong&gt;前后端&lt;/strong&gt;的体验中给我的感觉就是：好像没人类什么事情了。&lt;/p&gt;
 &lt;h3 id=&#34;维新派与守旧派&#34;&gt;“维新派”与“守旧派”
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg&#34;
 	width=&#34;850&#34;
 	height=&#34;1291&#34;
-	srcset=&#34;http://localhost:1313/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_7848d484cc1e3ce7.jpg 480w, http://localhost:1313/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_b0b2e650d73a1bad.jpg 1024w&#34;
+	srcset=&#34;http://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_7848d484cc1e3ce7.jpg 480w, http://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_b0b2e650d73a1bad.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;梗图：维新派VS守旧派&#34;
@@ -32,21 +33,31 @@
 		data-flex-basis=&#34;158px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;h4 id=&#34;评价&#34;&gt;评价
+&lt;/h4&gt;&lt;p&gt;这只是在软件开发领域，其实真是的计算机环境中不止是Coding，还有一直在做的逆向，算法，建模还没试过。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;（以下全是在软件工程领域的感想）个人的思想转变：一开始的时候还是不认为AI能够完成任务的，即使做出来也很粗糙$\to$AI可以做一些模板替换的工作，效率还是挺不错的，只需要我们审核一下逻辑和代码规范就好了$\to$自己来做一个大体的架构，写好规范文档，AI打通全流程（但是还是不敢全盘交给AI，该审核还是得审核），关键的地方还是得自己下场修改或者说是纠正。&lt;/p&gt;
+&lt;p&gt;人类的学习速度再怎么快也是学不过AI的，因为AI能够日夜不停得学还不用时间去消化（但是我一直很怀疑Transformer架构真的能做到真智能吗），以前把AI当成大号搜索引擎，但是这还是不太够，人们也挖掘出来他的Agent能力，所以我们&lt;mark&gt;怎么看待AI是一个很关键的事情&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;SO在这波AI浪潮来的时候我们应该怎么办？&lt;/p&gt;
+&lt;h2 id=&#34;what-can-we-do&#34;&gt;WHAT CAN WE DO
+&lt;/h2&gt;&lt;p&gt;&lt;mark&gt;核心观点&lt;/mark&gt;是我们应该&lt;mark&gt;多用AI，善用AI&lt;/mark&gt;，&lt;/p&gt;
+&lt;h3 id=&#34;搭建ai工作流&#34;&gt;搭建AI工作流
+&lt;/h3&gt;&lt;p&gt;看的L站的佬友的，但是进行了魔改&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>SCAU全加器全减器的实现</title>
-        <link>http://localhost:1313/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
+        <link>http://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
         <pubDate>Tue, 21 Apr 2026 09:58:46 +0800</pubDate>
         
-        <guid>http://localhost:1313/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
-        <description>&lt;img src="http://localhost:1313/attachment/076c7cb7985800b0f74c81849b3c1998.png" alt="Featured image of post SCAU全加器全减器的实现" /&gt;&lt;h2 id=&#34;1-题目&#34;&gt;1 题目
+        <guid>http://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
+        <description>&lt;img src="http://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png" alt="Featured image of post SCAU全加器全减器的实现" /&gt;&lt;h2 id=&#34;1-题目&#34;&gt;1 题目
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;设计实现一个加/减法器，该电路在M控制下进行加、减运算。当$M=0$时，实现全加器功能；当$M=1$时，实现全减器功能。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;2-前言&#34;&gt;2 前言
 &lt;/h2&gt;&lt;p&gt;网上看了一些现有的回答都是很玄学的，要么就默认你已经掌握了整个流程直接给出结果（不是我们如果知道了为什么还要看你的帖子，自己没有笔记吗可恶）；还有一些全加和全减是分开的，没有用一个控制电路合起来。&lt;/p&gt;
-&lt;p&gt;老师上课其实讲过取补码的方法，但是实验器械过于简陋，==只给了非门、与非门和异或门==，每个两片，真的要按这种思路来做步子迈大了容易扯到淡。&lt;/p&gt;
+&lt;p&gt;老师上课其实讲过取补码的方法，但是实验器械过于简陋，&lt;mark&gt;只给了非门、与非门和异或门&lt;/mark&gt;，每个两片，真的要按这种思路来做步子迈大了容易扯到淡。&lt;/p&gt;
 &lt;p&gt;本位和差的结果
 &lt;/p&gt;
 $$
@@ -228,7 +239,7 @@ $$&lt;p&gt;下面只讨论进位的那个部分，本位和与差可以看&lt;a 
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/076c7cb7985800b0f74c81849b3c1998.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png&#34;
 	
 	
 	
@@ -257,11 +268,19 @@ $$&lt;p&gt;这样就做完啦哈哈哈，可以用异或门和与非门还有非
 </description>
         </item>
         <item>
+        <title>2026 04 21 Scau Digital Circuit Lab</title>
+        <link>http://blog.trialpro.top/posts/2026-04-21-scau-digital-circuit-lab/</link>
+        <pubDate>Tue, 21 Apr 2026 09:58:37 +0800</pubDate>
+        
+        <guid>http://blog.trialpro.top/posts/2026-04-21-scau-digital-circuit-lab/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Cosine Similarity Algorithm</title>
-        <link>http://localhost:1313/post/cosine-similarity-algorithm/</link>
+        <link>http://blog.trialpro.top/post/cosine-similarity-algorithm/</link>
         <pubDate>Thu, 26 Mar 2026 20:08:43 +0800</pubDate>
         
-        <guid>http://localhost:1313/post/cosine-similarity-algorithm/</guid>
+        <guid>http://blog.trialpro.top/post/cosine-similarity-algorithm/</guid>
         <description>&lt;h2 id=&#34;1-原理&#34;&gt;1 原理
 &lt;/h2&gt;&lt;a id=&#34;1&#34;/&gt;
 这个算法的原型是
@@ -343,10 +362,10 @@ $$&lt;h4 id=&#34;212-一个比较好笑的bug&#34;&gt;2.1.2 一个比较好笑�
         </item>
         <item>
         <title>华南农业大学2026转计算机专业总结</title>
-        <link>http://localhost:1313/post/switch_marjor_in_scau_2026/</link>
+        <link>http://blog.trialpro.top/post/switch_marjor_in_scau_2026/</link>
         <pubDate>Sat, 07 Mar 2026 17:08:52 +0800</pubDate>
         
-        <guid>http://localhost:1313/post/switch_marjor_in_scau_2026/</guid>
+        <guid>http://blog.trialpro.top/post/switch_marjor_in_scau_2026/</guid>
         <description>&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;不知道有没有成功，但是有经验可供后续复用的。现在先写下来完整的过程。&lt;/p&gt;
 &lt;p&gt;本文写于2026年3月7日。有31个人申请计算机科学与技术专业，一共有10个名额；以前有12个名额的，今年分了两个出去开了个新班级。&lt;/p&gt;
@@ -420,11 +439,11 @@ $$&lt;h4 id=&#34;212-一个比较好笑的bug&#34;&gt;2.1.2 一个比较好笑�
         </item>
         <item>
         <title>利用Hugo&#43;GitHubPage搭建博客</title>
-        <link>http://localhost:1313/post/build_blog_by_hugo-github_page/</link>
+        <link>http://blog.trialpro.top/post/build_blog_by_hugo-github_page/</link>
         <pubDate>Thu, 26 Feb 2026 13:49:18 +0800</pubDate>
         
-        <guid>http://localhost:1313/post/build_blog_by_hugo-github_page/</guid>
-        <description>&lt;img src="http://localhost:1313/attachment/60de1e7ed7cf5f6e2d074e247f2b142f.png" alt="Featured image of post 利用Hugo&#43;GitHubPage搭建博客" /&gt;&lt;p&gt;本文用于记录通过Hugo搭建个人博客的过程，以便后人复用，或者&lt;/p&gt;
+        <guid>http://blog.trialpro.top/post/build_blog_by_hugo-github_page/</guid>
+        <description>&lt;img src="http://blog.trialpro.top/attachment/60de1e7ed7cf5f6e2d074e247f2b142f.png" alt="Featured image of post 利用Hugo&#43;GitHubPage搭建博客" /&gt;&lt;p&gt;本文用于记录通过Hugo搭建个人博客的过程，以便后人复用，或者&lt;/p&gt;
 &lt;p&gt;步骤就这几个&lt;/p&gt;
 &lt;p&gt;hugo$\to$hugo stack$\to$GitHub Page$\to$Config&lt;/p&gt;
 &lt;h2 id=&#34;version&#34;&gt;Version
@@ -471,7 +490,7 @@ $$&lt;h4 id=&#34;212-一个比较好笑的bug&#34;&gt;2.1.2 一个比较好笑�
 &lt;/div&gt;&lt;h2 id=&#34;hugo-stack&#34;&gt;hugo-stack
 &lt;/h2&gt;&lt;p&gt;hugo-stack是一个hugo-stack的模板，感觉还挺好看的。
 搭建出来的效果是这样的（其实右边的目录占的位置再小一点就好了，有空可以魔改一下）
-&lt;img src=&#34;http://localhost:1313/attachment/60de1e7ed7cf5f6e2d074e247f2b142f.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/60de1e7ed7cf5f6e2d074e247f2b142f.png&#34;
 	
 	
 	
@@ -520,7 +539,7 @@ $$&lt;h4 id=&#34;212-一个比较好笑的bug&#34;&gt;2.1.2 一个比较好笑�
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin main
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/16f3cffed54bd4e13bac1fa183ec3f8a.png&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/16f3cffed54bd4e13bac1fa183ec3f8a.png&#34;
 	
 	
 	
@@ -528,7 +547,7 @@ $$&lt;h4 id=&#34;212-一个比较好笑的bug&#34;&gt;2.1.2 一个比较好笑�
 	
 	
 &gt;
-&lt;img src=&#34;http://localhost:1313/attachment/55f0aca26a58340c3287ecfd99e06eaf.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/55f0aca26a58340c3287ecfd99e06eaf.png&#34;
 	
 	
 	
@@ -536,7 +555,7 @@ $$&lt;h4 id=&#34;212-一个比较好笑的bug&#34;&gt;2.1.2 一个比较好笑�
 	
 	
 &gt;
-&lt;img src=&#34;http://localhost:1313/attachment/3cb8da3b88ec512f47cf91e441be4f09.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/3cb8da3b88ec512f47cf91e441be4f09.png&#34;
 	
 	
 	
@@ -572,17 +591,17 @@ $$&lt;h4 id=&#34;212-一个比较好笑的bug&#34;&gt;2.1.2 一个比较好笑�
         </item>
         <item>
         <title>Mmtls研究总结</title>
-        <link>http://localhost:1313/post/research_for_mmtls/</link>
+        <link>http://blog.trialpro.top/post/research_for_mmtls/</link>
         <pubDate>Sun, 22 Feb 2026 23:55:36 +0800</pubDate>
         
-        <guid>http://localhost:1313/post/research_for_mmtls/</guid>
-        <description>&lt;img src="http://localhost:1313/attachment/0dcdfc8e8fa3a35338218e165204dec0.png" alt="Featured image of post Mmtls研究总结" /&gt;&lt;h2 id=&#34;背景前提&#34;&gt;背景前提
+        <guid>http://blog.trialpro.top/post/research_for_mmtls/</guid>
+        <description>&lt;img src="http://blog.trialpro.top/attachment/0dcdfc8e8fa3a35338218e165204dec0.png" alt="Featured image of post Mmtls研究总结" /&gt;&lt;h2 id=&#34;背景前提&#34;&gt;背景前提
 &lt;/h2&gt;&lt;p&gt;没有的就是想看看别人怎么做的，让自己在实际开发也有好的方案可以参考参考
 &lt;strong&gt;“本文档仅为个人技术学习与研究目的而撰写，不涉及任何微信业务层用户数据。所有分析均在合法授权的个人测试环境中进行。严禁用于任何非法用途。”&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本文以x64dbg，ida为原本结合Golang代码&lt;/p&gt;
 &lt;h2 id=&#34;研究思路&#34;&gt;研究思路
 &lt;/h2&gt;&lt;h3 id=&#34;基本架构和tls外壳&#34;&gt;基本架构和TLS“外壳”
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/0dcdfc8e8fa3a35338218e165204dec0.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/0dcdfc8e8fa3a35338218e165204dec0.png&#34;
 	
 	
 	
@@ -592,7 +611,7 @@ $$&lt;h4 id=&#34;212-一个比较好笑的bug&#34;&gt;2.1.2 一个比较好笑�
 &gt;
 Fig.1 总体架构&lt;/p&gt;
 &lt;p&gt;从总体架构中可以知道，mmtls作为**“中间层”** ，沟通了业务层和网络连接层，其功能是&lt;strong&gt;为业务层提供了安全保障&lt;/strong&gt;。
-&lt;img src=&#34;http://localhost:1313/attachment/c4fd0aaed76a92c1411766dfb6b301c7.webp&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/c4fd0aaed76a92c1411766dfb6b301c7.webp&#34;
 	
 	
 	
@@ -603,7 +622,7 @@ Fig.1 总体架构&lt;/p&gt;
 Fig.2 mmtls协议内部&lt;/p&gt;
 &lt;p&gt;分为这四种通讯类型，每一种都有对应的代码.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;为了方便这里hook了ws2_32.dll的send和recv函数&lt;/strong&gt;
-&lt;img src=&#34;http://localhost:1313/attachment/e2aced86402bcccc80279a2f839fbc36.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/e2aced86402bcccc80279a2f839fbc36.png&#34;
 	
 	
 	
@@ -611,7 +630,7 @@ Fig.2 mmtls协议内部&lt;/p&gt;
 	
 	
 &gt;
-&lt;img src=&#34;http://localhost:1313/attachment/19e3a217efa1532961f63c69c5359797.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/19e3a217efa1532961f63c69c5359797.png&#34;
 	
 	
 	
@@ -641,7 +660,7 @@ Fig.2 mmtls协议内部&lt;/p&gt;
 &lt;/div&gt;&lt;p&gt;既然是结合Tls
 TLS 1.3
 随便用wireshark
-&lt;img src=&#34;http://localhost:1313/attachment/28d84af998688153fc9f486769e96567.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/28d84af998688153fc9f486769e96567.png&#34;
 	
 	
 	
@@ -650,7 +669,7 @@ TLS 1.3
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;都是Opaque Type(1 byte) + Version (2 bytes) + Length (2 bytes) + Encrypted Data(Length bytes)，那当然MMtls也不例外的，回头看一下这2张图&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/e2aced86402bcccc80279a2f839fbc36.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/e2aced86402bcccc80279a2f839fbc36.png&#34;
 	
 	
 	
@@ -658,7 +677,7 @@ TLS 1.3
 	
 	
 &gt;
-&lt;img src=&#34;http://localhost:1313/attachment/19e3a217efa1532961f63c69c5359797.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/19e3a217efa1532961f63c69c5359797.png&#34;
 	
 	
 	
@@ -710,7 +729,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &lt;h3 id=&#34;handshake流程&#34;&gt;HandShake流程
 &lt;/h3&gt;&lt;p&gt;因为之前不了解椭圆曲线，去Bilibili了解了一下&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1BY411M74G/?spm_id_from=333.1391.0.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;公钥加密技术ECC椭圆曲线加密算法原理_哔哩哔哩_bilibili&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/47db2772200cb4ca020861bd1f7b3256.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/47db2772200cb4ca020861bd1f7b3256.png&#34;
 	
 	
 	
@@ -720,7 +739,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &gt;&lt;/p&gt;
 &lt;p&gt;根据官方开源的&lt;a class=&#34;link&#34; href=&#34;https://github.com/Tencent/mars&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Tencent/mars: Mars is a cross-platform network component developed by WeChat.&lt;/a&gt;，然后通过longlink一路跟过来，到了req2buf，再就找到了发现很多核心算法都有mmcrypto这个字符串hh
-&lt;img src=&#34;http://localhost:1313/attachment/1e6d5e6a59eb9b2f618895007f456a3f.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/1e6d5e6a59eb9b2f618895007f456a3f.png&#34;
 	
 	
 	
@@ -765,7 +784,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &lt;/ul&gt;
 &lt;h2 id=&#34;aes-gcm加密&#34;&gt;AES-Gcm加密
 &lt;/h2&gt;&lt;h3 id=&#34;mmcryptoopensslcryptoutilaesgcmencrypt&#34;&gt;mmcrypto::OpenSslCryptoUtil::AesGcmEncrypt
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/d6dfada74680e4f55c83a7c6b985d30a.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/d6dfada74680e4f55c83a7c6b985d30a.png&#34;
 	
 	
 	
@@ -937,7 +956,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;evp_encryptinit_ex&#34;&gt;EVP_EncryptInit_ex
 &lt;/h4&gt;&lt;p&gt;这个跑x64可以知道是24
-&lt;img src=&#34;http://localhost:1313/attachment/172c202962a803461a428b2d4c96362a.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/172c202962a803461a428b2d4c96362a.png&#34;
 	
 	
 	
@@ -984,7 +1003,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;全都有了不分析了。&lt;/p&gt;
 &lt;h3 id=&#34;mmcryptoopensslcryptoutilaesgcmdecrypt&#34;&gt;mmcrypto::OpenSslCryptoUtil::AesGcmDecrypt
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/02f81352d02530684022e78c8253b320.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/02f81352d02530684022e78c8253b320.png&#34;
 	
 	
 	
@@ -992,7 +1011,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/33d2326d488c0158b01991ae28d9c8d3.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/33d2326d488c0158b01991ae28d9c8d3.png&#34;
 	
 	
 	
@@ -1150,7 +1169,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/wwgk/p/12856414.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;微信协议入门——原理篇 - 万物归空 - 博客园&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/33a819a0590733f355e4b6b4a8594191.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/33a819a0590733f355e4b6b4a8594191.png&#34;
 	
 	
 	
@@ -1160,7 +1179,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &gt;
 有时候长连接失败会用短链接&lt;/p&gt;
 &lt;h3 id=&#34;sub_40fa1d0&#34;&gt;sub_40FA1D0
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/4dbe6684b53340687b83b4a69b7f39f6.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/4dbe6684b53340687b83b4a69b7f39f6.png&#34;
 	
 	
 	
@@ -1168,7 +1187,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/ffa127ad9dcb8e65e86bce73b48dfba8.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/ffa127ad9dcb8e65e86bce73b48dfba8.png&#34;
 	
 	
 	
@@ -1218,13 +1237,13 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
         </item>
         <item>
         <title>一次iphone 8p越狱&#43;修复推送记录</title>
-        <link>http://localhost:1313/post/%E4%B8%80%E6%AC%A1iphone-8p%E8%B6%8A%E7%8B%B1-%E4%BF%AE%E5%A4%8D%E6%8E%A8%E9%80%81%E8%AE%B0%E5%BD%95/</link>
+        <link>http://blog.trialpro.top/post/%E4%B8%80%E6%AC%A1iphone-8p%E8%B6%8A%E7%8B%B1-%E4%BF%AE%E5%A4%8D%E6%8E%A8%E9%80%81%E8%AE%B0%E5%BD%95/</link>
         <pubDate>Sun, 22 Feb 2026 23:00:02 +0800</pubDate>
         
-        <guid>http://localhost:1313/post/%E4%B8%80%E6%AC%A1iphone-8p%E8%B6%8A%E7%8B%B1-%E4%BF%AE%E5%A4%8D%E6%8E%A8%E9%80%81%E8%AE%B0%E5%BD%95/</guid>
-        <description>&lt;img src="http://localhost:1313/attachment/7180d9e948230ee0f8489294ff422b1a.jpg" alt="Featured image of post 一次iphone 8p越狱&#43;修复推送记录" /&gt;&lt;h2 id=&#34;i4tools&#34;&gt;i4tools
+        <guid>http://blog.trialpro.top/post/%E4%B8%80%E6%AC%A1iphone-8p%E8%B6%8A%E7%8B%B1-%E4%BF%AE%E5%A4%8D%E6%8E%A8%E9%80%81%E8%AE%B0%E5%BD%95/</guid>
+        <description>&lt;img src="http://blog.trialpro.top/attachment/7180d9e948230ee0f8489294ff422b1a.jpg" alt="Featured image of post 一次iphone 8p越狱&#43;修复推送记录" /&gt;&lt;h2 id=&#34;i4tools&#34;&gt;i4tools
 &lt;/h2&gt;&lt;p&gt;先试一下i4tools
-&lt;img src=&#34;http://localhost:1313/attachment/05927a1e2432cde2f33d932d17ab35cf.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/05927a1e2432cde2f33d932d17ab35cf.png&#34;
 	
 	
 	
@@ -1234,7 +1253,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;winra1n&#34;&gt;Winra1n
 &lt;/h2&gt;&lt;p&gt;这是新出的软件，可以在windows上面
-&lt;img src=&#34;http://localhost:1313/attachment/7a8200cb2f48bb01865cb46264d88539.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/7a8200cb2f48bb01865cb46264d88539.png&#34;
 	
 	
 	
@@ -1242,7 +1261,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/008dd7a1417f74fc75e40f0af29a1d5e.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/008dd7a1417f74fc75e40f0af29a1d5e.png&#34;
 	
 	
 	
@@ -1254,29 +1273,14 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &lt;p&gt;[!warning] 大坑
 需要close passcode(屏幕锁密码)&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/4dd2896d2e0c8c68f7acec426cce6c38.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/4dd2896d2e0c8c68f7acec426cce6c38.png&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;&lt;img src=&#34;http://localhost:1313/attachment/56d94ea145f8e0574b7b7a50a388c544.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;
-&lt;img src=&#34;http://localhost:1313/attachment/c2a5e855f80ce66f59d16f3eee3f9b6e.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;img src=&#34;http://localhost:1313/attachment/7180d9e948230ee0f8489294ff422b1a.jpg&#34;
+&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/56d94ea145f8e0574b7b7a50a388c544.png&#34;
 	
 	
 	
@@ -1284,7 +1288,22 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 	
 	
 &gt;
-&lt;img src=&#34;http://localhost:1313/attachment/9a101f01e6a88732965e0b137c088cdf.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/c2a5e855f80ce66f59d16f3eee3f9b6e.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/7180d9e948230ee0f8489294ff422b1a.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/9a101f01e6a88732965e0b137c088cdf.png&#34;
 	
 	
 	
@@ -1298,10 +1317,10 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
         </item>
         <item>
         <title>About</title>
-        <link>http://localhost:1313/about/</link>
+        <link>http://blog.trialpro.top/about/</link>
         <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/about/</guid>
+        <guid>http://blog.trialpro.top/about/</guid>
         <description>&lt;p&gt;Hello! My name is Trial an undergraduate student from SCAU at 2025.My primary motivation for starting this blog is to learn from &lt;a class=&#34;link&#34; href=&#34;https://terrytao.wordpress.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Tao&lt;/a&gt;, produce content for future reference, and foster communication with other experienced individuals.&lt;/p&gt;
 &lt;p&gt;What I wanna emphasize is that without the help of friends,I probably wouldn&amp;rsquo;t have seen or learned so much. I am very grateful to them.&lt;/p&gt;
@@ -1541,25 +1560,25 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
         </item>
         <item>
         <title>Archives</title>
-        <link>http://localhost:1313/archives/</link>
+        <link>http://blog.trialpro.top/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/archives/</guid>
+        <guid>http://blog.trialpro.top/archives/</guid>
         <description></description>
         </item>
         <item>
         <title></title>
-        <link>http://localhost:1313/posts/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/</link>
+        <link>http://blog.trialpro.top/posts/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/posts/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/</guid>
+        <guid>http://blog.trialpro.top/posts/mmtls%E7%A0%94%E7%A9%B6%E6%80%BB%E7%BB%93/</guid>
         <description>&lt;h1 id=&#34;1-背景前提&#34;&gt;1 背景前提
 &lt;/h1&gt;&lt;p&gt;没有的就是想看看别人怎么做的，让自己在实际开发也有好的方案可以参考参考
 &lt;strong&gt;“本文档仅为个人技术学习与研究目的而撰写，不涉及任何微信业务层用户数据。所有分析均在合法授权的个人测试环境中进行。严禁用于任何非法用途。”&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本文以x64dbg，ida为原本结合Golang代码&lt;/p&gt;
 &lt;h1 id=&#34;2-研究思路&#34;&gt;2 研究思路
 &lt;/h1&gt;&lt;h2 id=&#34;21-基本架构和tls外壳&#34;&gt;2.1 基本架构和TLS“外壳”
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/0dcdfc8e8fa3a35338218e165204dec0.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/0dcdfc8e8fa3a35338218e165204dec0.png&#34;
 	
 	
 	
@@ -1569,7 +1588,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &gt;
 Fig.1 总体架构&lt;/p&gt;
 &lt;p&gt;从总体架构中可以知道，mmtls作为**“中间层”** ，沟通了业务层和网络连接层，其功能是&lt;strong&gt;为业务层提供了安全保障&lt;/strong&gt;。
-&lt;img src=&#34;http://localhost:1313/attachment/c4fd0aaed76a92c1411766dfb6b301c7.webp&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/c4fd0aaed76a92c1411766dfb6b301c7.webp&#34;
 	
 	
 	
@@ -1580,7 +1599,7 @@ Fig.1 总体架构&lt;/p&gt;
 Fig.2 mmtls协议内部&lt;/p&gt;
 &lt;p&gt;分为这四种通讯类型，每一种都有对应的代码.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;为了方便这里hook了ws2_32.dll的send和recv函数&lt;/strong&gt;
-&lt;img src=&#34;http://localhost:1313/attachment/e2aced86402bcccc80279a2f839fbc36.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/e2aced86402bcccc80279a2f839fbc36.png&#34;
 	
 	
 	
@@ -1588,7 +1607,7 @@ Fig.2 mmtls协议内部&lt;/p&gt;
 	
 	
 &gt;
-&lt;img src=&#34;http://localhost:1313/attachment/19e3a217efa1532961f63c69c5359797.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/19e3a217efa1532961f63c69c5359797.png&#34;
 	
 	
 	
@@ -1618,7 +1637,7 @@ Fig.2 mmtls协议内部&lt;/p&gt;
 &lt;/div&gt;&lt;p&gt;既然是结合Tls
 TLS 1.3
 随便用wireshark
-&lt;img src=&#34;http://localhost:1313/attachment/28d84af998688153fc9f486769e96567.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/28d84af998688153fc9f486769e96567.png&#34;
 	
 	
 	
@@ -1627,7 +1646,7 @@ TLS 1.3
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;都是Opaque Type(1 byte) + Version (2 bytes) + Length (2 bytes) + Encrypted Data(Length bytes)，那当然MMtls也不例外的，回头看一下这2张图&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/e2aced86402bcccc80279a2f839fbc36.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/e2aced86402bcccc80279a2f839fbc36.png&#34;
 	
 	
 	
@@ -1635,7 +1654,7 @@ TLS 1.3
 	
 	
 &gt;
-&lt;img src=&#34;http://localhost:1313/attachment/19e3a217efa1532961f63c69c5359797.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/19e3a217efa1532961f63c69c5359797.png&#34;
 	
 	
 	
@@ -1687,7 +1706,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &lt;h2 id=&#34;3-handshake流程&#34;&gt;3 HandShake流程
 &lt;/h2&gt;&lt;p&gt;因为之前不了解椭圆曲线，去Bilibili了解了一下&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1BY411M74G/?spm_id_from=333.1391.0.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;公钥加密技术ECC椭圆曲线加密算法原理_哔哩哔哩_bilibili&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/47db2772200cb4ca020861bd1f7b3256.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/47db2772200cb4ca020861bd1f7b3256.png&#34;
 	
 	
 	
@@ -1697,7 +1716,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &gt;&lt;/p&gt;
 &lt;p&gt;根据官方开源的&lt;a class=&#34;link&#34; href=&#34;https://github.com/Tencent/mars&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Tencent/mars: Mars is a cross-platform network component developed by WeChat.&lt;/a&gt;，然后通过longlink一路跟过来，到了req2buf，再就找到了发现很多核心算法都有mmcrypto这个字符串hh
-&lt;img src=&#34;http://localhost:1313/attachment/1e6d5e6a59eb9b2f618895007f456a3f.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/1e6d5e6a59eb9b2f618895007f456a3f.png&#34;
 	
 	
 	
@@ -1742,7 +1761,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &lt;/ul&gt;
 &lt;h2 id=&#34;33-aes-gcm加密&#34;&gt;3.3 AES-Gcm加密
 &lt;/h2&gt;&lt;h3 id=&#34;331-mmcryptoopensslcryptoutilaesgcmencrypt&#34;&gt;3.3.1 mmcrypto::OpenSslCryptoUtil::AesGcmEncrypt
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/d6dfada74680e4f55c83a7c6b985d30a.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/d6dfada74680e4f55c83a7c6b985d30a.png&#34;
 	
 	
 	
@@ -1914,7 +1933,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;evp_encryptinit_ex&#34;&gt;EVP_EncryptInit_ex
 &lt;/h4&gt;&lt;p&gt;这个跑x64可以知道是24
-&lt;img src=&#34;http://localhost:1313/attachment/172c202962a803461a428b2d4c96362a.png&#34;
+&lt;img src=&#34;http://blog.trialpro.top/attachment/172c202962a803461a428b2d4c96362a.png&#34;
 	
 	
 	
@@ -1961,7 +1980,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;全都有了不分析了。&lt;/p&gt;
 &lt;h3 id=&#34;332-mmcryptoopensslcryptoutilaesgcmdecrypt&#34;&gt;3.3.2 mmcrypto::OpenSslCryptoUtil::AesGcmDecrypt
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/02f81352d02530684022e78c8253b320.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/02f81352d02530684022e78c8253b320.png&#34;
 	
 	
 	
@@ -1969,7 +1988,7 @@ Alert协议用于通知对端发生错误，希望对端关闭连接，目前mmt
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/33d2326d488c0158b01991ae28d9c8d3.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/33d2326d488c0158b01991ae28d9c8d3.png&#34;
 	
 	
 	
@@ -2083,7 +2102,7 @@ C0 2B //Cipher Suite:见[[#sub_40FA1D0]]
 00 00 00 04 //支持0-RTT PSK&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/wwgk/p/12856414.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;微信协议入门——原理篇 - 万物归空 - 博客园&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/33a819a0590733f355e4b6b4a8594191.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/33a819a0590733f355e4b6b4a8594191.png&#34;
 	
 	
 	
@@ -2093,7 +2112,7 @@ C0 2B //Cipher Suite:见[[#sub_40FA1D0]]
 &gt;
 有时候长连接失败会用短链接&lt;/p&gt;
 &lt;h3 id=&#34;sub_40fa1d0&#34;&gt;sub_40FA1D0
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/4dbe6684b53340687b83b4a69b7f39f6.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/4dbe6684b53340687b83b4a69b7f39f6.png&#34;
 	
 	
 	
@@ -2101,7 +2120,7 @@ C0 2B //Cipher Suite:见[[#sub_40FA1D0]]
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/attachment/ffa127ad9dcb8e65e86bce73b48dfba8.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/ffa127ad9dcb8e65e86bce73b48dfba8.png&#34;
 	
 	
 	
@@ -2147,10 +2166,10 @@ C0 2B //Cipher Suite:见[[#sub_40FA1D0]]
         </item>
         <item>
         <title>Links</title>
-        <link>http://localhost:1313/links/</link>
+        <link>http://blog.trialpro.top/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/links/</guid>
+        <guid>http://blog.trialpro.top/links/</guid>
         <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
 &lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -2182,10 +2201,10 @@ C0 2B //Cipher Suite:见[[#sub_40FA1D0]]
         </item>
         <item>
         <title>Search</title>
-        <link>http://localhost:1313/search/</link>
+        <link>http://blog.trialpro.top/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/search/</guid>
+        <guid>http://blog.trialpro.top/search/</guid>
         <description></description>
         </item>
         

@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="对AI Agent技术发展趋势、应用场景及未来影响的个人思考与观察">
 <meta name="keywords" content="AI Agent, 人工智能, AI应用, Agent工作流"><title>关于AI Agent时代的思考</title>
 
-<link rel='canonical' href='http://localhost:1313/post/ai-agent-era-reflection/'>
+<link rel='canonical' href='http://blog.trialpro.top/post/ai-agent-era-reflection/'>
 
 <link rel="stylesheet" href="/scss/style.min.86591c898bd806857815fbb8c47e8d3fed97c133b78e83d9bfc27b164dd0aa2b.css"><meta property='og:title' content="关于AI Agent时代的思考">
 <meta property='og:description' content="对AI Agent技术发展趋势、应用场景及未来影响的个人思考与观察">
-<meta property='og:url' content='http://localhost:1313/post/ai-agent-era-reflection/'>
+<meta property='og:url' content='http://blog.trialpro.top/post/ai-agent-era-reflection/'>
 <meta property='og:site_name' content='Trial Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='cs' /><meta property='article:tag' content='AI Agent' /><meta property='article:published_time' content='2026-06-17T23:44:19&#43;08:00'/><meta property='article:modified_time' content='2026-06-17T23:44:19&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='cs' /><meta property='article:tag' content='AI Agent' /><meta property='article:published_time' content='2026-06-17T23:44:19&#43;08:00'/><meta property='article:modified_time' content='2026-06-17T23:44:19&#43;08:00'/><meta property='og:image' content='http://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg' />
 <meta name="twitter:title" content="关于AI Agent时代的思考">
-<meta name="twitter:description" content="对AI Agent技术发展趋势、应用场景及未来影响的个人思考与观察">
+<meta name="twitter:description" content="对AI Agent技术发展趋势、应用场景及未来影响的个人思考与观察"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg' />
     </head>
     <body class="
     article-page
@@ -269,7 +270,16 @@
     <li><a href="#前言">前言</a>
       <ol>
         <li><a href="#个人感想">个人感想</a></li>
-        <li><a href="#维新派与守旧派">“维新派”与“守旧派”</a></li>
+        <li><a href="#维新派与守旧派">“维新派”与“守旧派”</a>
+          <ol>
+            <li><a href="#评价">评价</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#what-can-we-do">WHAT CAN WE DO</a>
+      <ol>
+        <li><a href="#搭建ai工作流">搭建AI工作流</a></li>
       </ol>
     </li>
   </ol>
@@ -283,8 +293,20 @@
 
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/post/ai-agent-era-reflection/">
+                <img src="/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_22f9a6cb2ffbfb1c.jpg"
+                        srcset="/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_22f9a6cb2ffbfb1c.jpg 800w, /post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_4651219687242baa.jpg 1600w"
+                        width="800"
+                        height="1215"
+                        loading="lazy"
+                        alt="Featured image of post 关于AI Agent时代的思考" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -332,7 +354,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -348,9 +370,10 @@
     
     
     <h2 id="前言">前言
-</h2><h3 id="个人感想">个人感想
-</h3><p>在口罩时期，ChatGPT爆火到现在其实有三四年了，那时候刚好在上高中，接触互联网的时间变少了（基本就是隔离了）；比较可惜的是，以前的产业也荒废了，到现在反而有一种跟不上时代的恐慌。</p>
-<p>到我高考完的时候有朋友带我了解vibe coding，才短短几年就有了翻天覆地的变化，让我更加感叹的是以前的编程门槛马上就被消磨很多了。再到一年后的今天，又新出了Opus 4.8，GPT5.5，GLM5.2，以前的年更LLM也变成了现在的月更，Coding能力也一直在上升，在写前后端的体验中给我的感觉就是，有时候确实是没人类什么事情了。</p>
+</h2><p>下面的AI普遍指的是大语言模型</p>
+<h3 id="个人感想">个人感想
+</h3><p>在口罩时期，ChatGPT爆火，而到现在其实有三四年了，那时候刚好在上高中，接触互联网的时间变少了（基本就是隔离了）；比较可惜的是，以前的产业也荒废了，到现在反而有一种跟不上时代的恐慌。</p>
+<p>到我高考完的时候有朋友带我了解vibe coding，才短短几年就有了翻天覆地的变化，让我更加感叹的是以前的编程门槛马上就被消磨很多了。再到一年后的今天，又新出了Opus 4.8，GPT5.5，GLM5.2，以前的年更LLM也变成了现在的月更，Coding能力也一直在上升，在写<strong>前后端</strong>的体验中给我的感觉就是：好像没人类什么事情了。</p>
 <h3 id="维新派与守旧派">“维新派”与“守旧派”
 </h3><p><img src="/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg"
 	width="850"
@@ -366,6 +389,16 @@
 		data-flex-basis="158px"
 	
 ></p>
+<h4 id="评价">评价
+</h4><p>这只是在软件开发领域，其实真是的计算机环境中不止是Coding，还有一直在做的逆向，算法，建模还没试过。</p>
+<hr>
+<p>（以下全是在软件工程领域的感想）个人的思想转变：一开始的时候还是不认为AI能够完成任务的，即使做出来也很粗糙$\to$AI可以做一些模板替换的工作，效率还是挺不错的，只需要我们审核一下逻辑和代码规范就好了$\to$自己来做一个大体的架构，写好规范文档，AI打通全流程（但是还是不敢全盘交给AI，该审核还是得审核），关键的地方还是得自己下场修改或者说是纠正。</p>
+<p>人类的学习速度再怎么快也是学不过AI的，因为AI能够日夜不停得学还不用时间去消化（但是我一直很怀疑Transformer架构真的能做到真智能吗），以前把AI当成大号搜索引擎，但是这还是不太够，人们也挖掘出来他的Agent能力，所以我们<mark>怎么看待AI是一个很关键的事情</mark></p>
+<p>SO在这波AI浪潮来的时候我们应该怎么办？</p>
+<h2 id="what-can-we-do">WHAT CAN WE DO
+</h2><p><mark>核心观点</mark>是我们应该<mark>多用AI，善用AI</mark>，</p>
+<h3 id="搭建ai工作流">搭建AI工作流
+</h3><p>看的L站的佬友的，但是进行了魔改</p>
 
 </section>
 
@@ -578,7 +611,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.35f8f665f080ba3f9c22f298cb91faeaf7e1607497cf0b242ad6218126dacfee.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
