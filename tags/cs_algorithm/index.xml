@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Cs_algorithm on Trial Blog</title>
-        <link>http://blog.trialpro.top/tags/cs_algorithm/</link>
+        <link>https://blog.trialpro.top/tags/cs_algorithm/</link>
         <description>Recent content in Cs_algorithm on Trial Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>shenpanpro@gmail.com</copyright>
-        <lastBuildDate>Thu, 26 Mar 2026 20:08:43 +0800</lastBuildDate><atom:link href="http://blog.trialpro.top/tags/cs_algorithm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 26 Mar 2026 20:08:43 +0800</lastBuildDate><atom:link href="https://blog.trialpro.top/tags/cs_algorithm/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Cosine Similarity Algorithm</title>
-        <link>http://blog.trialpro.top/post/cosine-similarity-algorithm/</link>
+        <link>https://blog.trialpro.top/post/cosine-similarity-algorithm/</link>
         <pubDate>Thu, 26 Mar 2026 20:08:43 +0800</pubDate>
         
-        <guid>http://blog.trialpro.top/post/cosine-similarity-algorithm/</guid>
+        <guid>https://blog.trialpro.top/post/cosine-similarity-algorithm/</guid>
         <description>&lt;h2 id=&#34;1-原理&#34;&gt;1 原理
 &lt;/h2&gt;&lt;a id=&#34;1&#34;/&gt;
 这个算法的原型是

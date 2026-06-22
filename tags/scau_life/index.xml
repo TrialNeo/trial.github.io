@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Scau_life on Trial Blog</title>
-        <link>http://blog.trialpro.top/tags/scau_life/</link>
+        <link>https://blog.trialpro.top/tags/scau_life/</link>
         <description>Recent content in Scau_life on Trial Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>shenpanpro@gmail.com</copyright>
-        <lastBuildDate>Tue, 21 Apr 2026 09:58:46 +0800</lastBuildDate><atom:link href="http://blog.trialpro.top/tags/scau_life/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 21 Apr 2026 09:58:46 +0800</lastBuildDate><atom:link href="https://blog.trialpro.top/tags/scau_life/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>SCAU全加器全减器的实现</title>
-        <link>http://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
+        <link>https://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
         <pubDate>Tue, 21 Apr 2026 09:58:46 +0800</pubDate>
         
-        <guid>http://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
-        <description>&lt;img src="http://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png" alt="Featured image of post SCAU全加器全减器的实现" /&gt;&lt;h2 id=&#34;1-题目&#34;&gt;1 题目
+        <guid>https://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
+        <description>&lt;img src="https://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png" alt="Featured image of post SCAU全加器全减器的实现" /&gt;&lt;h2 id=&#34;1-题目&#34;&gt;1 题目
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;设计实现一个加/减法器，该电路在M控制下进行加、减运算。当$M=0$时，实现全加器功能；当$M=1$时，实现全减器功能。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -201,7 +201,7 @@ $$&lt;p&gt;下面只讨论进位的那个部分，本位和与差可以看&lt;a 
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;http://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png&#34;
 	
 	
 	
@@ -231,10 +231,10 @@ $$&lt;p&gt;这样就做完啦哈哈哈，可以用异或门和与非门还有非
         </item>
         <item>
         <title>华南农业大学2026转计算机专业总结</title>
-        <link>http://blog.trialpro.top/post/switch_marjor_in_scau_2026/</link>
+        <link>https://blog.trialpro.top/post/switch_marjor_in_scau_2026/</link>
         <pubDate>Sat, 07 Mar 2026 17:08:52 +0800</pubDate>
         
-        <guid>http://blog.trialpro.top/post/switch_marjor_in_scau_2026/</guid>
+        <guid>https://blog.trialpro.top/post/switch_marjor_in_scau_2026/</guid>
         <description>&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;不知道有没有成功，但是有经验可供后续复用的。现在先写下来完整的过程。&lt;/p&gt;
 &lt;p&gt;本文写于2026年3月7日。有31个人申请计算机科学与技术专业，一共有10个名额；以前有12个名额的，今年分了两个出去开了个新班级。&lt;/p&gt;
