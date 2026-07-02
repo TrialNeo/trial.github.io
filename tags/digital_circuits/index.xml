@@ -1,234 +1,209 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Digital_circuits on Trial Blog</title>
-        <link>https://blog.trialpro.top/tags/digital_circuits/</link>
-        <description>Recent content in Digital_circuits on Trial Blog</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <copyright>shenpanpro@gmail.com</copyright>
-        <lastBuildDate>Tue, 21 Apr 2026 09:58:46 +0800</lastBuildDate><atom:link href="https://blog.trialpro.top/tags/digital_circuits/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>SCAU全加器全减器的实现</title>
-        <link>https://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
-        <pubDate>Tue, 21 Apr 2026 09:58:46 +0800</pubDate>
-        
-        <guid>https://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
-        <description>&lt;img src="https://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png" alt="Featured image of post SCAU全加器全减器的实现" /&gt;&lt;h2 id=&#34;1-题目&#34;&gt;1 题目
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Digital_circuits on Trial Blog</title><link>https://blog.trialpro.top/tags/digital_circuits/</link><description>Recent content in Digital_circuits on Trial Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>shenpanpro@gmail.com</copyright><lastBuildDate>Tue, 21 Apr 2026 09:58:46 +0800</lastBuildDate><atom:link href="https://blog.trialpro.top/tags/digital_circuits/index.xml" rel="self" type="application/rss+xml"/><item><title>SCAU全加器全减器的实现</title><link>https://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</link><pubDate>Tue, 21 Apr 2026 09:58:46 +0800</pubDate><guid>https://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid><description>&lt;img src="https://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png" alt="Featured image of post SCAU全加器全减器的实现" /&gt;&lt;h2 id="1-题目"&gt;1 题目
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;设计实现一个加/减法器，该电路在M控制下进行加、减运算。当$M=0$时，实现全加器功能；当$M=1$时，实现全减器功能。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;2-前言&#34;&gt;2 前言
+&lt;h2 id="2-前言"&gt;2 前言
 &lt;/h2&gt;&lt;p&gt;网上看了一些现有的回答都是很玄学的，要么就默认你已经掌握了整个流程直接给出结果（不是我们如果知道了为什么还要看你的帖子，自己没有笔记吗可恶）；还有一些全加和全减是分开的，没有用一个控制电路合起来。&lt;/p&gt;
 &lt;p&gt;老师上课其实讲过取补码的方法，但是实验器械过于简陋，&lt;mark&gt;只给了非门、与非门和异或门&lt;/mark&gt;，每个两片，真的要按这种思路来做步子迈大了容易扯到淡。&lt;/p&gt;
 &lt;p&gt;本位和差的结果
 &lt;/p&gt;
 $$
 A_{i} \oplus B_{i} \oplus C_{i-1}
-$$&lt;p&gt;下面只讨论进位的那个部分，本位和与差可以看&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1bUfNYQEjc/?spm_id_from=333.1391.0.0&amp;amp;vd_source=67359d7dddb7c4db12237b008a0f5370&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;全加全减器_哔哩哔哩_bilibili&lt;/a&gt;，更加详细&lt;/p&gt;
-&lt;h2 id=&#34;3-解答&#34;&gt;3 解答
+$$&lt;p&gt;下面只讨论进位的那个部分，本位和与差可以看&lt;a class="link" href="https://www.bilibili.com/video/BV1bUfNYQEjc/?spm_id_from=333.1391.0.0&amp;amp;vd_source=67359d7dddb7c4db12237b008a0f5370" target="_blank" rel="noopener"
+&gt;全加全减器_哔哩哔哩_bilibili&lt;/a&gt;，更加详细&lt;/p&gt;
+&lt;h2 id="3-解答"&gt;3 解答
 &lt;/h2&gt;&lt;p&gt;按照==(数字电路逻辑设计(第三版)学习指导书, 2018),p37==的指导&lt;/p&gt;
-&lt;h3 id=&#34;31-变量定义&#34;&gt;3.1 变量定义
+&lt;h3 id="31-变量定义"&gt;3.1 变量定义
 &lt;/h3&gt;&lt;p&gt;先定义一下一些变量的含义&lt;/p&gt;
 &lt;p&gt;被减数$A_{i}$，减数$B_{i}$，来自低位的进位或者借位$C_{i-1}$，向高位的进位$C_{i}$，本位和或差$S_{i}$&lt;/p&gt;
-&lt;h3 id=&#34;32-真值表&#34;&gt;3.2 真值表
+&lt;h3 id="32-真值表"&gt;3.2 真值表
 &lt;/h3&gt;&lt;p&gt;这个算的有讲究的，比如减法你要先考虑来自低位的借位，借完之后再考虑本位有没有比减数来得大，要不要往前面借位&lt;/p&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;A&lt;/th&gt;
-          &lt;th&gt;B&lt;/th&gt;
-          &lt;th&gt;$C_{i-1}$&lt;/th&gt;
-          &lt;th&gt;$M$&lt;/th&gt;
-          &lt;th&gt;$C_{i}$&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-          &lt;td&gt;1&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;A&lt;/th&gt;
+&lt;th&gt;B&lt;/th&gt;
+&lt;th&gt;$C_{i-1}$&lt;/th&gt;
+&lt;th&gt;$M$&lt;/th&gt;
+&lt;th&gt;$C_{i}$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;4-绘制卡诺图&#34;&gt;4 绘制卡诺图
+&lt;h2 id="4-绘制卡诺图"&gt;4 绘制卡诺图
 &lt;/h2&gt;&lt;p&gt;这里0比较少，而且我们最后要用到与或门，直接圈0比较方便&lt;/p&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;$C_{i-1},M$\ $A_i,B_{i}$&lt;/th&gt;
-          &lt;th&gt;00&lt;/th&gt;
-          &lt;th&gt;01&lt;/th&gt;
-          &lt;th&gt;11&lt;/th&gt;
-          &lt;th&gt;10&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;00&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;01&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;11&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;10&lt;/td&gt;
-          &lt;td&gt;0&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;$C_{i-1},M$\ $A_i,B_{i}$&lt;/th&gt;
+&lt;th&gt;00&lt;/th&gt;
+&lt;th&gt;01&lt;/th&gt;
+&lt;th&gt;11&lt;/th&gt;
+&lt;th&gt;10&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;01&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
+&lt;p&gt;&lt;img src="https://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png"
+loading="lazy"
 &gt;&lt;/p&gt;
 &lt;p&gt;简单读取一下&lt;/p&gt;
 $$
 \begin{align}
-\overline{C_{i}}  &amp; = \overline{B_{i}}\,\overline{C_{i-1}} + \overline{A_{i}}\,\overline{C_{i-1}}\,\overline{M} + A\,\overline{C_{i-1}}\,M+A_{i}\,\overline{B_{i}}\,M+\overline{A_{i}}\,\overline{B_{i}}\,\overline{M} \\
- &amp; = \overline{B_{i}}\,\overline{C_{i-1}}+\overline{C_{i-1}}\,\left(A_{i}\,M+\overline{A_{i}}\,\overline{M}\right)+\overline{B_{i}}\,\left(A_{i}\,M+\overline{A_{i}}\,\overline{M}\right) \\
- &amp; =\overline{B_{i}}\,\overline{C_{i-1}}+\left(\overline{B_{i}}\,+\overline{C_{i-1}}\right)\left(A_{i}\,M+\overline{A_{i}}\,\overline{M}\right) \\
- &amp; =\overline{B_{i}}\,\overline{C_{i-1}} + \overline{B_{i}\,C_{i-1}}\left(A_{i}\,\odot\,M\right) \\
- &amp; =\overline{\left(\overline{\overline{B_{i}}\,\overline{C_{i-1}}}\right)} + \overline{B_{i}\,C_{i-1}}\,\overline{\left(A_{i}\,\oplus\,M\right)}
+\overline{C_{i}} &amp; = \overline{B_{i}}\,\overline{C_{i-1}} + \overline{A_{i}}\,\overline{C_{i-1}}\,\overline{M} + A\,\overline{C_{i-1}}\,M+A_{i}\,\overline{B_{i}}\,M+\overline{A_{i}}\,\overline{B_{i}}\,\overline{M} \\
+&amp; = \overline{B_{i}}\,\overline{C_{i-1}}+\overline{C_{i-1}}\,\left(A_{i}\,M+\overline{A_{i}}\,\overline{M}\right)+\overline{B_{i}}\,\left(A_{i}\,M+\overline{A_{i}}\,\overline{M}\right) \\
+&amp; =\overline{B_{i}}\,\overline{C_{i-1}}+\left(\overline{B_{i}}\,+\overline{C_{i-1}}\right)\left(A_{i}\,M+\overline{A_{i}}\,\overline{M}\right) \\
+&amp; =\overline{B_{i}}\,\overline{C_{i-1}} + \overline{B_{i}\,C_{i-1}}\left(A_{i}\,\odot\,M\right) \\
+&amp; =\overline{\left(\overline{\overline{B_{i}}\,\overline{C_{i-1}}}\right)} + \overline{B_{i}\,C_{i-1}}\,\overline{\left(A_{i}\,\oplus\,M\right)}
 \end{align}
 $$&lt;p&gt;这样就做完啦哈哈哈，可以用异或门和与非门还有非门来实现了&lt;/p&gt;
-&lt;p&gt;还有个建议就是 &lt;strong&gt;本位和差S&lt;/strong&gt;单独用一个异或芯片  ，&lt;strong&gt;高位进位借位&lt;/strong&gt;单独用一个，不然连错了拆起来不方便。。&lt;/p&gt;
-&lt;h2 id=&#34;5-参考资料&#34;&gt;5 参考资料
+&lt;p&gt;还有个建议就是 &lt;strong&gt;本位和差S&lt;/strong&gt;单独用一个异或芯片 ，&lt;strong&gt;高位进位借位&lt;/strong&gt;单独用一个，不然连错了拆起来不方便。。&lt;/p&gt;
+&lt;h2 id="5-参考资料"&gt;5 参考资料
 &lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;数字电路逻辑设计(第三版)学习指导书. (2018). &lt;a class=&#34;link&#34; href=&#34;http://books.google.co.jp/books?id=OlOgzgEACAAJ&amp;amp;dq=isbn:9787040506242&amp;amp;hl=&amp;amp;source=gbs_api&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;http://books.google.co.jp/books?id=OlOgzgEACAAJ&amp;dq=isbn:9787040506242&amp;hl=&amp;source=gbs_api&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1bUfNYQEjc/?spm_id_from=333.1391.0.0&amp;amp;vd_source=67359d7dddb7c4db12237b008a0f5370&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;全加全减器_哔哩哔哩_bilibili&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        </item>
-        
-    </channel>
-</rss>
+&lt;li&gt;数字电路逻辑设计(第三版)学习指导书. (2018). &lt;a class="link" href="http://books.google.co.jp/books?id=OlOgzgEACAAJ&amp;amp;dq=isbn:9787040506242&amp;amp;hl=&amp;amp;source=gbs_api" target="_blank" rel="noopener"
+&gt;http://books.google.co.jp/books?id=OlOgzgEACAAJ&amp;dq=isbn:9787040506242&amp;hl=&amp;source=gbs_api&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1bUfNYQEjc/?spm_id_from=333.1391.0.0&amp;amp;vd_source=67359d7dddb7c4db12237b008a0f5370" target="_blank" rel="noopener"
+&gt;全加全减器_哔哩哔哩_bilibili&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</description></item></channel></rss>
