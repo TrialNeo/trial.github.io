@@ -1,26 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI Agent on Trial Blog</title><link>https://blog.trialpro.top/tags/ai-agent/</link><description>Recent content in AI Agent on Trial Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>shenpanpro@gmail.com</copyright><lastBuildDate>Wed, 17 Jun 2026 23:44:19 +0800</lastBuildDate><atom:link href="https://blog.trialpro.top/tags/ai-agent/index.xml" rel="self" type="application/rss+xml"/><item><title>关于AI Agent时代的思考</title><link>https://blog.trialpro.top/post/ai-agent-era-reflection/</link><pubDate>Wed, 17 Jun 2026 23:44:19 +0800</pubDate><guid>https://blog.trialpro.top/post/ai-agent-era-reflection/</guid><description>&lt;img src="https://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg" alt="Featured image of post 关于AI Agent时代的思考" /&gt;&lt;h2 id="前言"&gt;前言
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>AI Agent on Trial Blog</title>
+        <link>http://localhost:1313/tags/ai-agent/</link>
+        <description>Recent content in AI Agent on Trial Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>shenpanpro@gmail.com</copyright>
+        <lastBuildDate>Wed, 17 Jun 2026 23:44:19 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/ai-agent/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>关于AI Agent时代的思考</title>
+        <link>http://localhost:1313/post/ai-agent-era-reflection/</link>
+        <pubDate>Wed, 17 Jun 2026 23:44:19 +0800</pubDate>
+        
+        <guid>http://localhost:1313/post/ai-agent-era-reflection/</guid>
+        <description>&lt;img src="http://localhost:1313/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg" alt="Featured image of post 关于AI Agent时代的思考" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;下面的AI普遍指的是大语言模型&lt;/p&gt;
-&lt;h3 id="个人感想"&gt;个人感想
+&lt;h3 id=&#34;个人感想&#34;&gt;个人感想
 &lt;/h3&gt;&lt;p&gt;在口罩时期，ChatGPT爆火，而到现在其实有三四年了，那时候刚好在上高中，接触互联网的时间变少了（基本就是隔离了）；比较可惜的是，以前的产业也荒废了，到现在反而有一种跟不上时代的恐慌。&lt;/p&gt;
 &lt;p&gt;到我高考完的时候有朋友带我了解vibe coding，才短短几年就有了翻天覆地的变化，让我更加感叹的是以前的编程门槛马上就被消磨很多了。再到一年后的今天，又新出了Opus 4.8，GPT5.5，GLM5.2，以前的年更LLM也变成了现在的月更，Coding能力也一直在上升，在写&lt;strong&gt;前后端&lt;/strong&gt;的体验中给我的感觉就是：好像没人类什么事情了。&lt;/p&gt;
-&lt;h3 id="维新派与守旧派"&gt;“维新派”与“守旧派”
-&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg"
-width="850"
-height="1291"
-srcset="https://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_7848d484cc1e3ce7.jpg 480w, https://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_b0b2e650d73a1bad.jpg 1024w"
-loading="lazy"
-alt="梗图：维新派VS守旧派"
-class="gallery-image"
-data-flex-grow="65"
-data-flex-basis="158px"
+&lt;h3 id=&#34;维新派与守旧派&#34;&gt;“维新派”与“守旧派”
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg&#34;
+	width=&#34;850&#34;
+	height=&#34;1291&#34;
+	srcset=&#34;http://localhost:1313/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_7848d484cc1e3ce7.jpg 480w, http://localhost:1313/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_b0b2e650d73a1bad.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;梗图：维新派VS守旧派&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;65&#34;
+		data-flex-basis=&#34;158px&#34;
+	
 &gt;&lt;/p&gt;
-&lt;h4 id="评价"&gt;评价
+&lt;h4 id=&#34;评价&#34;&gt;评价
 &lt;/h4&gt;&lt;p&gt;这只是在软件开发领域，其实真是的计算机环境中不止是Coding，还有一直在做的逆向，算法，建模还没试过。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;（以下全是在软件工程领域的感想）个人的思想转变：一开始的时候还是不认为AI能够完成任务的，即使做出来也很粗糙$\to$AI可以做一些模板替换的工作，效率还是挺不错的，只需要我们审核一下逻辑和代码规范就好了$\to$自己来做一个大体的架构，写好规范文档，AI打通全流程（但是还是不敢全盘交给AI，该审核还是得审核），关键的地方还是得自己下场修改或者说是纠正。&lt;/p&gt;
 &lt;p&gt;人类的学习速度再怎么快也是学不过AI的，因为AI能够日夜不停得学还不用时间去消化（但是我一直很怀疑Transformer架构真的能做到真智能吗），以前把AI当成大号搜索引擎，但是这还是不太够，人们也挖掘出来他的Agent能力，所以我们&lt;mark&gt;怎么看待AI是一个很关键的事情&lt;/mark&gt;&lt;/p&gt;
 &lt;p&gt;SO在这波AI浪潮来的时候我们应该怎么办？&lt;/p&gt;
-&lt;h2 id="what-can-we-do"&gt;WHAT CAN WE DO
+&lt;h2 id=&#34;what-can-we-do&#34;&gt;WHAT CAN WE DO
 &lt;/h2&gt;&lt;p&gt;&lt;mark&gt;核心观点&lt;/mark&gt;是我们应该&lt;mark&gt;多用AI，善用AI&lt;/mark&gt;，&lt;/p&gt;
-&lt;h3 id="搭建ai工作流"&gt;搭建AI工作流
-&lt;/h3&gt;&lt;p&gt;看的L站的佬友的，但是进行了魔改&lt;/p&gt;</description></item></channel></rss>
+&lt;h3 id=&#34;搭建ai工作流&#34;&gt;搭建AI工作流
+&lt;/h3&gt;&lt;p&gt;看的L站的佬友的，但是进行了魔改&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
