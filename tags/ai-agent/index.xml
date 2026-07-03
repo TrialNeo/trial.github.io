@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI Agent on Trial Blog</title><link>https://blog.trialpro.top/tags/ai-agent/</link><description>Recent content in AI Agent on Trial Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>shenpanpro@gmail.com</copyright><lastBuildDate>Wed, 17 Jun 2026 23:44:19 +0800</lastBuildDate><atom:link href="https://blog.trialpro.top/tags/ai-agent/index.xml" rel="self" type="application/rss+xml"/><item><title>关于AI Agent时代的思考</title><link>https://blog.trialpro.top/post/ai-agent-era-reflection/</link><pubDate>Wed, 17 Jun 2026 23:44:19 +0800</pubDate><guid>https://blog.trialpro.top/post/ai-agent-era-reflection/</guid><description>&lt;img src="https://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg" alt="Featured image of post 关于AI Agent时代的思考" /&gt;&lt;h2 id="前言"&gt;前言
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI Agent on Trial Blog</title><link>http://localhost:1313/tags/ai-agent/</link><description>Recent content in AI Agent on Trial Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>shenpanpro@gmail.com</copyright><lastBuildDate>Wed, 17 Jun 2026 23:44:19 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/ai-agent/index.xml" rel="self" type="application/rss+xml"/><item><title>关于AI Agent时代的思考</title><link>http://localhost:1313/post/ai-agent-era-reflection/</link><pubDate>Wed, 17 Jun 2026 23:44:19 +0800</pubDate><guid>http://localhost:1313/post/ai-agent-era-reflection/</guid><description>&lt;img src="http://localhost:1313/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg" alt="Featured image of post 关于AI Agent时代的思考" /&gt;&lt;h2 id="前言"&gt;前言
 &lt;/h2&gt;&lt;p&gt;下面的AI普遍指的是大语言模型&lt;/p&gt;
 &lt;h3 id="个人感想"&gt;个人感想
 &lt;/h3&gt;&lt;p&gt;在口罩时期，ChatGPT爆火，而到现在其实有三四年了，那时候刚好在上高中，接触互联网的时间变少了（基本就是隔离了）；比较可惜的是，以前的产业也荒废了，到现在反而有一种跟不上时代的恐慌。&lt;/p&gt;
 &lt;p&gt;到我高考完的时候有朋友带我了解vibe coding，才短短几年就有了翻天覆地的变化，让我更加感叹的是以前的编程门槛马上就被消磨很多了。再到一年后的今天，又新出了Opus 4.8，GPT5.5，GLM5.2，以前的年更LLM也变成了现在的月更，Coding能力也一直在上升，在写&lt;strong&gt;前后端&lt;/strong&gt;的体验中给我的感觉就是：好像没人类什么事情了。&lt;/p&gt;
 &lt;h3 id="维新派与守旧派"&gt;“维新派”与“守旧派”
-&lt;/h3&gt;&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg"
+&lt;/h3&gt;&lt;p&gt;&lt;img src="http://localhost:1313/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg"
 width="850"
 height="1291"
-srcset="https://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_7848d484cc1e3ce7.jpg 480w, https://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_b0b2e650d73a1bad.jpg 1024w"
+srcset="http://localhost:1313/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_7848d484cc1e3ce7.jpg 480w, http://localhost:1313/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48_hu_b0b2e650d73a1bad.jpg 1024w"
 loading="lazy"
 alt="梗图：维新派VS守旧派"
 class="gallery-image"
