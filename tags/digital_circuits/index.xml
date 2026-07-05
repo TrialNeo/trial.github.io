@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Digital_circuits on Trial Blog</title><link>http://localhost:1313/tags/digital_circuits/</link><description>Recent content in Digital_circuits on Trial Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>shenpanpro@gmail.com</copyright><lastBuildDate>Tue, 21 Apr 2026 09:58:46 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/digital_circuits/index.xml" rel="self" type="application/rss+xml"/><item><title>SCAU全加器全减器的实现</title><link>http://localhost:1313/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</link><pubDate>Tue, 21 Apr 2026 09:58:46 +0800</pubDate><guid>http://localhost:1313/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid><description>&lt;img src="http://localhost:1313/attachment/076c7cb7985800b0f74c81849b3c1998.png" alt="Featured image of post SCAU全加器全减器的实现" /&gt;&lt;h2 id="1-题目"&gt;1 题目
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Digital_circuits on Trial Blog</title><link>https://blog.trialpro.top/tags/digital_circuits/</link><description>Recent content in Digital_circuits on Trial Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>shenpanpro@gmail.com</copyright><lastBuildDate>Tue, 21 Apr 2026 09:58:46 +0800</lastBuildDate><atom:link href="https://blog.trialpro.top/tags/digital_circuits/index.xml" rel="self" type="application/rss+xml"/><item><title>SCAU全加器全减器的实现</title><link>https://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</link><pubDate>Tue, 21 Apr 2026 09:58:46 +0800</pubDate><guid>https://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid><description>&lt;img src="https://blog.trialpro.top/attachment/076c7cb7985800b0f74c81849b3c1998.png" alt="Featured image of post SCAU全加器全减器的实现" /&gt;&lt;h2 id="1-题目"&gt;1 题目
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;设计实现一个加/减法器，该电路在M控制下进行加、减运算。当$M=0$时，实现全加器功能；当$M=1$时，实现全减器功能。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -186,10 +186,10 @@ $$&lt;p&gt;下面只讨论进位的那个部分，本位和与差可以看&lt;a 
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src="http://localhost:1313/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/076c7cb7985800b0f74c81849b3c1998.png"
+&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/076c7cb7985800b0f74c81849b3c1998.png"
 width="947"
 height="463"
-srcset="http://localhost:1313/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/076c7cb7985800b0f74c81849b3c1998_hu_5d1768c4353999c2.png 480w, http://localhost:1313/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/076c7cb7985800b0f74c81849b3c1998_hu_3a265d69fce99e6b.png 1024w"
+srcset="https://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/076c7cb7985800b0f74c81849b3c1998_hu_5d1768c4353999c2.png 480w, https://blog.trialpro.top/post/scau%E5%85%A8%E5%8A%A0%E5%99%A8%E5%85%A8%E5%87%8F%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/076c7cb7985800b0f74c81849b3c1998_hu_3a265d69fce99e6b.png 1024w"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="204"
