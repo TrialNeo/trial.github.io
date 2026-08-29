@@ -1,4 +1,216 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Trial Blog</title><link>https://blog.trialpro.top/</link><description>Recent content on Trial Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>shenpanpro@gmail.com</copyright><lastBuildDate>Thu, 02 Jul 2026 21:44:19 +0800</lastBuildDate><atom:link href="https://blog.trialpro.top/index.xml" rel="self" type="application/rss+xml"/><item><title>对于“互联网朝代”的个人观察感悟</title><link>https://blog.trialpro.top/post/age/</link><pubDate>Thu, 02 Jul 2026 21:44:19 +0800</pubDate><guid>https://blog.trialpro.top/post/age/</guid><description>&lt;img src="https://blog.trialpro.top/post/age/2c746c05096228d5e1ecc855fcb2317b1252496518.png" alt="Featured image of post 对于“互联网朝代”的个人观察感悟" /&gt;&lt;p&gt;首先我个人刷短视频可能比较少，对于这几种“互联网朝代”的冲击比其他网友可能要逊色不少。只是记录一下这几种“互联网时代”。主要的顺序应该是$大唐时代\to大忧郁时代\to大压抑时代\to大嘉豪时代\to大童年时代\to大崩住时代\to大周礼时代$，不知不觉，并且也莫名其妙地成为了六朝元老了。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Trial Blog</title><link>https://blog.trialpro.top/</link><description>Recent content on Trial Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>shenpanpro@gmail.com</copyright><lastBuildDate>Sat, 29 Aug 2026 16:40:12 +0800</lastBuildDate><atom:link href="https://blog.trialpro.top/index.xml" rel="self" type="application/rss+xml"/><item><title>Conditional Neural Processes, CNP</title><link>https://blog.trialpro.top/post/conditional-neural-processes-cnp/</link><pubDate>Sat, 29 Aug 2026 16:40:12 +0800</pubDate><guid>https://blog.trialpro.top/post/conditional-neural-processes-cnp/</guid><description>&lt;h1 id="conditional-neural-processes-cnp"&gt;Conditional Neural Processes, CNP
+&lt;/h1&gt;&lt;h1 id="具体流程"&gt;具体流程
+&lt;/h1&gt;&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829152936-7spfxbr.png"
+width="1024"
+height="1024"
+srcset="https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829152936-7spfxbr_hu_aec81279ab960ee6.png 480w, https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829152936-7spfxbr_hu_b5138c56fbb1fb5b.png 1024w"
+loading="lazy"
+alt="image"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+&gt;&lt;/p&gt;
+&lt;h2 id="step1-encoder"&gt;Step.1 Encoder
+&lt;/h2&gt;$$
+\mathbf{r}_i = h_{\theta}(\mathbf{x}_{i})
+$$&lt;ul&gt;
+&lt;li&gt;$\mathbf{x}_i \in {X}$&lt;/li&gt;
+&lt;li&gt;$\mathbf{y}_{i} \in Y$&lt;/li&gt;
+&lt;li&gt;$\mathbf{r}_i \in \mathbb{R}^{d}$&lt;/li&gt;
+&lt;li&gt;$h_{\mathbf{\theta}}:X \mapsto \mathbb{R}^{d}$，使用一个神经网络来维护，其参数为$\mathbf{\theta}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用编码器意义在于，无论context points输入多少个点，最后都能统一成一个固定长度的向量&lt;/p&gt;
+&lt;p&gt;但是缺点也很明显，就是丢失原本数据的细节。&lt;/p&gt;
+&lt;p&gt;‍&lt;/p&gt;
+&lt;h2 id="step2-aggregate聚合"&gt;Step.2 Aggregate，聚合
+&lt;/h2&gt;$$
+\mathbf{r}=\mathbf{r}_1 \oplus \mathbf{r}_2 \oplus \mathbf{r}_3 \oplus \cdots \oplus \mathbf{r}_{N_C}
+$$&lt;ul&gt;
+&lt;li&gt;$\oplus$：需要满足置换不变性的运算，比如求平均，取最大值&lt;/li&gt;
+&lt;li&gt;$\mathbf{r}_i \in \mathbb{R}^{d}$：经过Encoder的编码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;‍&lt;/p&gt;
+&lt;h3 id="置换不变性的具体说明"&gt;置换不变性的具体说明
+&lt;/h3&gt;$$
+Q_{\theta}(f(\mathbf{T})\mid \mathcal{O},\mathbf{T})
+= Q_{\theta}(f(\mathbf{T'})\mid \mathcal{O},\mathbf{T'})
+= Q_{\theta}(f(\mathbf{T})\mid \mathcal{O'},\mathbf{T})
+$$&lt;ul&gt;
+&lt;li&gt;$\mathcal{O}={(\mathbf{x}_i,y_i)}$：已经观察到的数据；&lt;/li&gt;
+&lt;li&gt;$\mathbf{T}=(\mathbf{t}_1,\mathbf{t}_2,\ldots,\mathbf{t}_m)$：希望预测的位置；&lt;/li&gt;
+&lt;li&gt;$f(\mathbf{T})=(f(\mathbf{t}_1),f(\mathbf{t}_2),\ldots,f(\mathbf{t}_m))$；&lt;/li&gt;
+&lt;li&gt;$Q_\theta(f(\mathbf{T})\mid \mathcal{O},\mathbf{T})$：模型根据 $\mathcal{O}$，对目标位置 $\mathbf{T}$ 上函数值给出的概率分布。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="例打乱观测数据不影响预测"&gt;例：打乱观测数据，不影响预测
+&lt;/h4&gt;&lt;p&gt;假设我们观察到：&lt;/p&gt;
+$$
+O=\big((1,2),(2,4),(3,6)\big),
+$$&lt;p&gt;这些点大致满足 $y=2x$。现在希望预测 $x=4$，所以&lt;/p&gt;
+$$
+T=(4).
+$$&lt;p&gt;假设CNP给出的预测分布是&lt;/p&gt;
+$$
+f(4)\mid O,T\sim \mathcal N(8,0.3^2).
+$$&lt;p&gt;现在把观测数据的顺序打乱：&lt;/p&gt;
+$$
+O'=\big((3,6),(1,2),(2,4)\big).
+$$&lt;p&gt;虽然排列顺序变了，但包含的信息完全相同，因此模型仍然应该给出&lt;/p&gt;
+$$
+f(4)\mid O',T\sim \mathcal N(8,0.3^2).
+$$&lt;p&gt;也就是&lt;/p&gt;
+$$Q_\theta(f(T)\mid O,T)=Q_\theta(f(T)\mid O',T).$$&lt;p&gt;可以把它类比成计算平均数：&lt;/p&gt;
+$$
+\frac{2+4+6}{3}=\frac{6+2+4}{3}.
+$$&lt;p&gt;数字的排列顺序不影响平均数。同样，CNP通常会用求和或求平均的方式汇总观测信息，因此观测点的顺序不会影响最终结果。&lt;/p&gt;
+&lt;h3 id="oplus的一些方法"&gt;$\oplus$的一些方法
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;取均值：根据加法交换律，这个事情是很显然的&lt;/li&gt;
+&lt;li&gt;取最值&lt;/li&gt;
+&lt;li&gt;&amp;hellip;..&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="step3-decoder"&gt;Step.3 Decoder
+&lt;/h2&gt;$$
+\phi_j = g_{\theta}(\mathbf{x}^*,\mathbf{r})
+$$&lt;ul&gt;
+&lt;li&gt;$g_\theta$ 是解码器：使用神经网络来维护&lt;/li&gt;
+&lt;li&gt;$\mathbf{x}^*$ 是需要预测的目标位置；&lt;/li&gt;
+&lt;li&gt;$\mathbf{r}$ 是全部观测点的总体表示，在&lt;a class="link" href="#20260829153205-7ck9rvx" &gt;Step.2 Aggregate，聚合&lt;/a&gt;中得到&lt;/li&gt;
+&lt;li&gt;$\phi_j$ 是目标位置上的概率分布参数，比如说正态分布可以得到$\hat{\mu}&lt;em&gt;{j},\hat{\sigma}&lt;/em&gt;{j}$，之后就可以得到$f(\mathbf{x}^\star) \sim \mathcal{N}(\hat{\mu}&lt;em&gt;{j},\hat{\sigma}&lt;/em&gt;{j})$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829160202-0qt6goi.png"
+width="1016"
+height="1202"
+srcset="https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829160202-0qt6goi_hu_123b61e88f7e7078.png 480w, https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829160202-0qt6goi_hu_154f70ebe661984d.png 1024w"
+loading="lazy"
+alt="image"
+class="gallery-image"
+data-flex-grow="84"
+data-flex-basis="202px"
+&gt;&lt;/p&gt;
+&lt;h1 id="训练cnps"&gt;训练CNPs
+&lt;/h1&gt;&lt;h2 id="loss-function"&gt;Loss Function
+&lt;/h2&gt;&lt;p&gt;先定义损失函数，CNP原paper中选用了NLL作为损失函数&lt;/p&gt;
+$$
+L(\theta) = -\mathbb{E}_{f \sim D} \left\{\mathbb{E}_N\left[\log Q_{\theta}(\{y_{i}\}_{i=1}^{n}) \mid O_{N} ,\{\mathbf{x}_i\} \right]_{i=1}^{n }\right\}
+$$&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$f \sim D$：表示从函数分布（或任务分布）$D$ 中随机抽取一条函数 $f$。&lt;/p&gt;
+&lt;p&gt;例如，$D$ 中可能包含很多不同的函数：&lt;/p&gt;
+$$
+f_1(x)=2x+1,\qquad f_2(x)=-x+3,\qquad f_3(x)=\sin x.
+$$&lt;p&gt;每次训练随机抽取其中一条，用来生成训练数据：&lt;/p&gt;
+$$
+y_i=f(x_i).
+$$&lt;p&gt;在CNP中，一条函数通常可以看作一个任务。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$N \sim U(1,n)_{\text{discrete}}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$Q_{\theta}(y_{i} \mid O, \mathbf{x}_i)$：已知观测集合 $O_N$，模型对位置 $x_i$ 上函数值 $y_i$ 所作的概率预测。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$O_N$：表示由 $N$ 个已知观测点组成的观测集合，也叫作上下文集合；或者说是Contents Points 构成的集合&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;目标是要最小化该函数，即&lt;/p&gt;
+$$
+J(\theta) = \min L(\theta)
+$$&lt;h2 id="反向传播"&gt;反向传播
+&lt;/h2&gt;&lt;p&gt;略，pytorch会自动处理的&lt;/p&gt;
+&lt;h2 id="gradient-method"&gt;Gradient Method
+&lt;/h2&gt;&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829162449-69rr42m.png"
+width="1564"
+height="393"
+srcset="https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829162449-69rr42m_hu_9b50de91d046b4c1.png 480w, https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829162449-69rr42m_hu_478e76a380ab3c76.png 1024w"
+loading="lazy"
+alt="image"
+class="gallery-image"
+data-flex-grow="397"
+data-flex-basis="955px"
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="Conditional%20Neural%20Processes,%20CNP/Gradient%20Descent.md" &gt;Gradient Descent&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;‍&lt;/p&gt;
+&lt;h1 id="抄袭资料"&gt;抄袭资料
+&lt;/h1&gt;&lt;p&gt;全文不亚于是抄袭洗稿这两篇文章的，希望支持一下原作者~&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhuanlan.zhihu.com/p/62724990" target="_blank" rel="noopener"
+&gt;ICML 2018 | 条件神经过程 - 知乎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhuanlan.zhihu.com/p/668010494" target="_blank" rel="noopener"
+&gt;Neural Processes神经过程总结 - 知乎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;‍&lt;/p&gt;</description></item><item><title>20260805-log</title><link>https://blog.trialpro.top/post/20260805-log/</link><pubDate>Wed, 05 Aug 2026 13:42:59 +0800</pubDate><guid>https://blog.trialpro.top/post/20260805-log/</guid><description>&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/20260805-log/image-20260805134426703.png"
+width="2546"
+height="1356"
+srcset="https://blog.trialpro.top/post/20260805-log/image-20260805134426703_hu_6c84cd148a02b214.png 480w, https://blog.trialpro.top/post/20260805-log/image-20260805134426703_hu_67b2a4197d323bae.png 1024w"
+loading="lazy"
+alt="image-20260805134426703"
+class="gallery-image"
+data-flex-grow="187"
+data-flex-basis="450px"
+&gt;&lt;/p&gt;
+&lt;p&gt;用这个东西&lt;a class="link" href="https://cloudstudio.net/" target="_blank" rel="noopener"
+&gt;Buddy Academy · CodeBuddy &amp;amp; WorkBuddy 全生态学习成长中心 - CloudStudio&lt;/a&gt;训练了一个小时，走开一下居然给我关机了！浪费我一个小时时间&lt;/p&gt;
+&lt;p&gt;还是转到&lt;/p&gt;</description></item><item><title>新拿到一台ubuntu服务器基本软件的配置</title><link>https://blog.trialpro.top/post/new-ubuntu-config/</link><pubDate>Sat, 01 Aug 2026 14:37:54 +0800</pubDate><guid>https://blog.trialpro.top/post/new-ubuntu-config/</guid><description>&lt;h2 id="安装git"&gt;安装GIT
+&lt;/h2&gt;&lt;h3 id=""&gt;
+&lt;/h3&gt;&lt;h3 id="国内服务器配置代理进行加速push-pull-of-public-repo"&gt;国内服务器配置代理进行加速(push, pull of public repo)
+&lt;/h3&gt;&lt;p&gt;只是对public repo的push, pull 进行优化，其他没有什么变化&lt;/p&gt;
+&lt;p&gt;这里选择的方案是使用clash进行代理（需要自备节点）&lt;/p&gt;
+&lt;h3 id="安装clash"&gt;安装clash
+&lt;/h3&gt;&lt;p&gt;可以使用该项目&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/nelvko/clash-for-linux-install" target="_blank" rel="noopener"
+&gt;nelvko/clash-for-linux-install: 😼 优雅地使用基于 clash/mihomo 的代理环境&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;然后配置好节点&lt;/p&gt;
+&lt;h4 id="如果已经安装"&gt;如果已经安装
+&lt;/h4&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ss -lntp | grep -E &amp;#39;clash|mihomo&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/new-ubuntu-config/image-20260801151447566.png"
+width="1939"
+height="285"
+srcset="https://blog.trialpro.top/post/new-ubuntu-config/image-20260801151447566_hu_34db1fd9997f839a.png 480w, https://blog.trialpro.top/post/new-ubuntu-config/image-20260801151447566_hu_e997dafc2d31f54.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="680"
+data-flex-basis="1632px"
+&gt;&lt;/p&gt;
+&lt;h3 id="配置转发"&gt;配置转发
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git config --global --unset-all http.https://github.com.proxy 2&amp;gt;/dev/null
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git config --global &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; http.https://github.com.proxy &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; socks5h://127.0.0.1:7890
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/new-ubuntu-config/image-20260801152643479.png"
+width="1536"
+height="285"
+srcset="https://blog.trialpro.top/post/new-ubuntu-config/image-20260801152643479_hu_2713f60b59d4f4db.png 480w, https://blog.trialpro.top/post/new-ubuntu-config/image-20260801152643479_hu_110921b61576af08.png 1024w"
+loading="lazy"
+alt="效果图"
+class="gallery-image"
+data-flex-grow="538"
+data-flex-basis="1293px"
+&gt;&lt;/p&gt;
+&lt;p&gt;（：我看你这也不太行呀，才跑这么慢；节点比较慢也没办法哈哈哈&lt;/p&gt;</description></item><item><title>对于“互联网朝代”的个人观察感悟</title><link>https://blog.trialpro.top/post/age/</link><pubDate>Thu, 02 Jul 2026 21:44:19 +0800</pubDate><guid>https://blog.trialpro.top/post/age/</guid><description>&lt;img src="https://blog.trialpro.top/post/age/2c746c05096228d5e1ecc855fcb2317b1252496518.png" alt="Featured image of post 对于“互联网朝代”的个人观察感悟" /&gt;&lt;p&gt;首先我个人刷短视频可能比较少，对于这几种“互联网朝代”的冲击比其他网友可能要逊色不少。只是记录一下这几种“互联网时代”。主要的顺序应该是$大唐时代\to大忧郁时代\to大压抑时代\to大嘉豪时代\to大童年时代\to大崩住时代\to大周礼时代$，不知不觉，并且也莫名其妙地成为了六朝元老了。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="戾气四起"&gt;戾气四起
 &lt;/h2&gt;&lt;p&gt;在我看来，以下几个“互联网时代”是乌烟瘴气，戾气熏天的代表。&lt;/p&gt;

@@ -1,4 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cs on Trial Blog</title><link>https://blog.trialpro.top/tags/cs/</link><description>Recent content in Cs on Trial Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>shenpanpro@gmail.com</copyright><lastBuildDate>Wed, 17 Jun 2026 23:44:19 +0800</lastBuildDate><atom:link href="https://blog.trialpro.top/tags/cs/index.xml" rel="self" type="application/rss+xml"/><item><title>关于AI Agent时代的思考</title><link>https://blog.trialpro.top/post/ai-agent-era-reflection/</link><pubDate>Wed, 17 Jun 2026 23:44:19 +0800</pubDate><guid>https://blog.trialpro.top/post/ai-agent-era-reflection/</guid><description>&lt;img src="https://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg" alt="Featured image of post 关于AI Agent时代的思考" /&gt;&lt;h2 id="前言"&gt;前言
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cs on Trial Blog</title><link>https://blog.trialpro.top/tags/cs/</link><description>Recent content in Cs on Trial Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>shenpanpro@gmail.com</copyright><lastBuildDate>Sat, 01 Aug 2026 14:37:54 +0800</lastBuildDate><atom:link href="https://blog.trialpro.top/tags/cs/index.xml" rel="self" type="application/rss+xml"/><item><title>新拿到一台ubuntu服务器基本软件的配置</title><link>https://blog.trialpro.top/post/new-ubuntu-config/</link><pubDate>Sat, 01 Aug 2026 14:37:54 +0800</pubDate><guid>https://blog.trialpro.top/post/new-ubuntu-config/</guid><description>&lt;h2 id="安装git"&gt;安装GIT
+&lt;/h2&gt;&lt;h3 id=""&gt;
+&lt;/h3&gt;&lt;h3 id="国内服务器配置代理进行加速push-pull-of-public-repo"&gt;国内服务器配置代理进行加速(push, pull of public repo)
+&lt;/h3&gt;&lt;p&gt;只是对public repo的push, pull 进行优化，其他没有什么变化&lt;/p&gt;
+&lt;p&gt;这里选择的方案是使用clash进行代理（需要自备节点）&lt;/p&gt;
+&lt;h3 id="安装clash"&gt;安装clash
+&lt;/h3&gt;&lt;p&gt;可以使用该项目&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/nelvko/clash-for-linux-install" target="_blank" rel="noopener"
+&gt;nelvko/clash-for-linux-install: 😼 优雅地使用基于 clash/mihomo 的代理环境&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;然后配置好节点&lt;/p&gt;
+&lt;h4 id="如果已经安装"&gt;如果已经安装
+&lt;/h4&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ss -lntp | grep -E &amp;#39;clash|mihomo&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/new-ubuntu-config/image-20260801151447566.png"
+width="1939"
+height="285"
+srcset="https://blog.trialpro.top/post/new-ubuntu-config/image-20260801151447566_hu_34db1fd9997f839a.png 480w, https://blog.trialpro.top/post/new-ubuntu-config/image-20260801151447566_hu_e997dafc2d31f54.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="680"
+data-flex-basis="1632px"
+&gt;&lt;/p&gt;
+&lt;h3 id="配置转发"&gt;配置转发
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git config --global --unset-all http.https://github.com.proxy 2&amp;gt;/dev/null
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git config --global &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; http.https://github.com.proxy &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; socks5h://127.0.0.1:7890
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/new-ubuntu-config/image-20260801152643479.png"
+width="1536"
+height="285"
+srcset="https://blog.trialpro.top/post/new-ubuntu-config/image-20260801152643479_hu_2713f60b59d4f4db.png 480w, https://blog.trialpro.top/post/new-ubuntu-config/image-20260801152643479_hu_110921b61576af08.png 1024w"
+loading="lazy"
+alt="效果图"
+class="gallery-image"
+data-flex-grow="538"
+data-flex-basis="1293px"
+&gt;&lt;/p&gt;
+&lt;p&gt;（：我看你这也不太行呀，才跑这么慢；节点比较慢也没办法哈哈哈&lt;/p&gt;</description></item><item><title>关于AI Agent时代的思考</title><link>https://blog.trialpro.top/post/ai-agent-era-reflection/</link><pubDate>Wed, 17 Jun 2026 23:44:19 +0800</pubDate><guid>https://blog.trialpro.top/post/ai-agent-era-reflection/</guid><description>&lt;img src="https://blog.trialpro.top/post/ai-agent-era-reflection/135e41458367c700e1222db8c524f48.jpg" alt="Featured image of post 关于AI Agent时代的思考" /&gt;&lt;h2 id="前言"&gt;前言
 &lt;/h2&gt;&lt;p&gt;下面的AI普遍指的是大语言模型&lt;/p&gt;
 &lt;h3 id="个人感想"&gt;个人感想
 &lt;/h3&gt;&lt;p&gt;在口罩时期，ChatGPT爆火，而到现在其实有三四年了，那时候刚好在上高中，接触互联网的时间变少了（基本就是隔离了）；比较可惜的是，以前的产业也荒废了，到现在反而有一种跟不上时代的恐慌。&lt;/p&gt;

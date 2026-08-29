@@ -1,20 +1,146 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>AI on Trial Blog</title>
-        <link>http://localhost:1313/tags/ai/</link>
-        <description>Recent content in AI on Trial Blog</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <copyright>shenpanpro@gmail.com</copyright>
-        <lastBuildDate>Wed, 17 Jun 2026 23:44:19 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/ai/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>关于AI Agent时代的思考</title>
-        <link>http://localhost:1313/post/ai-agent-era-reflection/</link>
-        <pubDate>Wed, 17 Jun 2026 23:44:19 +0800</pubDate>
-        
-        <guid>http://localhost:1313/post/ai-agent-era-reflection/</guid>
-        <description></description>
-        </item>
-        
-    </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI on Trial Blog</title><link>https://blog.trialpro.top/tags/ai/</link><description>Recent content in AI on Trial Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>shenpanpro@gmail.com</copyright><lastBuildDate>Sat, 29 Aug 2026 16:40:12 +0800</lastBuildDate><atom:link href="https://blog.trialpro.top/tags/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>Conditional Neural Processes, CNP</title><link>https://blog.trialpro.top/post/conditional-neural-processes-cnp/</link><pubDate>Sat, 29 Aug 2026 16:40:12 +0800</pubDate><guid>https://blog.trialpro.top/post/conditional-neural-processes-cnp/</guid><description>&lt;h1 id="conditional-neural-processes-cnp"&gt;Conditional Neural Processes, CNP
+&lt;/h1&gt;&lt;h1 id="具体流程"&gt;具体流程
+&lt;/h1&gt;&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829152936-7spfxbr.png"
+width="1024"
+height="1024"
+srcset="https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829152936-7spfxbr_hu_aec81279ab960ee6.png 480w, https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829152936-7spfxbr_hu_b5138c56fbb1fb5b.png 1024w"
+loading="lazy"
+alt="image"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+&gt;&lt;/p&gt;
+&lt;h2 id="step1-encoder"&gt;Step.1 Encoder
+&lt;/h2&gt;$$
+\mathbf{r}_i = h_{\theta}(\mathbf{x}_{i})
+$$&lt;ul&gt;
+&lt;li&gt;$\mathbf{x}_i \in {X}$&lt;/li&gt;
+&lt;li&gt;$\mathbf{y}_{i} \in Y$&lt;/li&gt;
+&lt;li&gt;$\mathbf{r}_i \in \mathbb{R}^{d}$&lt;/li&gt;
+&lt;li&gt;$h_{\mathbf{\theta}}:X \mapsto \mathbb{R}^{d}$，使用一个神经网络来维护，其参数为$\mathbf{\theta}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用编码器意义在于，无论context points输入多少个点，最后都能统一成一个固定长度的向量&lt;/p&gt;
+&lt;p&gt;但是缺点也很明显，就是丢失原本数据的细节。&lt;/p&gt;
+&lt;p&gt;‍&lt;/p&gt;
+&lt;h2 id="step2-aggregate聚合"&gt;Step.2 Aggregate，聚合
+&lt;/h2&gt;$$
+\mathbf{r}=\mathbf{r}_1 \oplus \mathbf{r}_2 \oplus \mathbf{r}_3 \oplus \cdots \oplus \mathbf{r}_{N_C}
+$$&lt;ul&gt;
+&lt;li&gt;$\oplus$：需要满足置换不变性的运算，比如求平均，取最大值&lt;/li&gt;
+&lt;li&gt;$\mathbf{r}_i \in \mathbb{R}^{d}$：经过Encoder的编码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;‍&lt;/p&gt;
+&lt;h3 id="置换不变性的具体说明"&gt;置换不变性的具体说明
+&lt;/h3&gt;$$
+Q_{\theta}(f(\mathbf{T})\mid \mathcal{O},\mathbf{T})
+= Q_{\theta}(f(\mathbf{T'})\mid \mathcal{O},\mathbf{T'})
+= Q_{\theta}(f(\mathbf{T})\mid \mathcal{O'},\mathbf{T})
+$$&lt;ul&gt;
+&lt;li&gt;$\mathcal{O}={(\mathbf{x}_i,y_i)}$：已经观察到的数据；&lt;/li&gt;
+&lt;li&gt;$\mathbf{T}=(\mathbf{t}_1,\mathbf{t}_2,\ldots,\mathbf{t}_m)$：希望预测的位置；&lt;/li&gt;
+&lt;li&gt;$f(\mathbf{T})=(f(\mathbf{t}_1),f(\mathbf{t}_2),\ldots,f(\mathbf{t}_m))$；&lt;/li&gt;
+&lt;li&gt;$Q_\theta(f(\mathbf{T})\mid \mathcal{O},\mathbf{T})$：模型根据 $\mathcal{O}$，对目标位置 $\mathbf{T}$ 上函数值给出的概率分布。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="例打乱观测数据不影响预测"&gt;例：打乱观测数据，不影响预测
+&lt;/h4&gt;&lt;p&gt;假设我们观察到：&lt;/p&gt;
+$$
+O=\big((1,2),(2,4),(3,6)\big),
+$$&lt;p&gt;这些点大致满足 $y=2x$。现在希望预测 $x=4$，所以&lt;/p&gt;
+$$
+T=(4).
+$$&lt;p&gt;假设CNP给出的预测分布是&lt;/p&gt;
+$$
+f(4)\mid O,T\sim \mathcal N(8,0.3^2).
+$$&lt;p&gt;现在把观测数据的顺序打乱：&lt;/p&gt;
+$$
+O'=\big((3,6),(1,2),(2,4)\big).
+$$&lt;p&gt;虽然排列顺序变了，但包含的信息完全相同，因此模型仍然应该给出&lt;/p&gt;
+$$
+f(4)\mid O',T\sim \mathcal N(8,0.3^2).
+$$&lt;p&gt;也就是&lt;/p&gt;
+$$Q_\theta(f(T)\mid O,T)=Q_\theta(f(T)\mid O',T).$$&lt;p&gt;可以把它类比成计算平均数：&lt;/p&gt;
+$$
+\frac{2+4+6}{3}=\frac{6+2+4}{3}.
+$$&lt;p&gt;数字的排列顺序不影响平均数。同样，CNP通常会用求和或求平均的方式汇总观测信息，因此观测点的顺序不会影响最终结果。&lt;/p&gt;
+&lt;h3 id="oplus的一些方法"&gt;$\oplus$的一些方法
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;取均值：根据加法交换律，这个事情是很显然的&lt;/li&gt;
+&lt;li&gt;取最值&lt;/li&gt;
+&lt;li&gt;&amp;hellip;..&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="step3-decoder"&gt;Step.3 Decoder
+&lt;/h2&gt;$$
+\phi_j = g_{\theta}(\mathbf{x}^*,\mathbf{r})
+$$&lt;ul&gt;
+&lt;li&gt;$g_\theta$ 是解码器：使用神经网络来维护&lt;/li&gt;
+&lt;li&gt;$\mathbf{x}^*$ 是需要预测的目标位置；&lt;/li&gt;
+&lt;li&gt;$\mathbf{r}$ 是全部观测点的总体表示，在&lt;a class="link" href="#20260829153205-7ck9rvx" &gt;Step.2 Aggregate，聚合&lt;/a&gt;中得到&lt;/li&gt;
+&lt;li&gt;$\phi_j$ 是目标位置上的概率分布参数，比如说正态分布可以得到$\hat{\mu}&lt;em&gt;{j},\hat{\sigma}&lt;/em&gt;{j}$，之后就可以得到$f(\mathbf{x}^\star) \sim \mathcal{N}(\hat{\mu}&lt;em&gt;{j},\hat{\sigma}&lt;/em&gt;{j})$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829160202-0qt6goi.png"
+width="1016"
+height="1202"
+srcset="https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829160202-0qt6goi_hu_123b61e88f7e7078.png 480w, https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829160202-0qt6goi_hu_154f70ebe661984d.png 1024w"
+loading="lazy"
+alt="image"
+class="gallery-image"
+data-flex-grow="84"
+data-flex-basis="202px"
+&gt;&lt;/p&gt;
+&lt;h1 id="训练cnps"&gt;训练CNPs
+&lt;/h1&gt;&lt;h2 id="loss-function"&gt;Loss Function
+&lt;/h2&gt;&lt;p&gt;先定义损失函数，CNP原paper中选用了NLL作为损失函数&lt;/p&gt;
+$$
+L(\theta) = -\mathbb{E}_{f \sim D} \left\{\mathbb{E}_N\left[\log Q_{\theta}(\{y_{i}\}_{i=1}^{n}) \mid O_{N} ,\{\mathbf{x}_i\} \right]_{i=1}^{n }\right\}
+$$&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$f \sim D$：表示从函数分布（或任务分布）$D$ 中随机抽取一条函数 $f$。&lt;/p&gt;
+&lt;p&gt;例如，$D$ 中可能包含很多不同的函数：&lt;/p&gt;
+$$
+f_1(x)=2x+1,\qquad f_2(x)=-x+3,\qquad f_3(x)=\sin x.
+$$&lt;p&gt;每次训练随机抽取其中一条，用来生成训练数据：&lt;/p&gt;
+$$
+y_i=f(x_i).
+$$&lt;p&gt;在CNP中，一条函数通常可以看作一个任务。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$N \sim U(1,n)_{\text{discrete}}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$Q_{\theta}(y_{i} \mid O, \mathbf{x}_i)$：已知观测集合 $O_N$，模型对位置 $x_i$ 上函数值 $y_i$ 所作的概率预测。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$O_N$：表示由 $N$ 个已知观测点组成的观测集合，也叫作上下文集合；或者说是Contents Points 构成的集合&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;目标是要最小化该函数，即&lt;/p&gt;
+$$
+J(\theta) = \min L(\theta)
+$$&lt;h2 id="反向传播"&gt;反向传播
+&lt;/h2&gt;&lt;p&gt;略，pytorch会自动处理的&lt;/p&gt;
+&lt;h2 id="gradient-method"&gt;Gradient Method
+&lt;/h2&gt;&lt;p&gt;&lt;img src="https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829162449-69rr42m.png"
+width="1564"
+height="393"
+srcset="https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829162449-69rr42m_hu_9b50de91d046b4c1.png 480w, https://blog.trialpro.top/post/conditional-neural-processes-cnp/assets/image-20260829162449-69rr42m_hu_478e76a380ab3c76.png 1024w"
+loading="lazy"
+alt="image"
+class="gallery-image"
+data-flex-grow="397"
+data-flex-basis="955px"
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="Conditional%20Neural%20Processes,%20CNP/Gradient%20Descent.md" &gt;Gradient Descent&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;‍&lt;/p&gt;
+&lt;h1 id="抄袭资料"&gt;抄袭资料
+&lt;/h1&gt;&lt;p&gt;全文不亚于是抄袭洗稿这两篇文章的，希望支持一下原作者~&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhuanlan.zhihu.com/p/62724990" target="_blank" rel="noopener"
+&gt;ICML 2018 | 条件神经过程 - 知乎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhuanlan.zhihu.com/p/668010494" target="_blank" rel="noopener"
+&gt;Neural Processes神经过程总结 - 知乎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;‍&lt;/p&gt;</description></item></channel></rss>
