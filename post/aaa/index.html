@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="一次修复蓝牙耳机的记录">
+<meta name="keywords" content="Bluetooth Namespace 缺失"><title>
+    
+        一次修复蓝牙耳机的记录，A2DP/HFP 默认配置与 Bluetooth Namespace 缺失的定位与恢复 - Trial Blog
+    
+
+</title>
+
+<link rel='canonical' href='http://localhost:1313/post/aaa/'>
+
+<link rel="stylesheet" href="/scss/style.min.bd67f0ed590e6a500a08d8758a44611b15e88a6a0f36a10b9dfc4dc7deaaf4af.css"><meta property='og:title' content="一次修复蓝牙耳机的记录，A2DP/HFP 默认配置与 Bluetooth Namespace 缺失的定位与恢复">
+<meta property='og:description' content="一次修复蓝牙耳机的记录">
+<meta property='og:url' content='http://localhost:1313/post/aaa/'>
+<meta property='og:site_name' content='Trial Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='log' /><meta property='article:published_time' content='2026-11-15T17:50:52&#43;08:00'/><meta property='article:modified_time' content='2026-11-15T17:50:52&#43;08:00'/>
+<meta name="twitter:title" content="一次修复蓝牙耳机的记录，A2DP/HFP 默认配置与 Bluetooth Namespace 缺失的定位与恢复">
+<meta name="twitter:description" content="一次修复蓝牙耳机的记录">
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/head_hu_2d7d1227a61b52f1.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😋</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Trial Blog</a></h1>
+            <h2 class="site-description">Hello!I&#39;m Trial(shenpan233).</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/332675684'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/TrialNeo'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky" id="right-sidebar">
+     
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-缩小故障范围">1. 缩小故障范围</a></li>
+    <li><a href="#2-做了常规修复但还是没有让声音恢复">2. 做了常规修复，但还是没有让声音恢复</a></li>
+    <li><a href="#3-连接日志把问题指向电脑端的音频服务">3. 连接日志把问题指向电脑端的音频服务</a></li>
+    <li><a href="#4-第一处缺失蓝牙音频默认配置">4. 第一处缺失：蓝牙音频默认配置</a></li>
+    <li><a href="#5-第二处缺失bluetooth-namespace-没有注册">5. 第二处缺失：Bluetooth Namespace 没有注册</a></li>
+    <li><a href="#6-如何复用这次排查">6. 如何复用这次排查</a>
+      <ol>
+        <li><a href="#61-先检查播放设备是否存在">6.1 先检查播放设备是否存在</a></li>
+        <li><a href="#62-只读查看音频配置">6.2 只读查看音频配置</a></li>
+        <li><a href="#63-检查-bluetooth-namespace-和-api">6.3 检查 Bluetooth Namespace 和 API</a></li>
+        <li><a href="#64-确认是同类缺失再做针对性恢复">6.4 确认是同类缺失，再做针对性恢复</a></li>
+        <li><a href="#65-回退要对应原来的状态">6.5 回退要对应原来的状态</a></li>
+      </ol>
+    </li>
+    <li><a href="#7-最终验证以及尚未知道的事">7. 最终验证，以及尚未知道的事</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+  
+</aside>
+
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/aaa/">一次修复蓝牙耳机的记录，A2DP/HFP 默认配置与 Bluetooth Namespace 缺失的定位与恢复</a>
+        </h2>
+
+        
+        <h3 class="article-subtitle">
+            一次修复蓝牙耳机的记录
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2026-11-15T17:50:52&#43;08:00'>Nov 15, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 11 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>注：本文由ai生成，人工精简并核对，有人工和实验能对内容负责。</p>
+<h1 id="蓝牙耳机连接后秒断一次-windows-蓝牙音频配置缺失的排查实录">蓝牙耳机连接后秒断：一次 Windows 蓝牙音频配置缺失的排查实录
+</h1><p>新关键词：Windows 11、蓝牙耳机、连接后断开、A2DP、HFP、Bluetooth Namespace、10108</p>
+<p>我的蓝牙耳机在手机上可以正常播放，连接 Windows 电脑却会立刻断开。更新驱动、重新配对、修复系统组件都试过，问题仍然存在。</p>
+<p>最后查到，电脑缺少两类配置：一类是蓝牙音频功能的默认注册表项，另一类是 Winsock 中的 Bluetooth Namespace 注册。按本机 Windows 组件清单恢复后，耳机的播放设备重新出现，实际试听也恢复正常。</p>
+<h2 id="1-缩小故障范围">1. 缩小故障范围
+</h2><p>环境是 Windows 11 x64，系统内部版本 <code>26300.9974</code>，蓝牙适配器为 MediaTek Bluetooth Adapter，排查中更新后的驱动版本为 <code>1.1044.0.556</code>。耳机型号是 EDIFIER Fit900NB。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>测试</th>
+          <th>结果</th>
+          <th>能支持的判断</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>同一副耳机连接手机</td>
+          <td>可以正常播放，不断开</td>
+          <td>耳机至少能在另一台设备上正常工作</td>
+      </tr>
+      <tr>
+          <td>其他耳机连接这台电脑</td>
+          <td>同样失败，连接手机正常</td>
+          <td>优先检查电脑端共有的蓝牙音频路径</td>
+      </tr>
+      <tr>
+          <td>电脑自带扬声器或有线耳机</td>
+          <td>可以正常播放</td>
+          <td>故障范围主要集中在蓝牙音频</td>
+      </tr>
+      <tr>
+          <td>耳机在旁边，关闭手机蓝牙后连接电脑</td>
+          <td>仍然秒断</td>
+          <td>不能用距离或手机抢连解释这次现象</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>这里容易混淆几个状态：Windows 能发现耳机、完成配对、建立蓝牙连接，以及真正创建可播放的音频设备，是不同的验证点。前面几步成功，后面仍可能失败。</p>
+<p>微软对经典蓝牙音频的说明中，A2DP 用于音乐等立体声播放，HFP 用于通话播放与麦克风采集。本案例中电脑承担 A2DP Source 和 HFP Audio Gateway 的角色。Windows 版本会影响端点名称与呈现方式，不必要求所有机器都出现相同数量的 “Stereo / Hands-Free” 设备。<a class="link" href="https://learn.microsoft.com/en-us/windows-hardware/drivers/bluetooth/bluetooth-classic-audio"  target="_blank" rel="noopener"
+    >Bluetooth Classic audio</a></p>
+<h2 id="2-做了常规修复但还是没有让声音恢复">2. 做了常规修复，但还是没有让声音恢复
+</h2><p>这次实际尝试过的操作包括：刷新耳机音频服务、重新配对、重启相关服务、更新 MediaTek 驱动、重新枚举蓝牙适配器，以及 DISM / SFC 系统组件检查与修复。</p>
+<p>结果是：驱动更新成功，适配器状态正常，DISM 完成修复，后续 SFC 未发现完整性违规，但耳机仍然连接后断开。</p>
+<p>这些结果说明相应检查通过，不能据此认定蓝牙音频功能已经恢复。在这台电脑上，后面发现的配置空缺仍然存在。</p>
+<p>还试过临时设置 <code>UserPrefersClassicAudio</code>，让系统优先使用经典蓝牙音频。重启后仍失败，这个试验值后来已删除，系统恢复原来的偏好。<strong>它不属于最终有效修复。</strong></p>
+<p>另一个排查偏差是曾因只检查了不完整的驱动数据库路径而怀疑驱动注册缺失。补查完整的 <code>HKLM\DRIVERS\DriverDatabase</code> 后，这个判断被撤回。没有在一个路径下找到条目，不代表驱动包一定没有注册。</p>
+<p>反复操作没有带来新信息后，接下来需要回答的是：连接到底停在哪一层，哪一端先断开？</p>
+<h2 id="3-连接日志把问题指向电脑端的音频服务">3. 连接日志把问题指向电脑端的音频服务
+</h2><p>一次失败连接的关键事件，按顺序整理如下。表中省略设备地址和原始数据包。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>事件</th>
+          <th>观察结果</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>建立蓝牙连接</td>
+          <td><code>ConnectionComplete</code>，状态为 <code>0</code>，成功</td>
+      </tr>
+      <tr>
+          <td>启用加密</td>
+          <td>成功</td>
+      </tr>
+      <tr>
+          <td>建立 SDP 服务发现通道</td>
+          <td>成功</td>
+      </tr>
+      <tr>
+          <td>耳机查询 HFP Audio Gateway，UUID <code>0x111f</code></td>
+          <td>电脑返回空的服务属性列表</td>
+      </tr>
+      <tr>
+          <td>耳机以 AVDTP 协议 UUID <code>0x0019</code> 查询 SDP</td>
+          <td>电脑返回空的服务属性列表</td>
+      </tr>
+      <tr>
+          <td>约三秒后</td>
+          <td>电脑主机发出断开命令</td>
+      </tr>
+      <tr>
+          <td>本地断开完成事件</td>
+          <td>原因码为 <code>0x16</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<p><code>0x16</code> 表示本地主机终止连接。这次日志同时记录了电脑发出的断开命令，因此可以确认这一轮是电脑主动结束连接。命令中的 <code>0x13</code> 是发给对端的原因参数，不能脱离报文方向，把它解读成“耳机主动断开”。这些字段需要结合 HCI 命令和事件语义看。<a class="link" href="https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core-60/out/en/host-controller-interface/host-controller-interface-functional-specification.html"  target="_blank" rel="noopener"
+    >Bluetooth SIG：HCI 规范</a></p>
+<p>单独一个 <code>0x16</code> 还不足以定位到某个注册表项。真正缩小范围的是：<strong>连接和加密已经成功，电脑却没有返回预期的音频服务，随后又主动断开。</strong></p>
+<p>与此同时，Windows 中没有生成这副耳机的播放和录音端点。继续围绕“音频服务为什么没有正常提供”排查，比再做一轮重新配对更有信息量。</p>
+<h2 id="4-第一处缺失蓝牙音频默认配置">4. 第一处缺失：蓝牙音频默认配置
+</h2><p>检查以下位置时，发现 A2DP Source 分支不存在，HFP Audio Gateway 分支则没有应有的值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">HKLM\SYSTEM\CurrentControlSet\Control\Bluetooth\Audio\A2dp\Source
+</span></span><span class="line"><span class="cl">HKLM\SYSTEM\CurrentControlSet\Control\Bluetooth\Audio\Hfp\AudioGateway
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>“没有这个键”本身仍然不够。下一步是核对：这个 Windows 安装中，对应组件到底有没有要求创建这些值？</p>
+<p>依据来自本机 <code>Windows\WinSxS\Manifests</code> 中的组件清单：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>组件身份</th>
+          <th>本次核对的组件版本</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Microsoft-OneCore-Bluetooth-Audio-A2dp-Source</code></td>
+          <td><code>10.0.26100.1</code></td>
+          <td>A2DP 发送端默认配置</td>
+      </tr>
+      <tr>
+          <td><code>Microsoft-OneCore-Bluetooth-Hfp-AudioGateway</code></td>
+          <td><code>10.0.26100.1</code></td>
+          <td>HFP 音频网关默认配置</td>
+      </tr>
+      <tr>
+          <td><code>Microsoft-Windows-Bluetooth-RFCOMM-Registration</code></td>
+          <td><code>10.0.26100.1</code></td>
+          <td>后文的蓝牙命名空间注册</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>系统内部版本和单个组件清单的版本可以不同。这里记录的是本机实际找到并核对的组件，不是让读者寻找同名版本或照搬另一个系统的值。</p>
+<p>本机部分清单使用 DCM 压缩，直接搜索 XML 文本会漏掉它们。排查中将相关清单只读解压到工作目录再核对，没有修改 WinSxS 文件。需要研究该格式时，可参考 <a class="link" href="https://github.com/hfiref0x/SXSEXP"  target="_blank" rel="noopener"
+    >SXSEXP 项目源码</a>；解压清单属于进阶定位步骤，不是普通蓝牙连接的必要操作。</p>
+<p>清单要求的值与当时的实际状态如下，类型均为 <code>REG_DWORD</code>：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>位置</th>
+          <th>名称</th>
+          <th>本机清单值</th>
+          <th>修复前</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>A2dp\Source</code></td>
+          <td><code>Enabled</code></td>
+          <td><code>1</code></td>
+          <td>缺失</td>
+      </tr>
+      <tr>
+          <td><code>Hfp\AudioGateway</code></td>
+          <td><code>Enabled</code></td>
+          <td><code>1</code></td>
+          <td>缺失</td>
+      </tr>
+      <tr>
+          <td><code>Hfp\AudioGateway</code></td>
+          <td><code>RfcommServerChannel</code></td>
+          <td><code>1</code></td>
+          <td>缺失</td>
+      </tr>
+      <tr>
+          <td><code>Hfp\AudioGateway</code></td>
+          <td><code>SdpSupportedFeatures</code></td>
+          <td><code>0x27</code></td>
+          <td>缺失</td>
+      </tr>
+      <tr>
+          <td><code>Hfp\AudioGateway</code></td>
+          <td><code>SdpNetworkSupport</code></td>
+          <td><code>1</code></td>
+          <td>缺失</td>
+      </tr>
+      <tr>
+          <td><code>Hfp\AudioGateway</code></td>
+          <td><code>BrsfSupportedFeatures</code></td>
+          <td><code>0x767</code></td>
+          <td>缺失</td>
+      </tr>
+      <tr>
+          <td><code>Hfp\AudioGateway</code></td>
+          <td><code>ProfileVersion</code></td>
+          <td><code>0x107</code></td>
+          <td>缺失</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>修复时先导出注册表备份，记录哪些键和值原本不存在，再补回这些值并重启相关服务。这里没有覆盖已有的不同配置。</p>
+<p>A2DP Source 的 <code>Enabled=1</code> 恢复后，本地 SDP 查询重新获得 AudioSource（<code>0x110a</code>）记录。完成上述音频配置恢复后，实际连接状态也发生了变化：<strong>从“连接后秒断”变成“可以连接，但没有声音”。</strong></p>
+<p>这是进展，但仍未修复完成。此时播放端点依然没有生成，继续调整音量没有意义。</p>
+<p>需要区分证据强弱：A2DP Source 的恢复有对应的本地服务出现作为验证；HFP 的六项缺失值是作为一组按清单恢复的，没有逐项撤回做独立对照，不能宣称其中每个值都单独造成了音乐播放故障。</p>
+<h2 id="5-第二处缺失bluetooth-namespace-没有注册">5. 第二处缺失：Bluetooth Namespace 没有注册
+</h2><p>进一步检查 Windows 的蓝牙查询接口时，发现两项相互印证的异常：</p>
+<ul>
+<li><code>WSAEnumNameSpaceProvidersW</code> 的结果中没有 <code>NS_BTH</code>，也就是编号 <code>16</code> 的蓝牙命名空间提供程序。</li>
+<li>用 <code>WSALookupServiceBeginW</code> 发起 <code>NS_BTH + LUP_CONTAINERS</code> 查询，失败并返回 <code>10108</code>。</li>
+</ul>
+<p>这里执行的是蓝牙设备查询入口测试，没有遍历远端设备的服务列表，也没有主动清空发现缓存。<code>10108</code> 对应 <code>WSASERVICE_NOT_FOUND</code>，含义是指定命名空间中找不到所需服务。<strong>这个错误码单独出现不等于提供程序一定丢失；本案例还结合了提供程序枚举结果和本机组件清单。</strong><a class="link" href="https://learn.microsoft.com/en-us/windows/win32/bluetooth/bluetooth-and-wsalookupservicebegin-for-device-inquiry"  target="_blank" rel="noopener"
+    >设备查询参数说明</a>、<a class="link" href="https://learn.microsoft.com/en-us/windows/win32/winsock/windows-sockets-error-codes-2"  target="_blank" rel="noopener"
+    >Winsock 错误码</a></p>
+<p>本机 RFCOMM Registration 清单明确要求安装以下条目：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;WinsockNameSpaceOnlineInstall</span>
+</span></span><span class="line"><span class="cl">  <span class="na">DisplayString=</span><span class="s">&#34;Bluetooth Namespace&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">LibraryPath=</span><span class="s">&#34;%SystemRoot%\system32\wshbth.dll&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">ProviderId=</span><span class="s">&#34;{06AA63E0-7D60-41FF-AFB2-3EE6D2D9392D}&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">SupportedNameSpace=</span><span class="s">&#34;16&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">Version=</span><span class="s">&#34;0&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个 GUID 是 Windows 内置提供程序的标识，不是某副耳机的设备地址。检查 64 位和 32 位目录后发现，两边都没有该条目；相应的 <code>wshbth.dll</code> 文件则存在，Microsoft Windows 数字签名有效。</p>
+<p>最终通过系统 API 恢复注册：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>API</th>
+          <th>本案例中的目标</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>WSCInstallNameSpace</code></td>
+          <td>64 位命名空间目录</td>
+      </tr>
+      <tr>
+          <td><code>WSCInstallNameSpace32</code></td>
+          <td>由 64 位进程恢复 32 位命名空间目录</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>64 位 Windows 存在独立的目录视图，微软提供 <code>WSCInstallNameSpace32</code> 让 64 位程序操作 32 位目录。<a class="link" href="https://learn.microsoft.com/en-us/windows/win32/api/ws2spi/nf-ws2spi-wscinstallnamespace"  target="_blank" rel="noopener"
+    >WSCInstallNameSpace</a>、<a class="link" href="https://learn.microsoft.com/en-us/windows/win32/api/ws2spi/nf-ws2spi-wscinstallnamespace32"  target="_blank" rel="noopener"
+    >WSCInstallNameSpace32</a></p>
+<p>这次只新增缺失的 Bluetooth Namespace，并比较了修复前后其他提供程序的字段，确认它们保持不变。没有执行整机 <code>netsh winsock reset</code>，也没有手工拼接 Winsock 目录中的二进制注册数据。</p>
+<p>注册成功后还有一个容易遗漏的步骤：让使用这些配置的进程重新启动。微软说明，命名空间配置变更不会直接影响已经运行的应用，新启动的进程才能看到变化。<a class="link" href="https://learn.microsoft.com/en-us/windows/win32/api/ws2spi/nf-ws2spi-wscinstallnamespace"  target="_blank" rel="noopener"
+    >配置变更的生效范围</a></p>
+<p>本次重新启动了 <code>bthserv</code>、<code>BthAvctpSvc</code>、<code>BTAGService</code> 和当前用户的 <code>BluetoothUserService_*</code>。之后发生了几个可以直接观察的变化：</p>
+<ul>
+<li>新进程中的蓝牙查询返回 <code>0</code>，成功。</li>
+<li>本地 SDP 同时出现 AudioSource（<code>0x110a</code>）与 HandsfreeAudioGateway（<code>0x111f</code>）。</li>
+<li>耳机的 A2DP、HFP、AVRCP 相关设备，以及播放、录音端点均被创建，PnP 状态为 <code>OK</code>。</li>
+<li>选择耳机作为声音输出并试听后，确认声音正常、连接稳定。</li>
+</ul>
+<p>没有单独隔离 32 位注册的作用，所以不能说“缺少 32 位条目就必然导致所有耳机秒断”。本次修复范围是按清单补回两边都缺失的注册，并验证整个音频路径恢复。</p>
+<h2 id="6-如何复用这次排查">6. 如何复用这次排查
+</h2><p>建议按“交叉测试 → 音频端点 → 配置和查询接口 → 对照清单修复 → 实际播放”的顺序检查。这样每一步都能决定下一步是否有必要。</p>
+<h3 id="61-先检查播放设备是否存在">6.1 先检查播放设备是否存在
+</h3><p>在 Windows PowerShell 中执行，只读取状态。将耳机关键字改成自己的型号：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$headsetKeyword</span> <span class="p">=</span> <span class="s1">&#39;EDIFIER&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Get-PnpDevice</span> <span class="n">-PresentOnly</span> <span class="p">|</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="py">FriendlyName</span> <span class="o">-like</span> <span class="s2">&#34;*</span><span class="nv">$headsetKeyword</span><span class="s2">*&#34;</span> <span class="p">}</span> <span class="p">|</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Select-Object</span> <span class="n">Status</span><span class="p">,</span> <span class="n">Class</span><span class="p">,</span> <span class="n">FriendlyName</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Get-PnpDevice</span> <span class="n">-Class</span> <span class="n">AudioEndpoint</span> <span class="n">-PresentOnly</span> <span class="p">|</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Select-Object</span> <span class="n">Status</span><span class="p">,</span> <span class="n">FriendlyName</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果播放端点已经存在，先检查默认输出、应用音量、静音状态和应用指定的输出设备。本文这条深入排查路径针对的是音频端点没有生成、服务查询也有异常的情况。</p>
+<h3 id="62-只读查看音频配置">6.2 只读查看音频配置
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">reg</span><span class="p">.</span><span class="py">exe</span> <span class="n">query</span> <span class="s2">&#34;HKLM\SYSTEM\CurrentControlSet\Control\Bluetooth\Audio\A2dp\Source&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">reg</span><span class="p">.</span><span class="py">exe</span> <span class="n">query</span> <span class="s2">&#34;HKLM\SYSTEM\CurrentControlSet\Control\Bluetooth\Audio\Hfp\AudioGateway&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查询失败时区分“键不存在”和“访问被拒绝”。发现缺值后，先与自己这台机器的组件清单对照。不要把显式设置为 <code>0</code>、访问失败或不同版本的配置，当成本文已经验证的“缺失”情况。</p>
+<h3 id="63-检查-bluetooth-namespace-和-api">6.3 检查 Bluetooth Namespace 和 API
+</h3><p>配套的 <a class="link" href="check_bluetooth_namespace.py" >check_bluetooth_namespace.py</a> 仅使用 Python 3 标准库：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">python</span> <span class="p">.\</span><span class="n">check_bluetooth_namespace</span><span class="p">.</span><span class="py">py</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>脚本只读注册目录、枚举本进程可见的蓝牙提供程序并尝试开始一次缓存设备查询，随后关闭查询句柄。它不重启服务、不修改注册表、不输出远端设备名称或地址。</p>
+<p>在本次修复后的电脑上，关键结果为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;process_bitness&#34;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;api&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;bluetooth_namespace_providers&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;06aa63e0-7d60-41ff-afb2-3ee6d2d9392d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;namespace&#34;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;active&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Bluetooth Namespace&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;lookup_return&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;lookup_error&#34;</span><span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这是节选，完整输出还包含 64 位和 32 位注册目录的检查。API 枚举只代表当前 Python 进程的位数；64 位 Python 成功不等于已经运行过 32 位 API 测试。成功开始查询也不等于耳机能播放，后面仍须检查音频端点并试听。<a class="link" href="https://learn.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-wsaenumnamespaceprovidersw"  target="_blank" rel="noopener"
+    >WSAEnumNameSpaceProvidersW</a></p>
+<h3 id="64-确认是同类缺失再做针对性恢复">6.4 确认是同类缺失，再做针对性恢复
+</h3><p>本案例恢复音频配置时写入的内容如下，用于对照实际变更。<strong>这些值来自本机清单；不要把这段内容当成适用于所有 Windows 版本的通用补丁。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-reg" data-lang="reg"><span class="line"><span class="cl">Windows Registry Editor Version 5.00
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[</span><span class="nb">HKEY_LOCAL_MACHINE</span><span class="k">\SYSTEM\CurrentControlSet\Control\Bluetooth\Audio\A2dp\Source]</span>
+</span></span><span class="line"><span class="cl"><span class="na">&#34;Enabled&#34;</span><span class="o">=</span><span class="nv">dword</span><span class="p">:</span><span class="m">00000001</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[</span><span class="nb">HKEY_LOCAL_MACHINE</span><span class="k">\SYSTEM\CurrentControlSet\Control\Bluetooth\Audio\Hfp\AudioGateway]</span>
+</span></span><span class="line"><span class="cl"><span class="na">&#34;Enabled&#34;</span><span class="o">=</span><span class="nv">dword</span><span class="p">:</span><span class="m">00000001</span>
+</span></span><span class="line"><span class="cl"><span class="na">&#34;RfcommServerChannel&#34;</span><span class="o">=</span><span class="nv">dword</span><span class="p">:</span><span class="m">00000001</span>
+</span></span><span class="line"><span class="cl"><span class="na">&#34;SdpSupportedFeatures&#34;</span><span class="o">=</span><span class="nv">dword</span><span class="p">:</span><span class="m">00000027</span>
+</span></span><span class="line"><span class="cl"><span class="na">&#34;SdpNetworkSupport&#34;</span><span class="o">=</span><span class="nv">dword</span><span class="p">:</span><span class="m">00000001</span>
+</span></span><span class="line"><span class="cl"><span class="na">&#34;BrsfSupportedFeatures&#34;</span><span class="o">=</span><span class="nv">dword</span><span class="p">:</span><span class="m">00000767</span>
+</span></span><span class="line"><span class="cl"><span class="na">&#34;ProfileVersion&#34;</span><span class="o">=</span><span class="nv">dword</span><span class="p">:</span><span class="m">00000107</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>实际操作前先导出备份，并记下原本缺失的键和值。下面的路径只是示例；使用自己选择的新目录，检查导出是否成功，不要覆盖已有备份：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$backupDir</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="nv">$env:USERPROFILE</span> <span class="p">(</span><span class="s1">&#39;BluetoothBackup-&#39;</span> <span class="p">+</span> <span class="p">(</span><span class="nb">Get-Date</span> <span class="n">-Format</span> <span class="s1">&#39;yyyyMMdd-HHmmss&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">New-Item</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Path</span> <span class="nv">$backupDir</span> <span class="n">-ErrorAction</span> <span class="n">Stop</span> <span class="p">|</span> <span class="nb">Out-Null</span>
+</span></span><span class="line"><span class="cl"><span class="n">reg</span><span class="p">.</span><span class="py">exe</span> <span class="n">export</span> <span class="s2">&#34;HKLM\SYSTEM\CurrentControlSet\Control\Bluetooth\Audio&#34;</span> <span class="s2">&#34;</span><span class="nv">$backupDir</span><span class="s2">\audio-before.reg&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nv">$LASTEXITCODE</span> <span class="o">-ne</span> <span class="mf">0</span><span class="p">)</span> <span class="p">{</span> <span class="k">throw</span> <span class="s1">&#39;音频配置备份失败，停止修改。&#39;</span> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>对于 Bluetooth Namespace，配套的 <a class="link" href="restore_bluetooth_namespace.ps1" >restore_bluetooth_namespace.ps1</a> 由本次实际使用的修复逻辑整理而来，默认仅检查：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.\</span><span class="n">restore_bluetooth_namespace</span><span class="p">.</span><span class="py">ps1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>只有确认与本案例一致——x64 Windows、两边的蓝牙命名空间都缺失、取得并核对了本机解压后的组件清单——才在管理员权限的 64 位 PowerShell 中使用写入模式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># 将路径换成本机实际提取并核对过的 XML 清单。</span>
+</span></span><span class="line"><span class="cl"><span class="p">.\</span><span class="n">restore_bluetooth_namespace</span><span class="p">.</span><span class="py">ps1</span> <span class="n">-Apply</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-ManifestPath</span> <span class="s1">&#39;D:\diagnostics\rfcomm-registration.manifest.xml&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>脚本要求清单身份和注册字段与本案例匹配，校验系统 DLL 签名，先保存目录备份，再通过官方 API 注册并验证。任何一边已存在蓝牙条目时都会停止，不会覆盖现有条目；只缺一边、条目被禁用、字段不同、DLL 无法验证或 ARM64 等情况，需要另行定位。</p>
+<p>安装过程中遇到错误时，脚本尝试通过对应的卸载 API 撤销本次已经新增的注册，并在 <code>result.json</code> 中记录结果；若回退也报错，应根据日志处理，不能把“尝试回退”当作已经恢复。不要把含本机软件路径的完整备份和结果文件直接发布到网上。</p>
+<p>**附件的验证范围：**整理后的 Python 脚本和 PowerShell 默认检查模式，已在修复后的本机运行核对；PowerShell 语法与 C# 声明也做了检查。原始修复逻辑在本案例中实际成功执行过，但没有为了测试文章附件而删除正常配置、重演写入与故障回退，也没有验证其他机器或其他 Windows 版本。</p>
+<p>变更后需要重新启动相关进程。若不熟悉服务依赖，可以保存工作后重启 Windows，再重新运行只读检查并连接耳机。重启只是让配置生效的步骤，是否修好仍以端点和实际声音为准。</p>
+<h3 id="65-回退要对应原来的状态">6.5 回退要对应原来的状态
+</h3><p>注册表导入是合并操作。**原本不存在、修复时新建的值，不会因为导入旧备份就自动消失。**回退时应依据修改记录，仅删除本次新增的值；已有值被修改时则恢复原值。不要删除整个 Bluetooth 或 Winsock 分支。</p>
+<p>命名空间的撤销应使用 <code>WSCUnInstallNameSpace</code> 及对应的 32 位 API，仅针对本次新增的提供程序，并在新进程中重新验证。正常工作的电脑不需要执行这一步。<a class="link" href="https://learn.microsoft.com/en-us/windows/win32/api/ws2spi/nf-ws2spi-wscuninstallnamespace"  target="_blank" rel="noopener"
+    >WSCUnInstallNameSpace</a></p>
+<h2 id="7-最终验证以及尚未知道的事">7. 最终验证，以及尚未知道的事
+</h2><p>这次没有把“命令执行成功”当成结束条件，而是核对了连续几层结果：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>验证点</th>
+          <th>最终结果</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>缺失的音频默认配置</td>
+          <td>已按本机清单补回</td>
+      </tr>
+      <tr>
+          <td>64 位、32 位 Bluetooth Namespace</td>
+          <td>均存在，其他提供程序保持不变</td>
+      </tr>
+      <tr>
+          <td>新进程的蓝牙设备查询入口</td>
+          <td>返回 <code>0</code></td>
+      </tr>
+      <tr>
+          <td>本地 SDP 音频服务</td>
+          <td>AudioSource 和 HandsfreeAudioGateway 均有记录</td>
+      </tr>
+      <tr>
+          <td>耳机播放、录音及相关设备</td>
+          <td>已生成，PnP 状态 <code>OK</code></td>
+      </tr>
+      <tr>
+          <td>耳机连接状态</td>
+          <td>已连接、已配对</td>
+      </tr>
+      <tr>
+          <td>选择耳机输出后试听</td>
+          <td>确认声音正常、连接稳定</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>当时按约 30 秒试听要求做了人工确认，没有继续做数小时播放、睡眠唤醒或再次重启后的耐久测试。录音端点虽然已经出现，也没有把它写成“已完成麦克风录音或通话实测”。</p>
+<p>此前用于排查的临时经典音频偏好已经撤回，系统修复时临时关闭的休眠也已恢复。驱动更新与系统组件修复没有被回退，但它们完成后故障仍然存在；直接带来后续变化的是音频配置和蓝牙命名空间注册的恢复。</p>
+<p>目前仍不知道这些配置何时、被什么程序移除。没有证据把这件事归因于某个优化工具、安全软件、Windows 更新或耳机品牌。</p>
+<p>这次留下的排查经验是：当多副耳机都在同一台 Windows 电脑上失败，而手机播放正常时，可以把检查推进到音频服务和端点是否真正建立。把每次修改前后的服务、API 和播放结果对应起来，才能判断哪一步确实改变了故障。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/log/">Log</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="TrialNeo/trial.github.io"
+    data-repo-id="R_kgDORVapIA"
+    data-category="Announcements"
+    data-category-id="DIC_kwDORVapIM4C3PAV"
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading=""
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dart');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;  2026 shenpanpro@gmail.com
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+    
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.35f8f665f080ba3f9c22f298cb91faeaf7e1607497cf0b242ad6218126dacfee.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
